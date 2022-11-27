@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Карьерный Центр</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+
+  <body class="page">
+
+    <header class="header container">
+      <img class="logo" src="./images/logo.svg" alt="Логотип Яндекс Практикум">
+    </header>
+
+    <main class="main">
+
+      <section class="promo container">
+        <div class="promo__content">
+          <h1 class="promo__title">Сделайте следующий шаг <span class="span-accent">в карьере</span></h1>
+          <p class="promo__subtitle section-subtitle">Используйте опыт и поддержку экспертов, чтобы быстрее достигать результатов в карьере</p>
+          <ul class="list promo__buttons">
+            <li class="buttons-list">
+              <button class="button button_type_main promo__button" type="button">Записаться на консультацию</button>
+            </li>
+            <li class="buttons-list">
+              <a class="button button_type_secondary promo__button link" href="#services">С чем поможем</a>
+            </li>
+          </ul>
+        </div>
+        <img class="promo__image" src="./images/main-illustration.png" alt="Главная иллюстрация">
+      </section>
+
+      <section class="about">
+        <article class="about__content container">
+          <p class="about__brief"><span class="span-accent">Мы уже прошли этот путь,</span> и теперь помогаем пройти его другим</p>
+          <p class="about__text section-text">Яндекс Практикум — сервис онлайн-образования. С нашей помощью люди меняют профессию, находят работу и получают повышение.</p>
+          <p class="about__text section-text">Благодаря этой успешной практике, а также экспертизе в IT и Digital отраслях, мы готовы помочь с разными карьерными запросами.</p>
+          <ul class="about__list list">
+            <li class="about__list-item section-text"><span class="span-accent">1500+</span> студентов</li>
+            <li class="about__list-item section-text"><span class="span-accent">500+</span> часов консультаций</li>
+            <li class="about__list-item section-text"><span class="span-accent">78%</span> находят работу</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="problems">
+        <h2 class="section-title problems__title">Мы знаем, как тяжело расти в профессии</h2>
+        <ul class="problems-list slides-container list" id="slides-container">
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-one-icon.svg" alt="Что выбрать?">
+            <p class ="slide__text section-subtitle">не знаю, какую профессию выбрать</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-two-icon.svg" alt="Что дальше делать?">
+            <p class ="slide__text section-subtitle">кажется, что достиг потолка</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-three-icon.svg" alt="Как войти в IT?">
+            <p class ="slide__text section-subtitle">что сделать, чтобы перейти в IT-сферу</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-four-icon.svg" alt="Как прокачаться?">
+            <p class ="slide__text section-subtitle">не понимаю, какие навыки мне нужно улучшать</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-five-icon.svg" alt="Куда дальше?">
+            <p class ="slide__text section-subtitle">не знаю, куда двигаться дальше в карьере</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-six-icon.png" alt="Как зарабатывать больше?">
+            <p class ="slide__text section-subtitle">как зарабатывать больше</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-seven-icon.svg" alt="Как работать не в России?">
+            <p class ="slide__text section-subtitle">страшно устраиваться
+на работу не в России</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-eight-icon.svg" alt="Как не выгореть?">
+            <p class ="slide__text section-subtitle">не могу найти work-life balance</p>
+          </li>
+          <li class="problems-list__item slide">
+            <img class="slide__image" src="./images/problem-nine-icon.svg" alt="Как не бояться увольнения?">
+            <p class ="slide__text section-subtitle">боюсь, что меня уволят
+</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="services">
+        <div class="services__content container">
+          <h2 class="section-title services__title">С чем <span class="span-accent">поможем</span>?</h2>
+          <div class="tabs services__tabs">
+            <ul class="tabs-list tabs__list list" role="tablist" aria-labelledby="tablist-1">
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-1"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-1"
+                  tabindex="-1"
+                >
+                  Поиск работы
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-2"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tabpanel-2"
+                >
+                  Помочь с выбором профессии
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-3"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-3"
+                  tabindex="-1"
+                >
+                  Построить программу обучения
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-4"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-4"
+                  tabindex="-1"
+                >
+                  Проверить резюме (RU)
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-5"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-5"
+                  tabindex="-1"
+                >
+                  Проверить резюме (EN)
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-6"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-6"
+                  tabindex="-1"
+                >
+                  Подготовить сопроводительное письмо (RU)
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-7"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-7"
+                  tabindex="-1"
+                >
+                  Подготовить сопроводительное письмо (EN)
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-8"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-8"
+                  tabindex="-1"
+                >
+                  Потренировать собеседование
+                </button>
+              </li>
+              <li class="tabs-list__item">
+                <button
+                  class="button tabs__button"
+                  id="tab-9"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-9"
+                  tabindex="-1"
+                >
+                  Прокачать навыки
+                </button>
+              </li>
+            </ul>
+            <div class="tabpanel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">План до оффера 12 000 &#8381;</h3>
+                <p class="service__text section-text">Три консультации, которые полностью закрывают все вопросы по поиску работы: сначала вместе с экспертом соотносим ваши ожидания и текущий рынок, формируем индивидуальную стратегию поиска, исправляем резюме и сопроводительное письмо, а после готовим вас на тестовом собеседовании к получению оффера.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Начать поиск работы</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Карьерная консультация 4 000 &#8381;</h3>
+                <p class="service__text section-text">Консультация от эксперта-профориентолога, который поможет подобрать профессию на основе вашего опыта и желаний и даст советы по входу в новую сферу. Для тех, кому нужна помощь в поиске новой профессии.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Профориентация 12 000 &#8381;</h3>
+                <p class="service__text section-text">Три консультации с экспертом-профориентологом для полноценной погружения в выбор професии. Определим ваши потребности, проанализируем навыки, ресурсы, рынок труда и выбранные варианты развития. Подойдёт тем, кто выбирает профессию впервые или кто готовится к радикальной смене карьеры.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">План по развитию навыков 20 000 &#8381;</h3>
+                <p class="service__text section-text">Набор из 5 консультаций, где мы готовим подробный план вашего развития: на консультации с ментором оцениваем ваши навыки и опыт работы, подсвечиваем сильные стороны и точки роста, а после готовим подробный план обучения и помогаем улучшить некоторые навыки, благодаря работе с ментором.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать ментора</button>
+                <a class="button button_type_secondary service__button link" href="#">Подробнее</a>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-4" role="tabpanel" aria-labelledby="tab-4" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Карьерная консультация 4 000 &#8381;</h3>
+                <p class="service__text section-text">Часовая встреча с экспертом-рекрутером: вместе разберём резюме, скорректируем текст и ожидания, а также переупакуем его под современные каналы поиска, согласно вашим целям и профессиональной области. После встречи останутся доп. материалы и рекомендации эксперта.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Рекомендации по резюме 2 000 &#8381;</h3>
+                <p class="service__text section-text">Пришлём рекомендации от экспертов-рекрутеров и карьерных консультантов, как усилить своё резюме. Никаких звонков и дополнительных переписок.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Проверьте резюме</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-5" role="tabpanel" aria-labelledby="tab-5" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Консультация по резюме на английском 8 000 &#8381;</h3>
+                <p class="service__text section-text">Часовая встреча с экспертом: обсудим, чего не хватает в текущей версии резюме или профиля, поговорим про стратегии поиска работы и ответим на любые вопросы про LinkedIn. Подходит тем, кто рассматривает транснациональные компании, но нет уверенности и знаний, как себя подать.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Рекомендации по резюме 2 000 &#8381;</h3>
+                <p class="service__text section-text">Пришлём рекомендации от международных экспертов-рекрутеров и карьерных консультантов, как усилить своё резюме или профиль на джобборде. Никаких звонков и дополнительных переписок.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Проверьте резюме</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-6" role="tabpanel" aria-labelledby="tab-6" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Консультация по письму 4 000 &#8381;</h3>
+                <p class="service__text section-text">Часовая встреча с рекрутером-экспертом: обсудим, как улучшить текущие сопроводительные письма и как адаптировать его под другие вакансии. Подходит тем, кто активно ищет работу и откликается и хочет усилить первое впечатление.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Написать письмо 2 000 &#8381;</h3>
+                <p class="service__text section-text">Пришлём рекомендации от топовых рекрутеров и карьерных консультантов, как усилить своё резюме. Никаких звонков и дополнительных переписок с рекрутером.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Написать письмо</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-7" role="tabpanel" aria-labelledby="tab-7" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Консультация по письму 4 000 &#8381;</h3>
+                <p class="service__text section-text">Часовая встреча с международным рекрутером-экспертом: обсудим, как улучшить текущее сопроводительное письмо и как адаптировать его под другие вакансии. Подходит тем, кто уже писал сопроводительные письма, но нет понимания, как делать это на зарубежном рынке.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать эксперта</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Написать письмо 2 000 &#8381;</h3>
+                <p class="service__text section-text">Пришлём рекомендации от топовых рекрутеров и карьерных консультантов, как усилить своё резюме. Никаких звонков и дополнительных переписок с рекрутером.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Написать письмо</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-8" role="tabpanel" aria-labelledby="tab-8" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Тренировочное интервью с рекрутером и экспертом 8 000 &#8381;</h3>
+                <p class="service__text section-text">1,5-часовая встреча-консультация с рекрутером и нанимающим экспертом: проведём интервью на конкретную позицию и расскажем, как лучше отвечать на вопросы. Подходит тем, кто начал поиск работы или у кого уже стоит интервью в календаре.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Записаться</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Тренировочное интервью с рекрутером 4 000 &#8381;</h3>
+                <p class="service__text section-text">Часовая встреча-консультация с рекрутером: проведём интервью по основным мотивационным вопросам (общим или для конкретной компании) и дадим обратную связь. Подходит тем, кто начал поиск работы или у кого уже стоит интервью в календаре.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Записаться</button>
+              </article>
+            </div>
+            <div class="tabpanel" id="tabpanel-9" role="tabpanel" aria-labelledby="tab-9" hidden="true">
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">Консультация с ментором 4 000 &#8381;</h3>
+                <p class="service__text section-text">Для тех, кто хочет выйти на новый профессиональный уровень или узнать, каких навыков не хватает, чтобы вырасти должности или сменить работу на более высокооплачиваемую. Подойдёт тем, кто хочет проработать конкретный навык или разобраться, чего ему не хватает для роста в карьере.</p>
+                <button class="button button_type_main button_size_small service__button" type="button">Подобрать ментора</button>
+              </article>
+            </div>
+          </div>
+          <article class="request services__request">
+            <div class="request__info">
+              <h3 class="request__title section-subtitle"><span class="span-accent">Здесь нет моего запроса</span></h3>
+              <p class="request__text section-text">Напишите нам, и мы подскажем, можем ли вам помочь</p>
+            </div>
+            <button class="button button_type_secondary" type="button">Обратиться в поддержку</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="work container">
+        <h2 class="section-title work__title">Как это работает?</h2>
+        <ul class="steps list">
+          <li class="steps__item list">
+            <h3 class="steps__title section-subtitle">Оставьте заявку</h3>
+            <p class="steps__text section-text">Выберите с чем мы можем помочь и оставьте заявку</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title section-subtitle">Выбираем время</h3>
+            <p class="steps__text section-text">Мы подберём вам эксперта и удобное время для консультации</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title section-subtitle">Оплата</h3>
+            <p class="steps__text section-text">После уточнения заказа мы пришлём ссылку на Я.Маркет с оплатой любым удобным способом</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title section-subtitle">Выполняем обещания</h3>
+            <p class="steps__text section-text">Выполняем услугу: организуем консультацию с экспертом, формируем рекомендации или готовим артефакты для поиска работы </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="experts">
+        <div class="experts__content container">
+          <h2 class="section-title experts__title"><span class="span-accent">Достигайте</span> своих целей с экспертами</h2>
+          <p class="experts__text section-text">В нашей команде 100+ менторов для индивидуальных встреч, и мы подберём тех, кто поможет именно вам</p>
+          <div class="control-buttons">
+            <button class="slide-arrow slide-arrow_prev" id="slide-arrow-prev"></button>
+            <button class="slide-arrow slide-arrow_next slide-arrow_active" id="slide-arrow-next"></button>
+          </div>
+          <ul class="experts-list slides-container list">
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/yulia-aravina.jpg" alt="Фотография Юлии Аравиной">
+              <h3 class="experts__name section-subtitle">Юлия Аравина</h3>
+              <p class="experts__about section-subline">Частный практик, независимый консультант, предприниматель</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/anastasiya-karlysheva.jpg" alt="Фотография Анастасии Карлышевой">
+              <h3 class="experts__name section-subtitle">Анастасия Карлышева</h3>
+              <p class="experts__about section-subline">Руководитель HR отдела в Яндекс</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/alesia-malkova.jpg" alt="Фотография Алеси Малковой">
+              <h3 class="experts__name section-subtitle">Алеся Малкова</h3>
+              <p class="experts__about section-subline">Основатель и CEO консалтингового бюро New Business Lab</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/alesia-malkova.jpg" alt="Фотография Алеси Малковой">
+              <h3 class="experts__name section-subtitle">Алеся Малкова</h3>
+              <p class="experts__about section-subline">Основатель и CEO консалтингового бюро New Business Lab</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/yulia-aravina.jpg" alt="Фотография Юлии Аравиной">
+              <h3 class="experts__name section-subtitle">Юлия Аравина</h3>
+              <p class="experts__about section-subline">Частный практик, независимый консультант, предприниматель</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/anastasiya-karlysheva.jpg" alt="Фотография Анастасии Карлышевой">
+              <h3 class="experts__name section-subtitle">Анастасия Карлышева</h3>
+              <p class="experts__about section-subline">Руководитель HR отдела в Яндекс</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/alesia-malkova.jpg" alt="Фотография Алеси Малковой">
+              <h3 class="experts__name section-subtitle">Алеся Малкова</h3>
+              <p class="experts__about section-subline">Основатель и CEO консалтингового бюро New Business Lab</p>
+            </li>
+            <li class="experts-list__item slide">
+              <img class="experts__image" src="./images/alesia-malkova.jpg" alt="Фотография Алеси Малковой">
+              <h3 class="experts__name section-subtitle">Алеся Малкова</h3>
+              <p class="experts__about section-subline">Основатель и CEO консалтингового бюро New Business Lab</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="reviews container">
+        <div class="control-buttons">
+          <button class="slide-arrow slide-arrow_prev" id="slide-arrow-prev"></button>
+          <button class="slide-arrow slide-arrow_next slide-arrow_active" id="slide-arrow-next"></button>
+        </div>
+        <h2 class="section-title reviews__title">Отзывы</h2>
+        <ul class="reviews-list slides-container list">
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/kot-vasiliy.jpg" alt="Фотография кота Василия">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Кот Василий</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/kot-grigoriy.jpg" alt="Фотография кота Григория">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Кот Григорий</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/pes-petr.jpg" alt="Фотография пса Петра">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Пёс Петр</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/kot-vasiliy.jpg" alt="Фотография кота Василия">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Кот Василий</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/kot-grigoriy.jpg" alt="Фотография кота Григория">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Кот Григорий</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+          <li class="reviews-list__item slide">
+            <img class="reviews__image" src="./images/pes-petr.jpg" alt="Фотография пса Петра">
+            <h3 class="reviews__name section-subtitle"><span class="span-accent">Пёс Петр</span></h3>
+            <p class="reviews__request section-text">Запрос: хотел есть вкусную колбаску</p>
+            <p class="reviews__content section-subline">Я давно искал, как бы мне поесть чего-нибудь вкусного. Благодаря работе с ментором, я понял, что человекам нравятся милые коты, ваш ментор помог мне найти уверенность в собственной милоте. Мы создали план, как мне принять свою милоту и после нескольких встреч я нашёл место, где меня вкусно кормят колбасой каждый день. Спасибо!</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="faq">
+        <div class="faq__content container">
+          <h2 class="section-title faq__title"><span class="span-accent">Отвечаем</span> на вопросы</h2>
+          <ul class="faq-list accordeon list">
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Как выглядит работа с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Всё зависит от конкретной услуги. В большинстве случаев работа с экспертом — это индивидуальные встреч в Zoom, на которой присутствуете только вы и эксперт. Каждая встреча записывается, чтобы после вы могли вернуться к ней.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Кто будет моим экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Мы подбираем эксперта, исходя из ваших целей и запроса. Все эксперты сервиса — это действующие профессионалы. Среди них есть руководители, разработчики, аналитики, дизайнеры, hr-специалисты и многие другие.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Сколько стоит и как оплатить?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Стоимость одной консультации — 4000₽, остальные услуги и их стоимость вы можете найти в блоке              «с чем поможем». После того, как вы заполните форму, мы пришлём ссылку на Zoom с экспертом и ссылку на оплату, чтобы вы могли выбрать удобный способ оплаты.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что я могу обсудить с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Что угодно :) но мы больше любим карьерные вопросы. Среди наших экспертов есть профессионалы из разных областей и специальностей, так что всё будет зависеть от вашего запроса.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Если я не нашёл на сайте моего запроса?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Напишите нам <a class="link support-link" href="mailto:support@practicum.yandex.ru">в поддержку</a>. Если мы не сможем помочь, то честно скажем об этом.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Сколько консультаций нужно для решения моего запроса?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Многое зависит от самого запроса. Вы можете придти с запросом на улучшение навыков, а можете с примером конкретной задачи. Мы постарались организовать встречи так, чтобы после каждой консультации вы получали пользу. Точное количество встреч мы сможем сказать, когда познакомимся с вашим запросом, а вы познакомитесь с экспертом.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что от меня требуется перед встречей с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Мы рекомендуем проводить встречи с экспертом в тихом месте, где вас никто не будет отвлекать. Предлагаем заранее установить Zoom на компьютер. Не бойтесь задавать вопросы и открыто делиться своими мыслями, это поможет лучше закрыть ваш запрос и подбирать наиболее подходящие инструменты для решения.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что я получу после консультации?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">После встречи с экспертом мы отправим запись вашей встречи с экспертом. Вы также можете получить рекомендации от своего эксперта и материалы, которые касаются конкретной услуги, например, рекомендации по резюме или готовое сопроводительное письмо.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что делать, если встреча оказалась бесполезной?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Напишите об этом менеджеру, расскажите о ситуации. Мы предложим вам другого эксперта или вернём деньги.</p>
+              </div>
+            </li>
+          </ul>
+          <article class="request faq__request">
+            <div class="request__info">
+              <h3 class="request__title section-subtitle"><span class="span-accent">Здесь нет моего вопроса</span></h3>
+              <p class="request__text section-text">Напишите нам, и мы подскажем, можем ли вам помочь</p>
+            </div>
+            <button class="button button_type_secondary" type="button">Обратиться в поддержку</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="no-name">
+        <button class="button button_type_main button_size_small no-name__button" type="button">Подобрать эксперта</button>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <section class="footer__content container">
+        <div class="footer__info">
+          <a class="link tel-link section-subtitle" href="tel:88007009329">8-800-700-93-29</a>
+          <ul class="social-links footer__social-links list">
+            <li class="social-links__item">
+              <a class="link vk-link" href="https://vk.com/yandex.practicum" target="_blank" aria-label="Ссылка на страницу Яндекс Практикума ВКонтакте"></a>
+            </li>
+            <li class="social-links__item">
+              <a class="link journal-link section-subline" href="https://thecode.media/" target="_blank" aria-label="Ссылка на Журнал Яндекс Практикума Код">Журнал</a>
+            </li>
+          </ul>
+          <p class="footer__text section-subline">Образовательные услуги оказываются АНО ДПО «ШАД». ШАД — это <a class="link sda-link" href="https://yandexdataschool.ru/?from=career_center" target="_blank">Школа анализа данных</a> основанная Яндексом. Оказывает услуги на основании <a class="link sda-link" href="https://code.s3.yandex.net/License%20YSDA.pdf?from=career_center" target="_blank">Лицензии № 036031</a> от 24 марта 2015 года.</p>
+          <p class="footer__text section-subline">Сертификат о прохождении обучения по программе дополнительного профессионального образования также выдаётся АНО ДПО «ШАД».</p>
+          <p class="footer__copyright section-subline">&copy; 2022  АНО ДПО «ШАД», ООО «Яндекс»</p>
+        </div>
+        <ul class="footer__links footer-links list">
+          <h4 class="footer-links__title">Полезные ссылки</h4>
+          <li class="footer-links__item">
+            <a class="link footer-link section-subline" href="https://practicum.yandex.ru/" target="_blank">Яндекс Практикум</a>
+          </li>
+          <li class="footer-links__item">
+            <a class="link footer-link section-subline" href="https://practicum.yandex.ru/career-center/" target="_blank">Карьерный центр</a>
+          </li>
+          <li class="footer-links__item">
+            <a class="link footer-link section-subline" href="https://practicum.yandex.ru/jobreport?from=career_center" target="_blank">Карьерные результаты выпускников</a>
+          </li>
+          <li class="footer-links__item">
+            <a class="link footer-link section-subline" href="https://practicum.yandex.ru/employment/?from=career_center" target="_blank">Предложить стажировку или вакансию выпускникам</a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+    <script src="./index.js""></script>
+  </body>
+</html>
