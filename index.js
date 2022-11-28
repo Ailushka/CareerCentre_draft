@@ -10,6 +10,10 @@ document.querySelectorAll('.slide-arrow_next').forEach((item) => {
     const slideWidth = slide.offsetWidth;
     const slidesGap = parseInt(getComputedStyle(slidesContainer).gap, 10);
     slidesContainer.scrollLeft += (slideWidth + slidesGap);
+
+    // if(slidesContainer.scrollLeft === 876) {
+    //   item.classList.remove('slide-arrow_active');
+    // };
   })
 })
 
