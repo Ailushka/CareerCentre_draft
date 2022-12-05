@@ -52,7 +52,7 @@ document.querySelectorAll('.accordeon__title').forEach((item) => {
 /* -------------------- */
 
 const tabList = document.querySelector('[role="tablist"]');
-const tabs = tabList.querySelectorAll('[role="tab"]');
+const tabs = document.querySelectorAll('[role="tab"]');
 
 tabList.addEventListener('keydown', changeTabFocus);
 
@@ -109,9 +109,13 @@ function changeTabPanel(evt) {
 function hideContent(parent, content) {
     parent
         .querySelectorAll(content)
-        .forEach((item) => item.setAttribute("hidden", true));
+        .forEach((item) => {
+          item.setAttribute("hidden", true);
+          item.classList.remove('tabpanel_active');
+        });
 }
 
 function showContent(parent, content) {
      parent.querySelector(content).removeAttribute('hidden');
+     parent.querySelector(content).classList.add('tabpanel_active');
 }

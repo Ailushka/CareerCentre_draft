@@ -10,8 +10,12 @@
 
   <body class="page">
 
-    <header class="header container">
-      <img class="logo" src="./images/logo.svg" alt="Логотип Яндекс Практикум">
+    <header class="header">
+      <picture class="header__content">
+        <source srcset="./images/logo_mobile.svg" media="(max-width: 540px)">
+        <source srcset="./images/logo.svg">
+        <img class="logo" srcset="./images/logo.svg" alt="Логотип Яндекс Практикум">
+      </picture>
     </header>
 
     <main class="main">
@@ -213,6 +217,17 @@
                 </button>
               </li>
             </ul>
+            <h3
+              class="tab-accordeon"
+              id="tab-1"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-1"
+              tabindex="-1"
+            >
+              Поиск работы
+            </h3>
             <div class="tabpanel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">План до оффера 12 000 &#8381;</h3>
@@ -220,6 +235,16 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Начать поиск работы</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-2"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="tabpanel-2"
+            >
+              Помочь с выбором профессии
+            </h3>
             <div class="tabpanel" id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2">
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Карьерная консультация 4 000 &#8381;</h3>
@@ -232,6 +257,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Подобрать эксперта</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-3"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-3"
+              tabindex="-1"
+            >
+              Построить программу обучения
+            </h3>
             <div class="tabpanel" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">План по развитию навыков 20 000 &#8381;</h3>
@@ -240,6 +276,17 @@
                 <a class="button button_type_secondary service__button link" href="#">Подробнее</a>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-4"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-4"
+              tabindex="-1"
+            >
+              Проверить резюме (RU)
+            </h3>
             <div class="tabpanel" id="tabpanel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Карьерная консультация 4 000 &#8381;</h3>
@@ -252,6 +299,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Проверьте резюме</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-5"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-5"
+              tabindex="-1"
+            >
+              Проверить резюме (EN)
+            </h3>
             <div class="tabpanel" id="tabpanel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Консультация по резюме на английском 8 000 &#8381;</h3>
@@ -264,6 +322,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Проверьте резюме</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-6"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-6"
+              tabindex="-1"
+            >
+              Подготовить сопроводительное письмо (RU)
+            </h3>
             <div class="tabpanel" id="tabpanel-6" role="tabpanel" aria-labelledby="tab-6" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Консультация по письму 4 000 &#8381;</h3>
@@ -276,6 +345,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Написать письмо</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-7"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-7"
+              tabindex="-1"
+            >
+              Подготовить сопроводительное письмо (EN)
+            </h3>
             <div class="tabpanel" id="tabpanel-7" role="tabpanel" aria-labelledby="tab-7" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Консультация по письму 4 000 &#8381;</h3>
@@ -288,6 +368,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Написать письмо</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-8"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-8"
+              tabindex="-1"
+            >
+              Потренировать собеседование
+            </h3>
             <div class="tabpanel" id="tabpanel-8" role="tabpanel" aria-labelledby="tab-8" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Тренировочное интервью с рекрутером и экспертом 8 000 &#8381;</h3>
@@ -300,6 +391,17 @@
                 <button class="button button_type_main button_size_small service__button button-text" type="button">Записаться</button>
               </article>
             </div>
+            <h3
+              class="tab-accordeon"
+              id="tab-9"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tabpanel-9"
+              tabindex="-1"
+            >
+              Прокачать навыки
+            </h3>
             <div class="tabpanel" id="tabpanel-9" role="tabpanel" aria-labelledby="tab-9" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Консультация с ментором 4 000 &#8381;</h3>
@@ -322,19 +424,19 @@
         <h2 class="section-title work__title">Как это работает?</h2>
         <ul class="steps list">
           <li class="steps__item list">
-            <h3 class="steps__title section-subtitle">Оставьте заявку</h3>
+            <h3 class="steps__title">Оставьте заявку</h3>
             <p class="steps__text section-text">Выберите с чем мы можем помочь и оставьте заявку</p>
           </li>
           <li class="steps__item">
-            <h3 class="steps__title section-subtitle">Выбираем время</h3>
+            <h3 class="steps__title">Выбираем время</h3>
             <p class="steps__text section-text">Мы подберём вам эксперта и удобное время для консультации</p>
           </li>
           <li class="steps__item">
-            <h3 class="steps__title section-subtitle">Оплата</h3>
+            <h3 class="steps__title">Оплата</h3>
             <p class="steps__text section-text">После уточнения заказа мы пришлём ссылку на Я.Маркет с оплатой любым удобным способом</p>
           </li>
           <li class="steps__item">
-            <h3 class="steps__title section-subtitle">Выполняем обещания</h3>
+            <h3 class="steps__title">Выполняем обещания</h3>
             <p class="steps__text section-text">Выполняем услугу: организуем консультацию с экспертом, формируем рекомендации или готовим артефакты для поиска работы </p>
           </li>
         </ul>
@@ -508,10 +610,7 @@
         </div>
       </section>
 
-      <section class="no-name">
-        <h2 class="sr-only">Пока без названия</h2>
-        <button class="button button_type_main button_size_small no-name__button button-text" type="button">Подобрать эксперта</button>
-      </section>
+      <button class="button button_type_main button_size_small fixed-button button-text" type="button">Подобрать эксперта</button>
 
     </main>
     <footer class="footer">
