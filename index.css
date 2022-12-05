@@ -751,6 +751,7 @@
 .experts__content {
   position: relative;
   padding: 65px 0;
+  overflow: hidden;
 }
 
 .experts__title {
@@ -768,7 +769,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 12px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .experts-list__item {
