@@ -185,7 +185,7 @@
   background-color: var(--clr-accent);
   min-width: 315px;
   color: var(--clr-white);
-  outline: 3px solid var(--clr-accent);
+  /* outline: 3px solid var(--clr-accent); */
 }
 
 .button_size_small {
@@ -194,7 +194,7 @@
 
 .button_type_main:hover {
   background-color: var(--clr-hover-main);
-  outline: 3px solid var(--clr-hover-main);
+  /* outline: 3px solid var(--clr-hover-main); */
 }
 
 /* .button_type_main:focus {
