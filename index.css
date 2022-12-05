@@ -168,13 +168,15 @@
   text-align: center;
   text-decoration: none;
   padding: 20px 0;
-  border: none;
+  border: 0;
   border-radius: 120px;
   background-color: var(--clr-transparent);
   cursor: pointer;
   box-sizing: border-box;
   transition: all .5s linear;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .button_type_main {
