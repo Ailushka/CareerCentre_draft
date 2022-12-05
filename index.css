@@ -845,6 +845,7 @@
 .reviews {
   padding: 120px 0;
   position: relative;
+  overflow: hidden;
 }
 
 .reviews__title {
@@ -857,7 +858,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 12px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .reviews-list__item {
