@@ -1230,11 +1230,11 @@
   margin-top: 40px;
 }
 
-.sda-link {
+.remark-link {
   text-decoration: underline;
 }
 
-.sda-link:hover {
+.remark-link:hover {
   color: var(--clr-black);
 }
 
@@ -1494,4 +1494,102 @@
     background: var(--clr-white);
     padding: 30px 12px;
   }
+}
+
+/* Popup */
+
+.popup {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .6);
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .6s, opacity .5s linear;
+}
+
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup__container {
+  width: 560px;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: var(--clr-white);
+  border-radius: 30px;
+  position: relative;
+}
+
+.form__title {
+  font-size: 38px;
+  line-height: calc(44 / 38);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.form__content {
+  border: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.form__remark {
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  font-weight: 400;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.button_type_submit {
+  border-radius: 30px;
+  background: var(--clr-accent);
+  color: var(--clr-white);
+  min-width: 220px;
+  padding: 15px;
+}
+
+.button_type_submit:hover {
+  background: var(--clr-hover-main);
+  border-radius: 120px;
+}
+
+.button_type_submit:focus-visible {
+  background: var(--clr-accent);
+  border-radius: 120px;
+  box-shadow: 0 0 0 3px var(--clr-hover-main);
+}
+
+.button_disabled {
+  background: #C4D0F5;
+  border-radius: 120px;
+}
+
+.button_disabled:hover,
+.button_disabled:focus-visible {
+  background: #C4D0F5;
+  border-radius: 120px;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.button_type_close {
+  width: 58px;
+  height: 58px;
+  background-image: url(./images/close-button.svg);
+  position: absolute;
+  top: -40px;
+  right: -40px;
 }
