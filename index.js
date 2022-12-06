@@ -132,14 +132,22 @@ const ESCAPE = 27;
 
 function openPopUp(popup) {
     popup.classList.add('popup_opened');
+    popup.classList.add('transition');
     document.addEventListener('click', closePopUpByOverlay);
     document.addEventListener('keydown', closePopUpByEsc);
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
 }
 
 function closePopUp(popup) {
     popup.classList.remove('popup_opened');
+    popup.classList.remove('transition');
     document.removeEventListener('click', closePopUpByOverlay);
     document.removeEventListener('keydown', closePopUpByEsc);
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }
 
 function closePopUpByOverlay(evt) {

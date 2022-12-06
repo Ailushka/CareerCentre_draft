@@ -654,7 +654,67 @@
         <form class="form form_type_request" name="request-form">
           <h2 class="form__title">Заявка</h2>
           <fieldset class="form__content">
-
+            <ul class="form__list list" role="none">
+              <li class="form__item">
+                <label class="form__label" for="name">Имя и фамилия</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="name-error"></span>
+              </li>
+              <li class="form__item">
+                <label class="form__label" for="email">Электронная почта</label>
+                <input
+                  class="form__input"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="email-error"></span>
+              </li>
+              <li class="form__item">
+                <label class="form__label" for="telegram">Ник в телеграме</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="telegram"
+                  id="telegram"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="telegram-error"></span>
+              </li>
+              <li class="form__item">
+                <label class="form__label" for="phone">Телефон</label>
+                <input
+                  class="form__input"
+                  type="tel"
+                  name="phone number"
+                  id="phone"
+                  placeholder=""
+                >
+                <span class="form__input-error" id="phone-error"></span>
+              </li>
+              <li class="form__item">
+                <label class="form__label" for="goal">Цель консультации</label>
+                <textarea
+                  class="form__input"
+                  rows="4"
+                  name="goal"
+                  id="goal"
+                  placeholder="Опишите свой запрос или цель на консультацию"
+                  required
+                ></textarea>
+                <span class="form__input-error" id="goal-error"></span>
+              </li>
+            </ul>
           </fieldset>
           <p class="form__remark">Нажимая кнопку оставить заявку, вы соглашаетесь с условиями <a class="link remark-link" href="https://yandex.ru/legal/practicum_termsofuse/" target="_blank">пользовательского соглашения</a> и <a class="link remark-link" href="https://yandex.ru/legal/practicum_consultant_offer/?lang=ru" target="_blank">оферты.</a></p>
           <button class="button button_type_submit button_disabled button-text" type="submit">Оставить заявку</button>
