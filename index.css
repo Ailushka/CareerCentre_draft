@@ -1566,10 +1566,53 @@
 .form__item {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .form__item:not(:nth-child(n+3):nth-child(-n+4)) {
   grid-column: 1 / span 2;
+}
+
+.form__item::before {
+  content: '';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  color: #C4C4C4;
+  position: absolute;
+  top: 51px;
+  left: 16px;
+}
+
+.form__item:has(.form__input_valid)::before {
+  color: var(--clr-main);
+}
+
+.form__item_type_telegram::before {
+  content: '@';
+}
+
+/* .form__item_type_phone::before {
+  content: '+';
+} */
+
+.form__item:not(.form__item_type_phone)::after {
+  content: '*';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(8 / 16);
+  color: #4C75FA;
+  position: absolute;
+  top: 63px;
+  right: 16px;
+}
+
+.form__item:has(.form__input_invalid)::after {
+  color: #FF3B30;
+}
+
+.form__item:has(.form__input_valid)::after {
+  display: none;
 }
 
 .form__label {
@@ -1592,15 +1635,40 @@
   margin-bottom: 8px;
 }
 
+.form__input[name="telegram"],
+.form__input[name="phone number"] {
+  padding-left: 29px;
+}
+
 .form__input[name="goal"] {
   padding: 16px 40px 20px 16px;
 }
 
 .form__input::placeholder {
+  padding-top: 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: calc(16 / 14);
   color: #97979B;
+}
+
+.form__input:hover {
+  border-color: var(--clr-main);
+}
+
+.form__input:focus,
+.form__input:focus-visible,
+.form__input:active {
+  outline: 1px solid transparent;
+  border: 1px solid #4C75FA;
+}
+
+.form__input_invalid {
+  border-color: #FF3B30;
+}
+
+.form__input_valid {
+  border-color: var(--clr-main);
 }
 
 .form__input-error {
