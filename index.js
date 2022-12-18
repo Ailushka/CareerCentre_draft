@@ -1,3 +1,17 @@
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
+
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+};
+
+
 /* -------------------- */
 /*    Carousel slider   */
 /* -------------------- */
@@ -9,22 +23,31 @@ document.querySelectorAll('.slide-arrow_next').forEach((item) => {
 
     const slideWidth = slide.offsetWidth;
     const slidesGap = parseInt(getComputedStyle(slidesContainer).gap, 10);
+
     slidesContainer.scrollLeft += (slideWidth + slidesGap);
 
-    // if(slidesContainer.scrollLeft === 876) {
-    //   item.classList.remove('slide-arrow_active');
-    // };
+    if (slidesContainer.scrollLeft >= (slidesContainer.scrollWidth - slidesContainer.offsetWidth - (slideWidth + slidesGap))) {
+      item.classList.remove('slide-arrow_active');
+    }
+
+      item.previousElementSibling.classList.add('slide-arrow_active');
+
   })
 })
 
 document.querySelectorAll('.slide-arrow_prev').forEach((item) => {
   item.addEventListener('click', (evt) => {
+    item.nextElementSibling.classList.add('slide-arrow_active');
     const slidesContainer = evt.target.parentNode.parentNode.querySelector('.slides-container');
     const slide = slidesContainer.querySelector(".slide");
 
     const slideWidth = slide.offsetWidth;
     const slidesGap = parseInt(getComputedStyle(slidesContainer).gap, 10);
     slidesContainer.scrollLeft -= (slideWidth + slidesGap);
+
+    if (slidesContainer.scrollLeft < (slideWidth + slidesGap)) {
+      item.classList.remove('slide-arrow_active');
+    }
   })
 })
 
@@ -128,26 +151,28 @@ const requestButtons = document.querySelectorAll('.button_type_request');
 const closeButtons = document.querySelectorAll('.button_type_close');
 const requestPopup = document.querySelector('.popup_type_request');
 const requestForm = document.querySelector('.form_type_request');
+const successPopup = document.querySelector('.popup_type_success');
 const ESCAPE = 27;
 
 function openPopUp(popup) {
-    popup.classList.add('popup_opened');
-    popup.classList.add('transition');
-    document.addEventListener('click', closePopUpByOverlay);
-    document.addEventListener('keydown', closePopUpByEsc);
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
+  popup.classList.add('popup_opened');
+  popup.classList.add('transition');
+  document.querySelector('.page').classList.add('no-scroll');
+  document.addEventListener('click', closePopUpByOverlay);
+  document.addEventListener('keydown', closePopUpByEsc);
+
 }
 
 function closePopUp(popup) {
-    popup.classList.remove('popup_opened');
-    popup.classList.remove('transition');
-    document.removeEventListener('click', closePopUpByOverlay);
-    document.removeEventListener('keydown', closePopUpByEsc);
-    const scrollY = document.body.style.top;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  popup.classList.remove('popup_opened');
+  popup.classList.remove('transition');
+  document.querySelector('.page').classList.remove('no-scroll');
+  document.removeEventListener('click', closePopUpByOverlay);
+  document.removeEventListener('keydown', closePopUpByEsc);
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 }
 
 function closePopUpByOverlay(evt) {
@@ -165,8 +190,30 @@ function closePopUpByEsc(evt) {
 
 function handleRequestFormSubmit(evt) {
     evt.preventDefault();
+    const data = {};
+    requestForm.querySelectorAll('.form__input').forEach((input) => {
+      data[input.name] = input.value;
+    });
+    console.log(data);
+    // onSubmit(name, email, phone, telegram, goal);
     closePopUp(requestPopup);
+    openPopUp(successPopup);
+    resetForm(evt.target);
+    // return false;
 }
+
+// function onSubmit(name, email, phone, telegram, goal) {
+//   api.postUserRequest(name, email, phone, telegram, goal)
+//     .then((res) => {
+//       if (res) {
+//         console.log(res);
+//         closePopUp(requestPopup);
+//       } else {
+//         console.log(res);
+//       }
+//     })
+//     .catch(err => console.log(err))
+// }
 
 requestButtons.forEach((item) => {
   item.addEventListener('click', () => {
@@ -182,3 +229,168 @@ closeButtons.forEach((item) => {
 });
 
 requestForm.addEventListener('submit', handleRequestFormSubmit);
+
+/* -------------------- */
+/*    Form validation   */
+/* -------------------- */
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.add('form__input_invalid');
+  errorElement.textContent = errorMessage;
+}
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_invalid');
+  errorElement.textContent = '';
+}
+
+const isValid = (formElement, inputElement) => {
+
+  if (inputElement.name === 'name') {
+    if (inputElement.value.length === 0) {
+      inputElement.setCustomValidity('Это обязательное поле');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else if (!inputElement.value.match(/[a-zа-я\s\-]/gi)) {
+      inputElement.setCustomValidity('Недопустимый символ для ввода');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+      inputElement.setCustomValidity('');
+      hideInputError(formElement, inputElement);
+    }
+  }
+
+  if (inputElement.name === 'email') {
+    if (inputElement.value.length === 0) {
+      inputElement.setCustomValidity('Это обязательное поле');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else if (!inputElement.value.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+      inputElement.setCustomValidity('Некорректный email-адрес');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+      inputElement.setCustomValidity('');
+      hideInputError(formElement, inputElement);
+    }
+  }
+
+  if (inputElement.name === 'telegram') {
+    if (inputElement.value.length === 0) {
+      inputElement.setCustomValidity('Это обязательное поле');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else if (inputElement.value.match(/^\@/)) {
+      inputElement.setCustomValidity('Недопустимый символ для ввода');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+      inputElement.setCustomValidity('');
+      hideInputError(formElement, inputElement);
+    }
+  }
+
+  // Валидация телефона - ^[+][0-9]\d{10}$
+  // Валидация телеграма - ^[_a-zA-Z][\w\d]{4,31}$
+
+
+  if (inputElement.type === 'tel') {
+    if (!inputElement.value.match(/^\+/)) {
+      inputElement.setCustomValidity('Поле должно начинаться со знака +');
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+      inputElement.setCustomValidity('');
+      hideInputError(formElement, inputElement);
+    }
+  }
+
+  if (!inputElement.required && inputElement.value.length === 0) {
+    inputElement.setCustomValidity('');
+    hideInputError(formElement, inputElement);
+  }
+}
+
+const setButtonState = (buttonElement, isActive) => {
+  if (isActive) {
+    buttonElement.classList.remove('button_disabled');
+    buttonElement.disabled = false;
+  } else {
+    buttonElement.classList.add('button_disabled');
+    buttonElement.disabled = true;
+  }
+}
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+  const buttonElement = formElement.querySelector('.button_type_submit');
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+      isValid(formElement, inputElement);
+      setButtonState(buttonElement, formElement.checkValidity());
+    })
+  });
+  const formList = Array.from(document.querySelectorAll('.form'));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('reset', () => {
+      inputList.forEach((inputElement) => {
+        hideInputError(formElement, inputElement);
+      });
+      setButtonState(buttonElement, false);
+    })
+  });
+}
+
+const resetForm = (formElement) => {
+  formElement.reset();
+  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+  });
+  const buttonElement = formElement.querySelector('.button_type_submit');
+  setButtonState(buttonElement, false);
+}
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll('.form'));
+  formList.forEach((formElement) => {
+    setEventListeners(formElement);
+  });
+}
+
+enableValidation();
+
+/* -------------------- */
+/*          API         */
+/* -------------------- */
+
+class Api {
+  constructor(baseUrl) {
+    this._url = baseUrl;
+  }
+
+  // форма заявки
+  postUserRequest(name, email, phone, telegram, goal) {
+    return fetch(`${this._url}/api/v1/leeds`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "telegram": telegram,
+        "goal": goal
+      })
+    })
+    .then(this._checkResponse)
+  }
+
+  _checkResponse(res) {
+    if(res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+}
+
+const api = new Api('http://localhost');

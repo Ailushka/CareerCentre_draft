@@ -2,7 +2,8 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Карьерный Центр</title>
     <link rel="stylesheet" href="./index.css">
@@ -11,10 +12,10 @@
   <body class="page">
 
     <header class="header">
-      <picture class="header__content">
+      <picture class="header__content container">
         <source srcset="./images/logo_mobile.svg" media="(max-width: 540px)">
         <source srcset="./images/logo.svg">
-        <img class="logo" srcset="./images/logo.svg" alt="Логотип Яндекс Практикум">
+        <img class="logo" src="./images/logo.svg" alt="Логотип Яндекс Практикум">
       </picture>
     </header>
 
@@ -29,7 +30,7 @@
               <button class="button button_type_main promo__button button-text button_type_request" type="button">Записаться на консультацию</button>
             </li>
             <li class="buttons-list">
-              <a class="button button_type_secondary promo__button link" href="#services">С чем поможем</a>
+              <a class="button button_type_secondary promo__button button-text link" href="#services">С чем поможем</a>
             </li>
           </ul>
         </div>
@@ -75,7 +76,7 @@
             <p class ="slide__text section-subtitle">не знаю, куда двигаться дальше в карьере</p>
           </li>
           <li class="problems-list__item slide">
-            <img class="slide__image" src="./images/problem-six-icon.png" alt="Как зарабатывать больше?">
+            <img class="slide__image" src="./images/problem-six-icon.svg" alt="Как зарабатывать больше?">
             <p class ="slide__text section-subtitle">как зарабатывать больше</p>
           </li>
           <li class="problems-list__item slide">
@@ -219,7 +220,7 @@
             </ul>
             <h3
               class="tab-accordeon"
-              id="tab-1"
+              rel="tab-1"
               type="button"
               role="tab"
               aria-selected="false"
@@ -230,14 +231,14 @@
             </h3>
             <div class="tabpanel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
               <article class="service tabpanel__content">
-                <h3 class="service__title section-subtitle">План до оффера 12 000 &#8381;</h3>
+                <h3 class="service__title section-subtitle">План до предложения о работе  12 000 &#8381;</h3>
                 <p class="service__text section-text">Три консультации, которые полностью закрывают все вопросы по поиску работы: сначала вместе с экспертом соотносим ваши ожидания и текущий рынок, формируем индивидуальную стратегию поиска, исправляем резюме и сопроводительное письмо, а после готовим вас на тестовом собеседовании к получению оффера.</p>
                 <button class="button button_type_main button_size_small service__button button-text button_type_request" type="button">Начать поиск работы</button>
               </article>
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-2"
+              rel="tab-2"
               type="button"
               role="tab"
               aria-selected="true"
@@ -259,7 +260,7 @@
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-3"
+              rel="tab-3"
               type="button"
               role="tab"
               aria-selected="false"
@@ -278,7 +279,7 @@
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-4"
+              rel="tab-4"
               type="button"
               role="tab"
               aria-selected="false"
@@ -301,7 +302,7 @@
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-5"
+              rel="tab-5"
               type="button"
               role="tab"
               aria-selected="false"
@@ -324,7 +325,7 @@
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-6"
+              rel="tab-6"
               type="button"
               role="tab"
               aria-selected="false"
@@ -341,13 +342,13 @@
               </article>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Написать письмо 2 000 &#8381;</h3>
-                <p class="service__text section-text">Пришлём рекомендации от топовых рекрутеров и карьерных консультантов, как усилить своё резюме. Никаких звонков и дополнительных переписок с рекрутером.</p>
+                <p class="service__text section-text">Напишем сопроводительное письмо под конкретную вакансию на рынке России, исходя из вашего опыта и резюме. Пометим, какие блоки можно поменять для откликов на другие вакансии и позиции.</p>
                 <button class="button button_type_main button_size_small service__button button-text button_type_request" type="button">Написать письмо</button>
               </article>
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-7"
+              rel="tab-7"
               type="button"
               role="tab"
               aria-selected="false"
@@ -364,13 +365,13 @@
               </article>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Написать письмо 2 000 &#8381;</h3>
-                <p class="service__text section-text">Пришлём рекомендации от топовых рекрутеров и карьерных консультантов, как усилить своё резюме. Никаких звонков и дополнительных переписок с рекрутером.</p>
+                <p class="service__text section-text">Напишем сопроводительное письмо на английском языке под конкретную вакансию, исходя из вашего опыта и резюме. Пометим, какие блоки можно поменять для откликов на другие вакансии и позиции.</p>
                 <button class="button button_type_main button_size_small service__button button-text button_type_request" type="button">Написать письмо</button>
               </article>
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-8"
+              rel="tab-8"
               type="button"
               role="tab"
               aria-selected="false"
@@ -393,7 +394,7 @@
             </div>
             <h3
               class="tab-accordeon"
-              id="tab-9"
+              rel="tab-9"
               type="button"
               role="tab"
               aria-selected="false"
@@ -405,6 +406,11 @@
             <div class="tabpanel" id="tabpanel-9" role="tabpanel" aria-labelledby="tab-9" hidden>
               <article class="service tabpanel__content">
                 <h3 class="service__title section-subtitle">Консультация с ментором 4 000 &#8381;</h3>
+                <p class="service__text section-text">Для тех, кто хочет выйти на новый профессиональный уровень или узнать, каких навыков не хватает, чтобы вырасти должности или сменить работу на более высокооплачиваемую. Подойдёт тем, кто хочет проработать конкретный навык или разобраться, чего ему не хватает для роста в карьере.</p>
+                <button class="button button_type_main button_size_small service__button button-text button_type_request" type="button">Подобрать ментора</button>
+              </article>
+              <article class="service tabpanel__content">
+                <h3 class="service__title section-subtitle">План из 3-х менторских консультаций 10 800 &#8381;</h3>
                 <p class="service__text section-text">Для тех, кто хочет выйти на новый профессиональный уровень или узнать, каких навыков не хватает, чтобы вырасти должности или сменить работу на более высокооплачиваемую. Подойдёт тем, кто хочет проработать конкретный навык или разобраться, чего ему не хватает для роста в карьере.</p>
                 <button class="button button_type_main button_size_small service__button button-text button_type_request" type="button">Подобрать ментора</button>
               </article>
@@ -651,8 +657,9 @@
 
     <section class="popup popup_type_request">
       <div class="popup__container">
-        <form class="form form_type_request" name="request-form">
-          <h2 class="form__title">Заявка</h2>
+        <form class="form form_type_request" name="request-form" novalidate>
+          <h2 class="form__title">Подобрать эксперта</h2>
+          <p class="form__remark">Расскажите нам о запросе, и мы с вами свяжемся в течение дня</p>
           <fieldset class="form__content">
             <ul class="form__list list" role="none">
               <li class="form__item form__item_type_name">
@@ -696,9 +703,9 @@
                 <input
                   class="form__input"
                   type="tel"
-                  name="phone number"
+                  name="phone"
                   id="phone"
-                  placeholder=""
+                  placeholder=" "
                 >
                 <span class="form__input-error" id="phone-error"></span>
               </li>
@@ -706,7 +713,7 @@
                 <label class="form__label" for="goal">Цель консультации</label>
                 <textarea
                   class="form__input"
-                  rows="4"
+                  rows="3"
                   name="goal"
                   id="goal"
                   placeholder="Опишите свой запрос или цель на консультацию"
@@ -717,8 +724,17 @@
             </ul>
           </fieldset>
           <p class="form__remark">Нажимая кнопку оставить заявку, вы соглашаетесь с условиями <a class="link remark-link" href="https://yandex.ru/legal/practicum_termsofuse/" target="_blank">пользовательского соглашения</a> и <a class="link remark-link" href="https://yandex.ru/legal/practicum_consultant_offer/?lang=ru" target="_blank">оферты.</a></p>
-          <button class="button button_type_submit button-text" type="submit">Оставить заявку</button>
+          <button class="button button_type_submit button-text button_disabled" type="submit" disabled>Оставить заявку</button>
         </form>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
+
+    </section>
+
+    <section class="popup popup_type_success">
+      <div class="popup__container">
+        <h2>Спасибо за вашу заявку.</h2>
+        <p>Менеджер карьерного центра свяжется с вами в ближайшее время!</p>
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
 
