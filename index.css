@@ -547,7 +547,7 @@
 .problems {
   position: relative;
   overflow: hidden;
-  padding: 120px 0 30px 0;
+  padding: 120px 0 119px 0;
   user-select: none;
   touch-action: pan-y;
 }
@@ -577,22 +577,35 @@
   scroll-behavior: smooth;
 }
 
-.slides-container_no-scrollbar {
+.touch-slider {
+  scroll-behavior: auto;
+  scroll-snap-type: both mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
 /* WebKit */
-.slides-container_no-scrollbar::-webkit-scrollbar {
+.touch-slider::-webkit-scrollbar {
     width: 0;
     height: 0;
+}
+
+.active {
+	scroll-snap-type: unset;
+}
+
+.grab {
+  cursor: grab;
+}
+
+.grabbing{
+  cursor: grabbing;
 }
 
 .problems-list {
   margin: 0;
   display: flex;
   gap: 12px;
-  padding-bottom: 48px;
   padding-left: calc((100vw - 1160px) / 2);
 }
 
