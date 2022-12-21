@@ -75,7 +75,6 @@ document.querySelectorAll('.slide-arrow_next').forEach((item) => {
     }
 
       item.previousElementSibling.classList.add('slide-arrow_active');
-
   })
 })
 
@@ -94,6 +93,37 @@ document.querySelectorAll('.slide-arrow_prev').forEach((item) => {
     }
   })
 })
+
+
+// const carousel = document.querySelector(".container"),
+//   content = document.querySelector(".slides-container"),
+//   next = document.querySelector(".slide-arrow_next"),
+//   prev = document.querySelector(".slide-arrow_prev"),
+//   gap = parseInt(getComputedStyle(content).gap, 10);
+//
+// next.addEventListener("click", e => {
+//   carousel.scrollBy(width + gap, 0);
+//   if (document.querySelector(".container").scrollWidth !== 0) {
+//     prev.classList.add('slide-arrow_active');
+//   }
+//   if (document.querySelector(".slides-container").scrollWidth - width - gap <= document.querySelector(".container").scrollLeft + width) {
+//     next.classList.remove('slide-arrow_active');
+//   }
+// });
+// prev.addEventListener("click", e => {
+//   carousel.scrollBy(-(width + gap), 0);
+//   if (document.querySelector(".container").scrollLeft - width - gap <= 0) {
+//     prev.classList.remove('slide-arrow_active');
+//   }
+//   if (!document.querySelector(".slides-container").scrollWidth - width - gap <= document.querySelector(".container").scrollLeft + width) {
+//     next.classList.add('slide-arrow_active');
+//   }
+// });
+//
+// let width = carousel.offsetWidth;
+//
+// window.addEventListener("resize", e => (width = carousel.offsetWidth));
+
 
 /* -------------------- */
 /*       Accordeon      */
@@ -196,6 +226,13 @@ const closeButtons = document.querySelectorAll('.button_type_close');
 const requestPopup = document.querySelector('.popup_type_request');
 const requestForm = document.querySelector('.form_type_request');
 const successPopup = document.querySelector('.popup_type_success');
+const reviewPopup = document.querySelector('.popup_type_review');
+const reviewName = reviewPopup.querySelector('.reviews__name');
+const reviewRequest = reviewPopup.querySelector('.reviews__request');
+const reviewContent = reviewPopup.querySelector('.reviews__content');
+const reviewImageName = reviewPopup.querySelector('.reviews__image');
+const reviewImageLink = reviewPopup.querySelector('.reviews__image');
+const reviews = document.querySelectorAll('.reviews-list__item');
 const ESCAPE = 27;
 
 function openPopUp(popup) {
@@ -262,6 +299,26 @@ function handleRequestFormSubmit(evt) {
 requestButtons.forEach((item) => {
   item.addEventListener('click', () => {
       openPopUp(requestPopup);
+  });
+});
+
+reviews.forEach((item) => {
+  item.addEventListener('click', (evt) => {
+    const reviewToOpen = evt.target.closest('.reviews-list__item');
+    console.log(reviewToOpen);
+    const openedReviewName = reviewToOpen.querySelector('.reviews__name').textContent;
+    const openedReviewRequest = reviewToOpen.querySelector('.reviews__request').textContent;
+    const openedReviewContent = reviewToOpen.querySelector('.reviews__content').textContent;
+    const openedReviewImageName = reviewToOpen.querySelector('.reviews__image').alt;
+    const openedReviewImageLink = reviewToOpen.querySelector('.reviews__image').src;
+
+    reviewName.textContent = openedReviewName;
+    reviewRequest.textContent = openedReviewRequest;
+    reviewContent.textContent = openedReviewContent;
+    reviewImageName.alt = openedReviewImageName;
+    reviewImageLink.src = openedReviewImageLink;
+
+      openPopUp(reviewPopup);
   });
 });
 

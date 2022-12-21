@@ -637,6 +637,15 @@
   object-position: right -25px;
 }
 
+@media (max-width: 1280px) {
+  .problems__title {
+    padding: 0 0 0 calc(64/1280 * 100%);
+  }
+  .problems-list {
+    padding-left: calc(64/1280 * 100%);
+  }
+}
+
 @media (max-width: 1024px) {
   .problems__title {
     padding: 0 0 0 calc(51.2/1024 * 100%);
@@ -978,6 +987,9 @@
     max-width: 276px;
     padding: 20px 12px 22px;
   }
+  .reviews-list__item:hover {
+    cursor: pointer;
+  }
   .reviews__image {
     width: 32%;
     margin-bottom: 10px;
@@ -995,6 +1007,9 @@
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .reviews__content_full {
+    display: block;
   }
 }
 
@@ -1423,6 +1438,19 @@
   left: 250px;
 }
 
+.tab-accordeon[rel="tab-4"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 58px;
+  height: 15px;
+  background-image: url("./images/cv-ru-icons_mob.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 12px;
+  left: 195px;
+}
+
 .tabs__button#tab-5::after {
   content: "";
   display: block;
@@ -1434,6 +1462,19 @@
   background-position: center;
   top: 12px;
   left: 250px;
+}
+
+.tab-accordeon[rel="tab-5"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 58px;
+  height: 15px;
+  background-image: url("./images/cv-en-icons_mob.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 12px;
+  left: 195px;
 }
 
 .tabpanel {
@@ -1836,7 +1877,7 @@
 
 @media (max-width: 540px) {
   .popup__container {
-    width: 320px;
+    width: 80%;
     padding: 32px 12px;
   }
   .form__title {
