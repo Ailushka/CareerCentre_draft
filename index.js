@@ -329,7 +329,7 @@ closeButtons.forEach((item) => {
   });
 });
 
-requestForm.addEventListener('submit', handleRequestFormSubmit);
+// requestForm.addEventListener('submit', handleRequestFormSubmit);
 
 /* -------------------- */
 /*    Form validation   */
