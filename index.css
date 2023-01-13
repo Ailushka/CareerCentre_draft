@@ -28,12 +28,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html:has(.popup_opened) {
+    overflow: hidden;
+}
+
 .no-scroll {
   width: initial;
   height: auto;
-  overflow: hidden;
-  padding-right: 15px;
+  /* overflow: hidden;
+  padding-right: 15px; */
   position: static;
+  overflow-x: hidden;
+  overflow-y: scroll;
   /* height: 100vh;
   overflow-y: hidden;
   padding-right: 15px; */
