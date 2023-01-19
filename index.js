@@ -305,7 +305,6 @@ requestButtons.forEach((item) => {
 reviews.forEach((item) => {
   item.addEventListener('click', (evt) => {
     const reviewToOpen = evt.target.closest('.reviews-list__item');
-    console.log(reviewToOpen);
     const openedReviewName = reviewToOpen.querySelector('.reviews__name').textContent;
     const openedReviewRequest = reviewToOpen.querySelector('.reviews__request').textContent;
     const openedReviewContent = reviewToOpen.querySelector('.reviews__content').textContent;
