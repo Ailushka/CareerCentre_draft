@@ -1105,13 +1105,15 @@ html:has(.popup_opened) {
   transform: rotate(-45deg);
 }
 
-.accordeon__title:hover {
-  color: var(--clr-accent);
-  cursor: pointer;
-}
+@media (hover: hover) {
+  .accordeon__title:hover {
+    color: var(--clr-accent);
+    cursor: pointer;
+  }
 
-.accordeon__title:hover::after {
-  background-color: var(--clr-bg);
+  .accordeon__title:hover::after {
+    background-color: var(--clr-bg);
+  }
 }
 
 .accordeon__content {
@@ -1127,15 +1129,6 @@ html:has(.popup_opened) {
 
 .support-link {
   text-decoration: underline;
-}
-
-@media (hover: none) {
-  .accordeon__title:hover {
-    color: var(--clr-main);
-  }
-  .accordeon__title:hover::after {
-    background-color: var(--clr-white);
-  }
 }
 
 @media (max-width: 540px) {
