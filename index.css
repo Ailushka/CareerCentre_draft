@@ -1129,6 +1129,15 @@ html:has(.popup_opened) {
   text-decoration: underline;
 }
 
+@media (hover: none) {
+  .accordeon__title:hover {
+    color: var(--clr-main);
+  }
+  .accordeon__title:hover::after {
+    background-color: var(--clr-white);
+  }
+}
+
 @media (max-width: 540px) {
   .faq {
     background: var(--clr-bg);
