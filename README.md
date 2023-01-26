@@ -1,4 +1,5 @@
 ### Небольшая инструкция по сборке Docker контейнера
+![docker_build](https://github.com/Ailushka/CareerCentre_draft/actions/workflows/docker_build.yml/badge.svg)
 ____________________________________
 И так вам сказочно повезло в вашем репозитории появился `Dockerfile`.  
 Это значит можно собрать образ текущего проекта.
