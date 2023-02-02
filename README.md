@@ -19,7 +19,7 @@ docker build -t login/image_name:tag .
 
 ***Example***
 ```bash
-docker build potter/lumus_maxima:latest .
+docker build -t potter/lumus_maxima:latest .
 ```
 
 #### 2. Загружаем образ на DockerHub
@@ -57,7 +57,7 @@ docker pull name:tag
 ```
 
 #### 4. Настройка CI
-После первого пуша в ветку `master` запуститься набор действий **GithubActions**. 
+После первого пуша в ветку `main` запуститься набор действий **GithubActions**. 
 Для того чтобы всё заработало хорошо необходимо добавить в **SECRETS** *github* следующие переменные.
 ```shell
 DOCKER_PASSWORD
