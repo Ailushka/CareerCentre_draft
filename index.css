@@ -28,9 +28,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html:has(.expert-card) .page {
+  background: var(--clr-white);
+}
+
 html:has(.popup_opened),
 html:has(.nav_opened) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .no-scroll {
@@ -2065,7 +2069,7 @@ html:has(.nav_opened) {
 }
 
 /* -------------------- */
-/*     Experts-page     */
+/*     Experts-list     */
 /* -------------------- */
 
 .page:has(.profi) .header {
@@ -2548,4 +2552,265 @@ html:has(.nav_opened) {
     line-height: calc(24 / 15);
     margin-bottom: 12px;
   }
+}
+
+/* -------------------- */
+/*     Expert-page     */
+/* -------------------- */
+
+.page:has(.expert-card) .header {
+  padding: 18px 0;
+  margin-top: 0;
+}
+
+.page:has(.expert-card) .faq-list {
+  margin-bottom: 0;
+}
+
+.page:has(.expert-card) .faq__content {
+  padding: 60px 0 120px;
+}
+
+.expert-card {
+  padding: 32px 0 60px;
+  display: grid;
+  column-gap: 52px;
+  grid-template-areas: "cover name"
+                       "cover skills"
+                       "cover info"
+                       "cover services";
+}
+
+.expert-card__cover {
+  background: #F5F5F5;
+  border-radius: 30px;
+  max-width: 452px;
+  height: max-content;
+  padding: 32px;
+  box-sizing: border-box;
+  grid-area: cover;
+  position: sticky;
+  top: 0;
+}
+
+.expert-card__image {
+  margin-bottom: 24px;
+  width: 100%;
+  display: block;
+  border-radius: 30px;
+}
+
+.expert-card__promo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.expert-card__promo-service {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.expert-card__promo-price {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: calc(28 / 24);
+}
+
+.expert-card__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.expert-card__buttons .buttons-list {
+  width: 100%;
+}
+
+.expert-card__button {
+  width: 100%;
+  min-width: 272px;
+}
+
+.expert-card__name {
+  background: #F5F5F5;
+  border-radius: 30px;
+  max-width: 656px;
+  margin-bottom: 24px;
+  padding: 32px;
+  box-sizing: border-box;
+  grid-area: name;
+}
+
+.expert-card__title {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: calc(20 / 48);
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 35px;
+}
+
+.expert-card__title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 50px;
+  background-image: url("./images/heart-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 58px;
+  left: 0;
+}
+
+.expert-card__about {
+  padding-left: 76px;
+}
+
+.expert-card__skills {
+  background: #F5F5F5;
+  border-radius: 30px;
+  max-width: 656px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-sizing: border-box;
+  grid-area: skills;
+}
+
+.expert-card__skills-title {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: calc(56 / 36);
+  letter-spacing: -0.02em;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 16px;
+}
+
+.expert-card__tags {
+  gap: 8px;
+}
+
+.expert-card__tags .tag {
+  /* padding: 10px; */
+}
+
+.expert-card__info {
+  background: #F5F5F5;
+  border-radius: 30px;
+  max-width: 656px;
+  padding: 32px;
+  box-sizing: border-box;
+  grid-area: info;
+  margin-bottom: 32px;
+}
+
+.expert-card__tabs-list {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 16px;
+}
+
+.expert-card__tabs-item {
+  padding-bottom: 4px;
+}
+
+.expert-card__tabs-item:has([aria-selected="true"]) {
+  border-bottom: 2px solid var(--clr-main);
+}
+
+.expert-card__tabs-button {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: calc(28 / 20);
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #757575;
+  padding: 0;
+}
+
+.expert-card__tabs-button[aria-selected="true"] {
+  color: var(--clr-main);
+}
+
+.expert-card__tabpanel-content {
+  margin: 0;
+  padding: 0 0 0 25px;
+}
+
+.expert-card__info-item {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.expert-card__services {
+  max-width: 656px;
+  grid-area: services;
+}
+
+.expert-card__services-title {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: calc(56 / 36);
+  letter-spacing: -0.02em;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 16px;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.services-list__item {
+  background: var(--clr-white);
+  box-shadow: 0px 1px 12px 2px rgba(36, 36, 36, 0.1);
+  border-radius: 30px;
+  padding: 24px;
+  box-sizing: border-box;
+  max-width: 320px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-list__title {
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.services-list__price {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: calc(44 / 36);
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 12px;
+}
+
+.services-list__info {
+  margin-bottom: 24px;
+}
+
+.services-list__item .expert-card__button {
+  padding: 15px 0;
+  margin-top: auto;
+  min-width: 220px;
 }

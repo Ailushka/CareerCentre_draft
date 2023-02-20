@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Страница эксперта Яндекс Практикума</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="https://avatars.mds.yandex.net/get-lpc/1674605/79dc0093-0bfa-473e-993b-8d1fe7820e60/orig">
+  </head>
+
+  <body class="page">
+
+    <header class="header">
+      <div class="header__content container">
+        <img class="logo" src="./images/logo_mobile.svg" alt="Логотип Яндекс Практикум">
+        <button class="btn burger"><span class="burger__icon"></span></button>
+        <nav class="header__nav nav">
+          <ul class="nav-list list">
+            <li class="nav-list__item">
+              <a class="nav-list__link link section-text" href="./index.html">Главная</a>
+            </li>
+            <li class="nav-list__item">
+              <a class="nav-list__link link section-text" href="./experts.html">Эксперты и менторы</a>
+            </li>
+          </ul>
+          <button class="button button_type_experts-page header__button button_type_request" type="button">Подобрать эксперта</button>
+        </nav>
+
+      </div>
+    </header>
+
+    <main class="main">
+
+      <section class="expert-card container">
+        <div class="expert-card__cover">
+          <img class="expert-card__image" src="./images/experts/AlesiaMalkova_full.jpg" alt="Фотография Алеси Малковой">
+          <div class="expert-card__promo">
+            <p class="expert-card__promo-service">Карьерная консультация</p>
+            <span class="expert-card__promo-price">4 000 &#8381;</span>
+          </div>
+          <ul class="list expert-card__buttons">
+            <li class="buttons-list">
+              <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться на консультацию</button>
+            </li>
+            <li class="buttons-list">
+              <a class="button button_type_secondary expert-card__button button-text" type="button" href="https://t.me/YP_CareerCenterBot" target="_blank">Обратиться в поддержку</a>
+            </li>
+          </ul>
+        </div>
+        <div class="expert-card__name">
+          <h1 class="expert-card__title">Алеся Малкова</h1>
+          <p class="expert-card__about section-subtitle">Маркетолог, бизнес-консультант, наставник в Практикуме</p>
+        </div>
+        <div class="expert-card__skills">
+          <h2 class="expert-card__skills-title">Навыки:</h2>
+          <ul class="tags list expert-card__tags">
+            <li class="tag">Типология личности</li>
+            <li class="tag">Аналитика рынка труда</li>
+            <li class="tag">Методика отбора</li>
+            <li class="tag">E-commerce</li>
+            <li class="tag">Оценка кандидатов</li>
+            <li class="tag">Агентство</li>
+            <li class="tag">Консалтинг</li>
+          </ul>
+        </div>
+        <div class="expert-card__info">
+          <div class="expert-card__tabs">
+            <ul class="expert-card__tabs-list list" role="tablist" aria-label="tablist-1">
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-1"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tabpanel-1"
+                >
+                  Работаю с запросами
+                </button>
+              </li>
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-2"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-2"
+                  tabindex="-1"
+                >
+                  Обо мне
+                </button>
+              </li>
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-3"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-3"
+                  tabindex="-1"
+                >
+                  Опыт работы
+                </button>
+              </li>
+            </ul>
+            <div class="expert-card__tabpanel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+              <ul class="expert-card__tabpanel-content">
+                <li class="expert-card__info-item">рассказать про карьерные возможности в сфере маркетинга, сложности и преимущества различных путей (в агентстве, технологических компаниях, на стороне бизнеса, на фрилансе);</li>
+                <li class="expert-card__info-item">обсудить карьерный рост, переход между сферами маркетинга или между разными бизнесами, переход в продакты;</li>
+                <li class="expert-card__info-item">рассказать, как планировать своё продвижение по карьерной лестнице. Что держать в фокусе, какие навыки развивать, к каким трудностям готовиться;</li>
+                <li class="expert-card__info-item">когда можно рассчитывать на продвижение на текущем месте, а когда стоит смотреть на поиск новой работы;</li>
+                <li class="expert-card__info-item">отредактировать резюме и адаптировать его под желаемую позицию;</li>
+                <li class="expert-card__info-item">обсудить, где и как искать работу кроме hh.ru;</li>
+                <li class="expert-card__info-item">составить индивидуальный план развития по hard и soft skills;</li>
+                <li class="expert-card__info-item">подготовиться к собеседованию;</li>
+                <li class="expert-card__info-item">поддержать во время прохождения испытательного срока.</li>
+              </ul>
+            </div>
+            <div class="expert-card__tabpanel" id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+              <ul class="expert-card__tabpanel-content">
+                <li class="expert-card__info-item">обсудить, где и как искать работу кроме hh.ru;</li>
+                <li class="expert-card__info-item">составить индивидуальный план развития по hard и soft skills;</li>
+                <li class="expert-card__info-item">подготовиться к собеседованию;- поддержать во время прохождения испытательного срока.</li>
+              </ul>
+            </div>
+            <div class="expert-card__tabpanel" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+              <ul class="expert-card__tabpanel-content">
+                <li class="expert-card__info-item">обсудить карьерный рост, переход между сферами маркетинга или между разными бизнесами, переход в продакты;</li>
+                <li class="expert-card__info-item">рассказать, как планировать своё продвижение по карьерной лестнице. Что держать в фокусе, какие навыки развивать, к каким трудностям готовиться;</li>
+                <li class="expert-card__info-item">когда можно рассчитывать на продвижение на текущем месте, а когда стоит смотреть на поиск новой работы;</li>
+                <li class="expert-card__info-item">отредактировать резюме и адаптировать его под желаемую позицию;</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="expert-card__services">
+          <h2 class="expert-card__services-title">С чем могу помочь:</h2>
+          <ul class="services-list list">
+            <li class="services-list__item">
+              <h3 class="services-list__title section-subtitle">Карьерная консультация</h3>
+              <p class="services-list__price">4 000 &#8381; <span class="services-list__duration section-subline">/ 1 час</span></p>
+              <p class="services-list__info section-subline">Индивидуальная консультация, помогу в поиске новой профессии</p>
+              <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться</button>
+            </li>
+            <li class="services-list__item">
+              <h3 class="services-list__title section-subtitle">Рекомендация по резюме</h3>
+              <p class="services-list__price">2 000 &#8381;</p>
+              <p class="services-list__info section-subline">Дам рекомендации о том, как усилить своё резюме</p>
+              <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться</button>
+            </li>
+            <li class="services-list__item">
+              <h3 class="services-list__title section-subtitle">Консультация по письму</h3>
+              <p class="services-list__price">2 000 &#8381;</p>
+              <p class="services-list__info section-subline">Дам рекомендации по написанию сопроводительного письма</p>
+              <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться</button>
+            </li>
+            <li class="services-list__item">
+              <h3 class="services-list__title section-subtitle">Консультация по резюме на английском</h3>
+              <p class="services-list__price">8 000 &#8381; <span class="services-list__duration section-subline">/ 1 час</span></p>
+              <p class="services-list__info section-subline">Расскажу о стратегии поиска работы в иностранной компании</p>
+              <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться</button>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section class="faq">
+        <div class="faq__content container">
+          <h2 class="section-title faq__title">Как<span class="span-accent"> подготовиться</span> к консультации?</h2>
+          <ul class="faq-list accordeon list">
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Как выглядит работа с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Всё зависит от конкретной услуги. В большинстве случаев работа с экспертом — это индивидуальные встреч в Zoom, на которой присутствуете только вы и эксперт. Каждая встреча записывается, чтобы после вы могли вернуться к ней.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Кто будет моим экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Мы подбираем эксперта, исходя из ваших целей и запроса. Все эксперты сервиса — это действующие профессионалы. Среди них есть руководители, разработчики, аналитики, дизайнеры, hr-специалисты и многие другие.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Сколько стоит и как оплатить?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Стоимость одной консультации — 4000₽, остальные услуги и их стоимость вы можете найти в блоке «с чем поможем». После того, как вы заполните форму, мы пришлём ссылку на Zoom с экспертом и ссылку на оплату, чтобы вы могли выбрать удобный способ оплаты.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что я могу обсудить с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Что угодно :) но мы больше любим карьерные вопросы. Среди наших экспертов есть профессионалы из разных областей и специальностей, так что всё будет зависеть от вашего запроса.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Если я не нашёл на сайте моего запроса?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Напишите нам <a class="link support-link" href="mailto:support@practicum.yandex.ru">в поддержку</a>. Если мы не сможем помочь, то честно скажем об этом.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Сколько консультаций нужно для решения моего запроса?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Многое зависит от самого запроса. Вы можете придти с запросом на улучшение навыков, а можете с примером конкретной задачи. Мы постарались организовать встречи так, чтобы после каждой консультации вы получали пользу. Точное количество встреч мы сможем сказать, когда познакомимся с вашим запросом, а вы познакомитесь с экспертом.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что от меня требуется перед встречей с экспертом?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Мы рекомендуем проводить встречи с экспертом в тихом месте, где вас никто не будет отвлекать. Предлагаем заранее установить Zoom на компьютер. Не бойтесь задавать вопросы и открыто делиться своими мыслями, это поможет лучше закрыть ваш запрос и подбирать наиболее подходящие инструменты для решения.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что я получу после консультации?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">После встречи с экспертом мы отправим запись вашей встречи с экспертом. Вы также можете получить рекомендации от своего эксперта и материалы, которые касаются конкретной услуги, например, рекомендации по резюме или готовое сопроводительное письмо.</p>
+              </div>
+            </li>
+            <li class="accordeon__item">
+              <button class="accordeon__title section-subtitle button">Что делать, если встреча оказалась бесполезной?</button>
+              <div class="accordeon__content">
+                <p class="accordeon__text section-text">Напишите об этом менеджеру, расскажите о ситуации. Мы предложим вам другого эксперта или вернём деньги.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <section class="footer__content container">
+        <div class="footer__column footer__column_content_info">
+          <a class="link tel-link section-subtitle" href="tel:88007009329">8-800-700-93-29</a>
+          <ul class="social-links footer__social-links list">
+            <li class="social-links__item">
+              <a class="link vk-link" href="https://vk.com/yandex.practicum" target="_blank" aria-label="Ссылка на страницу Яндекс Практикума ВКонтакте"></a>
+            </li>
+            <li class="social-links__item">
+              <a class="link journal-link section-subline" href="https://thecode.media/" target="_blank" aria-label="Ссылка на Журнал Яндекс Практикума Код">Журнал</a>
+            </li>
+          </ul>
+          <p class="footer__text section-subline">Образовательные услуги оказываются АНО ДПО «ШАД». ШАД — это <a class="link remark-link" href="https://yandexdataschool.ru/?from=career_center" target="_blank">Школа анализа данных</a> основанная Яндексом. Оказывает услуги на основании <a class="link remark-link" href="https://code.s3.yandex.net/License%20YSDA.pdf?from=career_center" target="_blank">Лицензии № 036031</a> от 24 марта 2015 года.</p>
+          <p class="footer__text section-subline">Сертификат о прохождении обучения по программе дополнительного профессионального образования также выдаётся АНО ДПО «ШАД».</p>
+          <p class="footer__copyright section-subline">&copy; 2022  АНО ДПО «ШАД», ООО «Яндекс»</p>
+        </div>
+        <div class="footer__column footer__column_content_links">
+          <h4 class="footer-links__title">Полезные ссылки</h4>
+          <ul class="footer__links footer-links list">
+            <li class="footer-links__item">
+              <a class="link footer-link section-subline" href="https://practicum.yandex.ru/" target="_blank">Яндекс Практикум</a>
+            </li>
+            <li class="footer-links__item">
+              <a class="link footer-link section-subline" href="https://practicum.yandex.ru/career-center/" target="_blank">Карьерный центр</a>
+            </li>
+            <li class="footer-links__item">
+              <a class="link footer-link section-subline" href="https://practicum.yandex.ru/jobreport?from=career_center" target="_blank">Карьерные результаты выпускников</a>
+            </li>
+            <li class="footer-links__item">
+              <a class="link footer-link section-subline" href="https://practicum.yandex.ru/employment/?from=career_center" target="_blank">Предложить стажировку или вакансию выпускникам</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+    <section class="popup popup_type_request transition">
+      <div class="popup__container">
+        <form class="form form_type_request" name="request-form" novalidate>
+          <h2 class="form__title">Подобрать эксперта</h2>
+          <p class="form__remark">Расскажите нам о запросе, и мы с вами свяжемся в течение дня</p>
+          <fieldset class="form__content">
+            <ul class="form__list list" role="none">
+              <li class="form__item form__item_type_name">
+                <label class="form__label" for="name">Имя и фамилия</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="name-error"></span>
+              </li>
+              <li class="form__item form__item_type_email">
+                <label class="form__label" for="email">Электронная почта</label>
+                <input
+                  class="form__input"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="email-error"></span>
+              </li>
+              <li class="form__item form__item_type_telegram">
+                <label class="form__label" for="telegram">Ник в телеграме</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="telegram"
+                  id="telegram"
+                  placeholder=""
+                  required
+                >
+                <span class="form__input-error" id="telegram-error"></span>
+              </li>
+              <li class="form__item form__item_type_phone">
+                <label class="form__label" for="phone">Телефон</label>
+                <input
+                  class="form__input"
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder=" "
+                >
+                <span class="form__input-error" id="phone-error"></span>
+              </li>
+              <li class="form__item form__item_type_goal">
+                <label class="form__label" for="goal">Цель консультации</label>
+                <textarea
+                  class="form__input"
+                  rows="3"
+                  name="goal"
+                  id="goal"
+                  placeholder="Опишите свой запрос или цель на консультацию"
+                  required
+                ></textarea>
+                <span class="form__input-error" id="goal-error"></span>
+              </li>
+            </ul>
+          </fieldset>
+          <p class="form__remark">Нажимая кнопку оставить заявку, вы соглашаетесь с условиями <a class="link remark-link" href="https://yandex.ru/legal/practicum_termsofuse/" target="_blank">пользовательского соглашения</a> и <a class="link remark-link" href="https://yandex.ru/legal/practicum_consultant_offer/?lang=ru" target="_blank">оферты.</a></p>
+          <button class="button button_type_submit button-text button_disabled" type="submit" disabled>Оставить заявку</button>
+        </form>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
+
+    </section>
+
+    <section class="popup popup_type_success">
+      <div class="popup__container">
+        <h2>Спасибо за вашу заявку.</h2>
+        <p>Менеджер карьерного центра свяжется с вами в ближайшее время!</p>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
+
+    </section>
+
+
+    <script src="./expert-page.js"></script>
+  </body>
+</html>
