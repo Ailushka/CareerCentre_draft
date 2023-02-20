@@ -2220,17 +2220,26 @@ html:has(.nav_opened) {
   background-image: url(./images/mentors-icon.svg);
 }
 
-.checkbox__item:hover,
+@media (hover: hover) {
+  .checkbox__item:hover {
+    color: rgba(0, 0, 0, 0.85);
+  }
+  .checkbox__item_type_experts:hover {
+    background-image: url(./images/experts-icon_hover.svg);
+  }
+  .checkbox__item_type_mentors:hover {
+    background-image: url(./images/mentors-icon_hover.svg);
+  }
+}
+
 .checkbox__item:has(input[type="checkbox"]:checked) {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.checkbox__item_type_experts:hover,
 .checkbox__item_type_experts:has(input[type="checkbox"]:checked) {
   background-image: url(./images/experts-icon_hover.svg);
 }
 
-.checkbox__item_type_mentors:hover,
 .checkbox__item_type_mentors:has(input[type="checkbox"]:checked) {
   background-image: url(./images/mentors-icon_hover.svg);
 }
