@@ -1,15 +1,39 @@
 /* -------------------- */
-/*    Experts search    */
+/*  Experts list render */
 /* -------------------- */
 
-const init = () => {
-  getExpertsList();
+const profiListContainerElement = document.querySelector('.profi-list');
+const profiItemTemplateElement = document.querySelector('.template_type_profi-item');
+
+function renderList(expertsList) {
+  const profiItem = expertsList.slice(0, 12).map(composeItem);
+  profiListContainerElement.append(...profiItem);
+}
+
+function composeItem(item) {
+  const newItem = profiItemTemplateElement.content.cloneNode(true);
+
+  const imageElement = newItem.querySelector('.profi__image');
+  imageElement.src = item.photo;
+  imageElement.alt = item.name;
+
+  const headerElement = newItem.querySelector('.profi__name');
+  headerElement.textContent = item.name;
+
+  const textElement = newItem.querySelector('.profi__about');
+  textElement.textContent = item.post;
+
+  return newItem;
+}
+
+const init = async () => {
+  const profiItems = await getExpertsList();
+  renderList(profiItems);
 }
 
 const getExpertsList = () => {
   return fetch('http://51.250.92.80/api/v1/experts/')
     .then(response => response.json())
-    .then(data => console.log(data))
     .catch(error => console.log(error));
 }
 
@@ -39,4 +63,62 @@ menuLinks.forEach(menuLink => {
     document.querySelector('.page').classList.remove('no-scroll');
     document.querySelector('html').classList.remove('no-scroll');
   })
+});
+
+/* -------------------- */
+/*         Popup        */
+/* -------------------- */
+
+const requestButtons = document.querySelectorAll('.button_type_request');
+const closeButtons = document.querySelectorAll('.button_type_close');
+const requestPopup = document.querySelector('.popup_type_request');
+const requestForm = document.querySelector('.form_type_request');
+const successPopup = document.querySelector('.popup_type_success');
+const ESCAPE = 27;
+
+function openPopUp(popup) {
+  popup.classList.add('popup_opened');
+  popup.classList.add('transition');
+  document.querySelector('.page').classList.add('no-scroll');
+  document.addEventListener('click', closePopUpByOverlay);
+  document.addEventListener('keydown', closePopUpByEsc);
+
+}
+
+function closePopUp(popup) {
+  popup.classList.remove('popup_opened');
+  popup.classList.remove('transition');
+  document.querySelector('.page').classList.remove('no-scroll');
+  document.removeEventListener('click', closePopUpByOverlay);
+  document.removeEventListener('keydown', closePopUpByEsc);
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+function closePopUpByOverlay(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopUp(evt.target);
+  }
+}
+
+function closePopUpByEsc(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.keyCode === ESCAPE) {
+    closePopUp(popupOpened);
+  }
+}
+
+requestButtons.forEach((item) => {
+  item.addEventListener('click', () => {
+      openPopUp(requestPopup);
+  });
+});
+
+closeButtons.forEach((item) => {
+  item.addEventListener('click', (evt) => {
+      const popUpToClose = evt.target.closest('.popup');
+      closePopUp(popUpToClose);
+  });
 });
