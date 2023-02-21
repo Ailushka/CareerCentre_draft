@@ -417,6 +417,10 @@ html:has(.nav_opened) {
   border-bottom: 2px solid var(--clr-main);
 }
 
+.nav-list__link:not([href]):hover {
+  cursor: default;
+}
+
 .button_type_experts-page {
   font-size: 14px;
   line-height: calc(18 / 14);
