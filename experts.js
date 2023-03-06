@@ -43,7 +43,12 @@ function composeItem(item) {
   });
 
   const textElement = newItem.querySelector('.profi__about');
-  textElement.textContent = item.post;
+  if (item.post) {
+    textElement.textContent = item.post;
+  } else {
+    textElement.style.display = "none";
+  }
+
 
   return newItem;
 }
