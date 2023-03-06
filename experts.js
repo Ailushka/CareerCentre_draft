@@ -5,8 +5,16 @@
 const profiListContainerElement = document.querySelector('.profi-list');
 const profiItemTemplateElement = document.querySelector('.template_type_profi-item');
 
+function isLoading() {
+  for (let i = 0; i < 12; i++) {
+    profiListContainerElement.append(profiItemTemplateElement.content.cloneNode(true));
+  }
+}
+
 function renderList(expertsList) {
   const profiItem = expertsList.slice(0, 12).map(composeItem);
+  profiListContainerElement.textContent = '';
+  profiListContainerElement.classList.remove('skeleton');
   profiListContainerElement.append(...profiItem);
 }
 
@@ -14,11 +22,25 @@ function composeItem(item) {
   const newItem = profiItemTemplateElement.content.cloneNode(true);
 
   const imageElement = newItem.querySelector('.profi__image');
-  imageElement.src = item.photo;
+  if (item.photo) {
+    imageElement.src = item.photo;
+  } else {
+    imageElement.src = "./images/experts/no-photo.svg";
+    imageElement.style.objectFit = 'none';
+  }
+
   imageElement.alt = item.name;
 
   const headerElement = newItem.querySelector('.profi__name');
   headerElement.textContent = item.name;
+
+  const tagsContainer = newItem.querySelector('.profi__tags');
+  item.company_spheres.forEach(tag => {
+    const tagItem = document.createElement('li');
+    tagsContainer.prepend(tagItem);
+    tagItem.classList.add('tag');
+    tagItem.textContent = tag;
+  });
 
   const textElement = newItem.querySelector('.profi__about');
   textElement.textContent = item.post;
@@ -27,6 +49,7 @@ function composeItem(item) {
 }
 
 const init = async () => {
+  isLoading();
   const profiItems = await getExpertsList();
   renderList(profiItems);
 }
@@ -72,6 +95,8 @@ menuLinks.forEach(menuLink => {
 const requestButtons = document.querySelectorAll('.button_type_request');
 const closeButtons = document.querySelectorAll('.button_type_close');
 const requestPopup = document.querySelector('.popup_type_request');
+const filtersPopup = document.querySelector('.popup_type_filters');
+const filtersButton = document.querySelector('.button_type_filter');
 const requestForm = document.querySelector('.form_type_request');
 const successPopup = document.querySelector('.popup_type_success');
 const ESCAPE = 27;
@@ -116,9 +141,76 @@ requestButtons.forEach((item) => {
   });
 });
 
+filtersButton.addEventListener('click', () => {
+  openPopUp(filtersPopup);
+})
+
 closeButtons.forEach((item) => {
   item.addEventListener('click', (evt) => {
       const popUpToClose = evt.target.closest('.popup');
       closePopUp(popUpToClose);
   });
 });
+
+/* -------------------- */
+/*    Checkbox-option   */
+/* -------------------- */
+
+const options = document.querySelectorAll('.option');
+
+options.forEach(option => {
+  const checkboxes = option.querySelectorAll('.suboption');
+  const checkall = option.querySelector('.option__input');
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener('click', function() {
+      const checkedCount = document.querySelectorAll('.suboption:checked').length;
+
+      checkall.checked = checkedCount > 0;
+      checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+    });
+  }
+
+  checkall.addEventListener('click', function() {
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = this.checked;
+    }
+  });
+})
+
+/* -------------------- */
+/*  Price range slider  */
+/* -------------------- */
+
+window.onload = function(){
+    slideOne();
+    slideTwo();
+}
+
+let sliderOne = document.getElementById("slider-1");
+let sliderTwo = document.getElementById("slider-2");
+let displayValOne = document.getElementById("range1");
+let displayValTwo = document.getElementById("range2");
+let minGap = 0;
+let sliderTrack = document.querySelector(".slider-track");
+let sliderMaxValue = document.getElementById("slider-1").max;
+
+function slideOne(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderOne.value = parseInt(sliderTwo.value) - minGap;
+    }
+    displayValOne.textContent = sliderOne.value;
+    fillColor();
+}
+function slideTwo(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderTwo.value = parseInt(sliderOne.value) + minGap;
+    }
+    displayValTwo.textContent = sliderTwo.value;
+    fillColor();
+}
+function fillColor(){
+    percent1 = (sliderOne.value / sliderMaxValue) * 100;
+    percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+    sliderTrack.style.background = `linear-gradient(to right, #E0E0E0 ${percent1}% , #4C75FA ${percent1}% , #4C75FA ${percent2}%, #E0E0E0 ${percent2}%)`;
+}
