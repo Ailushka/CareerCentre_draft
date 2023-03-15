@@ -54,8 +54,8 @@
                 <input
                   class="checkbox__input"
                   type="checkbox"
-                  name="profi"
-                  value="experts"
+                  name="service"
+                  value="Карьерные консультации"
                   id="experts"
                 ><span class="checkbox__switch"></span>Эксперты
               </label>
@@ -68,8 +68,8 @@
                 <input
                   class="checkbox__input"
                   type="checkbox"
-                  name="profi"
-                  value="mentors"
+                  name="service"
+                  value="Менторские консультации"
                   id="mentors"
                 ><span class="checkbox__switch"></span>Менторы
               </label>
@@ -87,7 +87,7 @@
         <h2 class="sr-only">Список экспертов</h2>
         <ul class="profi-list list skeleton">
         </ul>
-        <button class="button button_type_show-more button-text profi__button" type="button">Показать ещё</button>
+        <button class="button button_type_load-more button-text profi__button" type="button">Показать ещё</button>
         <article class="request profi__request">
           <div class="request__info">
             <h3 class="request__title section-subtitle">По этим фильтрам мы никого не нашли</h3>
@@ -223,7 +223,7 @@
         <form class="filters-form form_type_filters" name="filters-form" novalidate>
           <fieldset class="filters-form__content">
             <legend class="filters-form__title">Стоимость</legend>
-            <p class="filters-form__subtitle">Средняя стоимость консультации 7 800&#8381;</p>
+            <p class="filters-form__subtitle">Средняя стоимость консультации 4 000&#8381;</p>
 
             <div class="values">
               <span id="range1">0</span>
@@ -232,8 +232,8 @@
             </div>
             <div class="range-container">
               <div class="slider-track"></div>
-              <input type="range" min="0" max="20000" value="10000" id="slider-1" oninput="slideOne()">
-              <input type="range" min="0" max="20000" value="20000" id="slider-2" oninput="slideTwo()">
+              <input type="range" name="fee__gt" min="0" max="20000" value="1000" id="slider-1" oninput="slideOne()">
+              <input type="range" name="fee__lt" min="0" max="20000" value="20000" id="slider-2" oninput="slideTwo()">
             </div>
 
           </fieldset>
@@ -245,8 +245,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="consult"
+                    name="service"
+                    value="Карьерные консультации"
                     id="consult"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Карьерные консультации
                   <p class="filters-form__desc">Консультации с HR-ами и карьерными специалистами</p>
@@ -257,8 +257,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="mentor"
+                    name="service"
+                    value="Менторские консультации"
                     id="mentor"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Менторские консультации
                   <p class="filters-form__desc">Консультации с менторами для развития навыков и ревью</p>
@@ -269,8 +269,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="resume"
+                    name="service"
+                    value="Резюме и письма (RU)"
                     id="resume"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Резюме и письма (RU)
                   <p class="filters-form__desc">Консультации с HR-ами и карьерными специалистами</p>
@@ -281,8 +281,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="cv"
+                    name="service"
+                    value="Резюме и письма (EN)"
                     id="cv"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Резюме и письма (EN)
                   <p class="filters-form__desc">Консультации с HR-ами и карьерными специалистами</p>
@@ -293,8 +293,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="job"
+                    name="service"
+                    value="Поиск работы"
                     id="job"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Поиск работы
                   <p class="filters-form__desc">Консультации с HR-ами и карьерными специалистами</p>
@@ -305,8 +305,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="services"
-                    value="career"
+                    name="service"
+                    value="Карьерное планирование"
                     id="career"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Карьерное планирование
                   <p class="filters-form__desc">Консультации с менторами для развития навыков и ревью</p>
@@ -324,7 +324,7 @@
                     class="filters-form__input"
                     type="checkbox"
                     name="grade"
-                    value="intern"
+                    value="Intern"
                     id="intern"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Intern
                 </label>
@@ -335,7 +335,7 @@
                     class="filters-form__input"
                     type="checkbox"
                     name="grade"
-                    value="junior"
+                    value="Junior"
                     id="junior"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Junior
                 </label>
@@ -346,7 +346,7 @@
                     class="filters-form__input"
                     type="checkbox"
                     name="grade"
-                    value="middle"
+                    value="Middle"
                     id="middle"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Middle
                 </label>
@@ -357,7 +357,7 @@
                     class="filters-form__input"
                     type="checkbox"
                     name="grade"
-                    value="senior"
+                    value="Senior"
                     id="senior"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Senior
                 </label>
@@ -373,7 +373,7 @@
                   <input
                     class="filters-form__input option__input"
                     type="checkbox"
-                    name="profession"
+                    name="specialization"
                     value="backend"
                     id="backend"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Backend
@@ -430,7 +430,7 @@
                   <input
                     class="filters-form__input option__input"
                     type="checkbox"
-                    name="profession"
+                    name="specialization"
                     value="design"
                     id="design"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Дизайнер
@@ -494,7 +494,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="e-commerce"
                     id="e-commerce"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>E-commerce
@@ -505,7 +505,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="edtech"
                     id="edtech"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>EdTech
@@ -516,8 +516,8 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
-                    value="fmcg"
+                    name="company_sphere"
+                    value="FMCG"
                     id="fmcg"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>FMCG
                 </label>
@@ -527,7 +527,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="fintech"
                     id="fintech"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>FinTech
@@ -538,7 +538,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="foodtech"
                     id="foodtech"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Foodtech
@@ -549,7 +549,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="gamedev"
                     id="gamedev"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Gamedev
@@ -560,7 +560,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="software"
                     id="software"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Software
@@ -571,7 +571,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="sphere"
+                    name="company_sphere"
                     value="traveltech"
                     id="traveltech"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Traveltech
@@ -582,7 +582,7 @@
           </fieldset>
           <footer class="filters-form__footer">
             <button class="button filters-form__button" type="reset">Сбросить фильтры</button>
-            <button class="button button_type_submit button-text button_type_filters" type="submit" disabled>Показать 12 вариантов</button>
+            <button class="button button_type_submit button-text button_type_filters" type="submit"></button>
           </footer>
         </form>
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>

@@ -229,21 +229,22 @@ html:has(.nav_opened) {
 
 .button_type_secondary {
   border: 2px solid var(--clr-accent);
+  box-shadow: 0 0 0 1px var(--clr-transparent);
   min-width: 260px;
   color: var(--clr-accent);
 }
 
 .button_type_secondary:hover {
   background-color: var(--clr-bg-hover);
-  padding: 17px 0;
-  border: 3px solid var(--clr-hover-secondary);
+  border-color: var(--clr-hover-secondary);
+  box-shadow: 0 0 0 1px var(--clr-hover-secondary);
   color: var(--clr-hover-secondary);
 }
 
 .button_type_secondary:focus {
   color: var(--clr-accent);
-  border: 0;
-  box-shadow: 0 0 0 3px var(--clr-hover-main);
+  border-color: var(--clr-hover-main);
+  box-shadow: 0 0 0 1px var(--clr-hover-main);
   background-color: var(--clr-transparent);
 }
 
@@ -2379,8 +2380,8 @@ html:has(.nav_opened) {
 
 .profi-list {
   display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 12px;
   row-gap: 28px;
   margin-bottom: 60px;
@@ -2390,6 +2391,10 @@ html:has(.nav_opened) {
   border-radius: 20px;
   overflow: hidden;
   width: 100%;
+}
+
+.profi-list__item {
+  max-width: 281px;
 }
 
 .profi__image-container {
@@ -2475,19 +2480,19 @@ html:has(.nav_opened) {
   display: block;
 }
 
-.button_type_show-more {
+.button_type_load-more {
   background-color: var(--clr-main);
   padding: 15px 0;
   min-width: 328px;
   color: rgba(255, 255, 255, 0.85);
 }
 
-.button_type_show-more:hover {
+.button_type_load-more:hover {
   background-color: var(--clr-black);
   color: var(--clr-white);
 }
 
-.button_type_show-more:focus-visible {
+.button_type_load-more:focus-visible {
   box-shadow: 0 0 0 3px var(--clr-black);
 }
 
@@ -2628,7 +2633,7 @@ html:has(.nav_opened) {
   .profi__about {
     order: 2;
   }
-  .button_type_show-more {
+  .button_type_load-more {
     min-width: 296px;
   }
   .profi__request {
@@ -2931,6 +2936,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   background: var(--clr-main);
 }
 
+.button_type_filters::before {
+  content: 'Показать 12 вариантов';
+}
+
 .button_type_filters:hover {
   background-color: var(--clr-black);
 }
@@ -2940,8 +2949,110 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 @media (max-width: 820px) {
+  .popup__container_type_filters {
+    width: 100%;
+  }
+  .filters-form {
+    padding-top: 40px;
+  }
+  .filters-form__content {
+    margin: 0 12px 40px;
+  }
+  .filters-form__title {
+    margin-bottom: 8px;
+    font-size: 30px;
+    line-height: 120%;
+  }
+  .filters-form__title_type_services {
+    margin-bottom: 20px;
+  }
+  .filters-form__subtitle {
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 120%;
+  }
+  .values {
+    font-size: 10px;
+    line-height: 180%;
+  }
+  .range-container {
+    height: 18px;
+    margin-bottom: 22px;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    height: 14px;
+    width: 14px;
+    margin-top: -4.5px;
+  }
+  input[type="range"]::-moz-range-thumb{
+    height: 14px;
+    width: 14px;
+  }
+  input[type="range"]::-ms-thumb{
+    height: 14px;
+    width: 14px;
+  }
+  .filters-form__list {
+    column-gap: 4px;
+    row-gap: 12px;
+    margin-bottom: 24px;
+  }
   .filters-form__list_type_checkbox {
     grid-template-columns: 1fr;
+  }
+  .filters-form__label {
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 4px;
+  }
+  .filters-form__desc {
+    margin-left: 24px;
+    font-size: 12px;
+    line-height: 120%;
+  }
+  .filters-form__switch_type_tick {
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+  }
+  .filters-form__item_type_tile {
+    padding: 16px;
+    height: 100px;
+    min-width: 146px;
+  }
+  .filters-form__label_type_tile {
+    font-size: 12px;
+    line-height: 120%;
+  }
+  .filters-form__content:has(.option) .filters-form__label {
+    font-size: 18px;
+    line-height: 111%;
+  }
+  .filters-form__option {
+    margin: 12px 0 0 28px;
+    gap: 12px;
+  }
+  .filters-form__button {
+    font-size: 15px;
+    line-height: 187%;
+    margin-bottom: 24px;
+  }
+
+  .filters-form__footer {
+    border-color: #F5F5F5;
+    border-radius: 16px 16px 0px 0px;
+    padding: 30px 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .button_type_filters {
+    min-width: 144px;
+    width: auto;
+  }
+  .button_type_filters::before {
+    content: 'Применить';
   }
 }
 

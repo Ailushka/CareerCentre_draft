@@ -1,99 +1,4 @@
 /* -------------------- */
-/*  Experts list render */
-/* -------------------- */
-
-const profiListContainerElement = document.querySelector('.profi-list');
-const profiItemTemplateElement = document.querySelector('.template_type_profi-item');
-
-function isLoading() {
-  for (let i = 0; i < 12; i++) {
-    profiListContainerElement.append(profiItemTemplateElement.content.cloneNode(true));
-  }
-}
-
-function renderList(expertsList) {
-  const profiItem = expertsList.slice(0, 12).map(composeItem);
-  profiListContainerElement.textContent = '';
-  profiListContainerElement.classList.remove('skeleton');
-  profiListContainerElement.append(...profiItem);
-}
-
-function composeItem(item) {
-  const newItem = profiItemTemplateElement.content.cloneNode(true);
-
-  const imageElement = newItem.querySelector('.profi__image');
-  if (item.photo) {
-    imageElement.src = item.photo;
-  } else {
-    imageElement.src = "./images/experts/no-photo.svg";
-    imageElement.style.objectFit = 'none';
-  }
-
-  imageElement.alt = item.name;
-
-  const headerElement = newItem.querySelector('.profi__name');
-  headerElement.textContent = item.name;
-
-  const tagsContainer = newItem.querySelector('.profi__tags');
-  item.company_spheres.forEach(tag => {
-    const tagItem = document.createElement('li');
-    tagsContainer.prepend(tagItem);
-    tagItem.classList.add('tag');
-    tagItem.textContent = tag;
-  });
-
-  const textElement = newItem.querySelector('.profi__about');
-  if (item.post) {
-    textElement.textContent = item.post;
-  } else {
-    textElement.style.display = "none";
-  }
-
-
-  return newItem;
-}
-
-const init = async () => {
-  isLoading();
-  const profiItems = await getExpertsList();
-  renderList(profiItems);
-}
-
-const getExpertsList = () => {
-  return fetch('http://51.250.92.80/api/v1/experts/')
-    .then(response => response.json())
-    .catch(error => console.log(error));
-}
-
-init();
-
-/* -------------------- */
-/*      Mobile menu     */
-/* -------------------- */
-
-const burgerButton = document.querySelector('.burger');
-const nav = document.querySelector('.nav');
-const menuLinks = document.querySelectorAll('.nav-list__link');
-
-burgerButton.addEventListener("click", function () {
-    burgerButton.classList.toggle("burger_active");
-    nav.classList.toggle("nav_opened");
-    nav.classList.toggle("transition");
-    document.querySelector('.page').classList.toggle('no-scroll');
-    document.querySelector('html').classList.toggle('no-scroll');
-});
-
-menuLinks.forEach(menuLink => {
-  menuLink.addEventListener('click', () => {
-    burgerButton.classList.remove("burger_active");
-    nav.classList.remove("nav_opened");
-    nav.classList.remove("transition");
-    document.querySelector('.page').classList.remove('no-scroll');
-    document.querySelector('html').classList.remove('no-scroll');
-  })
-});
-
-/* -------------------- */
 /*         Popup        */
 /* -------------------- */
 
@@ -155,6 +60,257 @@ closeButtons.forEach((item) => {
       const popUpToClose = evt.target.closest('.popup');
       closePopUp(popUpToClose);
   });
+});
+
+/* -------------------- */
+/*  Experts list render */
+/* -------------------- */
+
+const profiListContainerElement = document.querySelector('.profi-list');
+const profiItemTemplateElement = document.querySelector('.template_type_profi-item').content;
+const loadMoreButton = document.querySelector('.button_type_load-more');
+const searchForm = document.querySelector('.form_type_search');
+const searchQuery = searchForm.querySelector('.search-form__input');
+const checkboxes = document.querySelectorAll('input[type=checkbox]');
+let enabledSettings = [];
+let profiItems = [];
+
+const itemsPerPage = 12;
+let currentPage = 1;
+
+// создание карточки эксперта на основе темплейта
+
+function createItem(item) {
+  const newItem = profiItemTemplateElement.querySelector('.profi-list__item').cloneNode(true);
+
+  const imageElement = newItem.querySelector('.profi__image');
+  if (item.photo) {
+    imageElement.src = item.photo;
+  } else {
+    imageElement.src = "./images/experts/no-photo.svg";
+  }
+
+  imageElement.alt = item.name;
+
+  const headerElement = newItem.querySelector('.profi__name');
+  headerElement.textContent = item.name;
+
+  const tagsContainer = newItem.querySelector('.profi__tags');
+  item.company_spheres.forEach(tag => {
+    const tagItem = document.createElement('li');
+    tagsContainer.prepend(tagItem);
+    tagItem.classList.add('tag');
+    tagItem.textContent = tag;
+  });
+
+  const textElement = newItem.querySelector('.profi__about');
+  if (item.post) {
+    textElement.textContent = item.post;
+  } else {
+    textElement.style.display = "none";
+  }
+
+  return newItem;
+}
+
+// добавление карточек в разметку
+
+function renderItems(item, itemContainer) {
+  const profiItem = createItem(item);
+  itemContainer.append(profiItem);
+}
+
+// отрисовка карточек по 12 штук на странице
+
+function addItems (expertsList, pageIndex) {
+  const itemsLimit = expertsList.length;
+  const pageCount = Math.ceil(itemsLimit / itemsPerPage);
+  currentPage = pageIndex;
+
+  if (currentPage < pageCount) {
+    loadMoreButton.style.display = "block";
+  } else {
+    loadMoreButton.style.display = "none";
+  }
+
+  const startRange = (pageIndex - 1) * itemsPerPage;
+  const endRange = pageIndex * itemsPerPage > itemsLimit ? itemsLimit : pageIndex * itemsPerPage;
+
+  if (currentPage === 1) {
+    profiListContainerElement.textContent = '';
+    document.querySelector('.profi__request').style.display = 'none';
+    profiListContainerElement.classList.remove('skeleton');
+  }
+
+  for (let i = startRange; i < endRange; i++) {
+    renderItems(expertsList[i], profiListContainerElement);
+  }
+
+  if (expertsList.length === 0) {
+    document.querySelector('.profi__request').style.display = 'flex';
+  }
+};
+
+// отрисовка следующих 12 карточек по кнопке Показать ещё
+
+function handleLoadMoreItems() {
+  addItems(profiItems, currentPage + 1);
+}
+
+// скелетон на время ожидания ответа от сервера
+
+function isLoading() {
+  profiListContainerElement.classList.add('skeleton');
+  for (let i = 0; i < itemsPerPage; i++) {
+    profiListContainerElement.append(profiItemTemplateElement.querySelector('.profi-list__item').cloneNode(true));
+  }
+}
+
+// создание запроса на сервер для получения списка экспертов
+
+const getExpertsList = () => {
+  return fetch('http://51.250.92.80/api/v1/experts/')
+    .then(response => response.json())
+    .catch(error => console.log(error));
+}
+
+// создание запроса на сервер для получения списка экспертов
+
+const getFilteredBySearchExpertsList = () => {
+  return fetch(`http://51.250.92.80/api/v1/experts/search/?text=${searchQuery.value}`)
+    .then(response => response.json())
+    .catch(error => console.log(error));
+}
+
+// const getFilteredByServiceExpertsList = () => {
+//   return fetch(`http://51.250.92.80/api/v1/experts/?service=${enabledSettings.join()}`)
+//     .then(response => response.json())
+//     .catch(error => console.log(error));
+// }
+
+// добавление списка экспертов при загрузке страницы
+
+const init = async () => {
+  isLoading();
+  profiItems = await getExpertsList();
+  addItems(profiItems, currentPage);
+}
+
+init();
+
+const handleSearchSubmit = async (evt) => {
+  evt.preventDefault();
+  isLoading();
+  profiItems = await getFilteredBySearchExpertsList();
+  addItems(profiItems, currentPage);
+  searchForm.reset();
+};
+
+// const handleCheckboxChange = async (evt) => {
+//   evt.preventDefault();
+//   enabledSettings = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+//   console.log(enabledSettings);
+//   isLoading();
+//   profiItems = await getFilteredByServiceExpertsList();
+//   addItems(profiItems, currentPage);
+// };
+
+searchForm.addEventListener('submit', handleSearchSubmit);
+// checkboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', handleCheckboxChange)
+// })
+
+loadMoreButton.addEventListener('click', handleLoadMoreItems);
+
+
+// let values = [];
+//
+// values = Array.from(checkboxes).map(i => {
+//   const { name, value } = i;
+//   return { name, value };
+// });
+
+function createFilterQuery(data) {
+  let queryString = '';
+  data.forEach(item => {
+    queryString += `${item.name}=${item.value}&`;
+  })
+  return queryString.slice(0, -1);
+}
+//
+// const filterQueryString = createFilterQuery(values);
+// console.log(filterQueryString);
+
+
+/* -------------------- */
+/*      Filter form     */
+/* -------------------- */
+
+const filterForm = document.querySelector('.form_type_filters');
+
+// сбор данных из формы
+
+function serializeForm(formNode) {
+  const { elements } = formNode
+
+  const data = Array.from(elements)
+    .map((element) => {
+      const { name, type } = element
+      const value = type === 'checkbox' && !element.checked ? '' : element.value
+
+      return { name, value }
+    })
+    .filter((item) => !!item.name && !!item.value)
+
+  return data;
+}
+
+const getFilteredByFilterFormExpertsList = (filterFormQueryString) => {
+  return fetch(`http://51.250.92.80/api/v1/experts/?${filterFormQueryString}`)
+    .then(response => response.json())
+    .catch(error => console.log(error));
+}
+
+const handleFilterFormSubmit = async (evt) => {
+  console.log('я вызвалась');
+  evt.preventDefault();
+  const filterFormData = serializeForm(filterForm);
+  const filterFormQueryString = createFilterQuery(filterFormData);
+  console.log(filterFormQueryString);
+  isLoading();
+  profiItems = await getFilteredByFilterFormExpertsList(filterFormQueryString);
+  console.log(profiItems.length);
+  addItems(profiItems, currentPage);
+  closePopUp(filtersPopup);
+};
+
+filterForm.addEventListener('submit', handleFilterFormSubmit);
+
+
+/* -------------------- */
+/*      Mobile menu     */
+/* -------------------- */
+
+const burgerButton = document.querySelector('.burger');
+const nav = document.querySelector('.nav');
+const menuLinks = document.querySelectorAll('.nav-list__link');
+
+burgerButton.addEventListener("click", function () {
+    burgerButton.classList.toggle("burger_active");
+    nav.classList.toggle("nav_opened");
+    nav.classList.toggle("transition");
+    document.querySelector('.page').classList.toggle('no-scroll');
+    document.querySelector('html').classList.toggle('no-scroll');
+});
+
+menuLinks.forEach(menuLink => {
+  menuLink.addEventListener('click', () => {
+    burgerButton.classList.remove("burger_active");
+    nav.classList.remove("nav_opened");
+    nav.classList.remove("transition");
+    document.querySelector('.page').classList.remove('no-scroll');
+    document.querySelector('html').classList.remove('no-scroll');
+  })
 });
 
 /* -------------------- */
