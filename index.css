@@ -1828,7 +1828,7 @@ html:has(.nav_opened) {
       border-bottom-width: 0;
       top: 35%;
     }
-  .tabpanel {
+  .services:has(.services__tabs) .tabpanel {
     width: 100%;
   }
   .tabpanel .service {
