@@ -83,9 +83,12 @@ let currentPage = 1;
 function createItem(item) {
   const newItem = profiItemTemplateElement.querySelector('.profi-list__item').cloneNode(true);
 
+  const linkElement = newItem.querySelector('.profi__link');
+  linkElement.href = './expert-page.html';
+
   const imageElement = newItem.querySelector('.profi__image');
   if (item.photo) {
-    imageElement.src = item.photo;
+    imageElement.src = item.photo.replace('http://51.250.92.80', 'https://student-diary-landing.praktikum-services.ru/');
   } else {
     imageElement.src = "./images/experts/no-photo.svg";
   }
@@ -169,7 +172,7 @@ function isLoading() {
 // создание запроса на сервер для получения списка экспертов
 
 const getExpertsList = () => {
-  return fetch('http://51.250.92.80/api/v1/experts/')
+  return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/')
     .then(response => response.json())
     .catch(error => console.log(error));
 }

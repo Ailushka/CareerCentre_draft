@@ -32,7 +32,7 @@
 
     <main class="main">
 
-      <section class="expert-card container">
+      <!-- <section class="expert-card container">
         <div class="expert-card__cover">
           <img class="expert-card__image" src="./images/experts/AlesiaMalkova_full.jpg" alt="Фотография Алеси Малковой">
           <div class="expert-card__content">
@@ -172,7 +172,7 @@
           </ul>
         </div>
 
-      </section>
+      </section> -->
 
       <section class="faq">
         <div class="faq__content container">
@@ -358,6 +358,107 @@
 
     </section>
 
+    <template class="template_type_profi-card">
+
+      <section class="expert-card container">
+        <div class="expert-card__cover">
+          <img class="expert-card__image" src="./images/experts/AlesiaMalkova_full.jpg" alt="Фотография Алеси Малковой">
+          <div class="expert-card__content">
+            <div class="expert-card__promo">
+              <p class="expert-card__promo-service">Карьерная консультация</p>
+              <span class="expert-card__promo-price">4 000 &#8381;</span>
+            </div>
+            <ul class="list expert-card__buttons">
+              <li class="buttons-list">
+                <button class="button button_type_main expert-card__button button-text button_type_request" type="button">Записаться на консультацию</button>
+              </li>
+              <li class="buttons-list">
+                <a class="button button_type_secondary expert-card__button button-text" type="button" href="https://t.me/YP_CareerCenterBot" target="_blank">Обратиться в поддержку</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="expert-card__name">
+          <div class="expert-card__content">
+            <h1 class="expert-card__title"></h1>
+            <p class="expert-card__about section-subtitle"></p>
+          </div>
+        </div>
+        <div class="expert-card__skills">
+          <h2 class="expert-card__skills-title">Навыки:</h2>
+          <ul class="tags list expert-card__tags">
+          </ul>
+        </div>
+        <div class="expert-card__info">
+          <div class="expert-card__tabs">
+            <ul class="expert-card__tabs-list list" role="tablist" aria-label="tablist-1">
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-1"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tabpanel-1"
+                >
+                  Работаю с запросами
+                </button>
+              </li>
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-2"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-2"
+                  tabindex="-1"
+                >
+                  Обо мне
+                </button>
+              </li>
+              <li class="expert-card__tabs-item">
+                <button
+                  class="button expert-card__tabs-button"
+                  id="tab-3"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tabpanel-3"
+                  tabindex="-1"
+                >
+                  Опыт работы
+                </button>
+              </li>
+            </ul>
+            <div class="expert-card__tabpanel tabpanel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+              <ul class="expert-card__tabpanel-content expert-card__tabpanel-content_type_description">
+
+              </ul>
+            </div>
+            <div class="expert-card__tabpanel tabpanel" id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+              <ul class="expert-card__tabpanel-content expert-card__tabpanel-content_type_about">
+
+              </ul>
+            </div>
+            <div class="expert-card__tabpanel tabpanel" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+              <ul class="expert-card__tabpanel-content expert-card__tabpanel-content_type_experience">
+
+              </ul>
+            </div>
+            <button class="button expert-card__more-button" type="button">Подробнее</button>
+          </div>
+
+        </div>
+        <div class="expert-card__services">
+          <h2 class="expert-card__services-title">С чем могу помочь:</h2>
+          <ul class="services-list list">
+            
+          </ul>
+        </div>
+
+      </section>
+    </template>
 
     <script src="./expert-page.js"></script>
   </body>

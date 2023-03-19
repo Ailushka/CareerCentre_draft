@@ -2397,6 +2397,10 @@ html:has(.nav_opened) {
   max-width: 281px;
 }
 
+.profi__link:hover {
+    color: var(--clr-main);
+}
+
 .profi__image-container {
   margin: 0 auto 8px;
   height: 325px
@@ -3108,6 +3112,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-radius: 30px;
   object-fit: cover;
   object-position: center;
+  aspect-ratio: 388 / 508;
 }
 
 .expert-card__promo {
@@ -3180,7 +3185,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-image: url("./images/heart-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
-  top: 72px;
+  top: 67px;
   left: 0;
 }
 
