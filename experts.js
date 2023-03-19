@@ -84,7 +84,7 @@ function createItem(item) {
   const newItem = profiItemTemplateElement.querySelector('.profi-list__item').cloneNode(true);
 
   const linkElement = newItem.querySelector('.profi__link');
-  linkElement.href = './expert-page.html';
+  linkElement.href = `./expert-page.html?id=${item.id}`;
 
   const imageElement = newItem.querySelector('.profi__image');
   if (item.photo) {
@@ -169,7 +169,7 @@ function isLoading() {
   }
 }
 
-// создание запроса на сервер для получения списка экспертов
+// создание запроса на сервер для получения списка экспертов (http://51.250.92.80)
 
 const getExpertsList = () => {
   return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/')

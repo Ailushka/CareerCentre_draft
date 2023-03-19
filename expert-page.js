@@ -241,10 +241,14 @@ function renderCard(card, cardContainer) {
   cardContainer.prepend(cardItem);
 }
 
+// получаем id эксперта из параметра в URL-адресе
+const params = new URLSearchParams(window.location.search);
+const expertId = params.get('id');
+
 // создание запроса на сервер для получения карточки эксперта
 
-const getExpertsCard = () => {
-  return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/71')
+const getExpertsCard = (expertId) => {
+  return fetch(`https://student-diary-landing.praktikum-services.ru/api/v1/experts/${expertId}`)
     .then(response => response.json())
     .catch(error => console.log(error));
 }
