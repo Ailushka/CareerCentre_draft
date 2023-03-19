@@ -247,7 +247,7 @@ const expertId = params.get('id');
 
 // создание запроса на сервер для получения карточки эксперта
 
-const getExpertsCard = (expertId) => {
+const getExpertsCard = () => {
   return fetch(`https://student-diary-landing.praktikum-services.ru/api/v1/experts/${expertId}`)
     .then(response => response.json())
     .catch(error => console.log(error));
