@@ -50,6 +50,8 @@ document.querySelectorAll('.accordeon__title').forEach((item) => {
 const profiCardContainerElement = document.querySelector('.main');
 const profiCardTemplateElement = document.querySelector('.template_type_profi-card').content;
 
+let currentScreenWidth;
+
 // создание карточки эксперта на основе темплейта
 
 function createCard(card) {
@@ -211,23 +213,34 @@ function createCard(card) {
 function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
   cardContainer.prepend(cardItem);
+  handleShowMoreButton();
+}
 
-  // const descContainer = document.querySelector('.expert-card__tabpanel-content_type_description');
-  // console.log(descContainer.offsetHeight);
-  //
-  // const showMoreButton = document.querySelector('.expert-card__more-button');
-  //
-  // if (descContainer.offsetHeight > 304) {
-  //   descContainer.classList.add('collapsed');
-  //   showMoreButton.style.display = 'block';
-  // }
-  //
-  // showMoreButton.addEventListener('click', function() {
-  //   descContainer.classList.remove('collapsed');
-  //   showMoreButton.style.display = 'none';
-  // });
+function handleShowMoreButton() {
 
+  const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
 
+  infoContainersList.forEach((item) => {
+    if (item.offsetHeight > 304 && screen.width < 640) {
+      item.style.maxHeight = `304px`;
+
+      const showMoreButton = document.createElement('button');
+      item.closest('.expert-card__tabpanel').append(showMoreButton);
+      showMoreButton.classList.add('button', 'expert-card__more-button');
+      showMoreButton.setAttribute("type", "button");
+      showMoreButton.textContent = 'Подробнее';
+
+      showMoreButton.addEventListener('click', (evt) => {
+        if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
+          evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
+          showMoreButton.textContent = 'Скрыть';
+        } else {
+          evt.target.previousElementSibling.style.maxHeight = `304px`;
+          showMoreButton.textContent = 'Подробнее';
+        }
+      })
+    }
+  })
 }
 
 // получаем id эксперта из параметра в URL-адресе
@@ -248,6 +261,13 @@ const init = async () => {
 }
 
 init();
+
+function getCurrentScreenWidth() {
+  currentScreenWidth = screen.width;
+  return currentScreenWidth;
+}
+
+window.addEventListener('resize', getCurrentScreenWidth);
 
 /* -------------------- */
 /*         Popup        */

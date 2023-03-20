@@ -3481,13 +3481,11 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(20 / 15);
   }
   .expert-card__tabpanel-content {
-    /* display: -webkit-box;
-    -webkit-line-clamp: 15;
-    -webkit-box-orient: vertical;
-    overflow: hidden; */
+    max-height: 540px;
+    transition: max-height .5s ease-in-out;
+    overflow: hidden;
 }
   .expert-card__more-button {
-    display: none;
     font-weight: 500;
     font-size: 15px;
     line-height: calc(20 / 15);
@@ -3499,18 +3497,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   .expert-card__more-button:hover {
     color: var(--clr-main);
   }
-  .expert-card__more-button:focus {
-    color: transparent;
-    font-size: 0;
-    line-height: 0;
-  }
-  .collapsed {
+  /* .collapsed {
     max-height: 304px;
-    overflow: hidden;
-  }
-  .expert-card__tabs:has(.expert-card__more-button:focus) .expert-card__tabpanel-content {
-    display: block;
-  }
+    transition: max-height .5s ease-in-out;
+  } */
   .expert-card__services-title {
     font-size: 30px;
     line-height: calc(36 / 30);
