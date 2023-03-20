@@ -79,17 +79,19 @@ function createCard(card) {
     newCard.querySelector('.expert-card__skills').style.display = "none";
   }
 
-  const pattern = /⁃|\-|\—|\– ?/g;
+  const pattern = /^( ?⁃|\-|\—|\– ?)/g;
+  const regexp = /\n\n/g;
+  const endOfTheLine = /\n$/g;
 
   if (card.description) {
     const descContainer = newCard.querySelector('.expert-card__tabpanel-content_type_description');
 
-    card.description.replace(pattern, '').split('\n').forEach(item => {
+    card.description.replace(regexp, '\n').split('\n').forEach(item => {
       const descItem = document.createElement('li');
       descContainer.append(descItem);
       descItem.classList.add('expert-card__info-item');
       if (item !== '') {
-        descItem.textContent = item;
+        descItem.textContent = item.replace(pattern, '').trim();
       } else {
         descItem.style.display = 'none';
       }
@@ -99,7 +101,7 @@ function createCard(card) {
 
   if (card.about_me) {
     const aboutMeContainer = newCard.querySelector('.expert-card__tabpanel-content_type_about');
-    card.about_me.split('\n\n').forEach(item => {
+    card.about_me.replace(regexp, '\n').replace(endOfTheLine, '').split('\n').forEach(item => {
       const aboutMeItem = document.createElement('li');
       aboutMeContainer.append(aboutMeItem);
       aboutMeItem.classList.add('expert-card__info-item');
@@ -113,12 +115,13 @@ function createCard(card) {
 
   if (card.experience) {
     const expContainer = newCard.querySelector('.expert-card__tabpanel-content_type_experience');
-    card.experience.replace(pattern, '').split('\n').forEach(item => {
+    card.experience.replace(regexp, '\n').split('\n').forEach(item => {
+
       const experienceItem = document.createElement('li');
       expContainer.append(experienceItem);
       experienceItem.classList.add('expert-card__info-item');
       if (item !== '') {
-        experienceItem.textContent = item;
+        experienceItem.textContent = item.replace(pattern, '').trim();
       } else {
         experienceItem.style.display = 'none';
       }
@@ -207,6 +210,69 @@ function createCard(card) {
 
   return newCard;
 }
+
+// тест
+const testObj =
+{
+    "name": "Светлана Анастасова",
+    "post": "Старший продуктовый дизайнер в Chatfood",
+    "company_spheres": [
+        "EdTech",
+        "IT",
+        "Международный рынок"
+    ],
+    "services": [
+        {
+            "name": "Карьерная консультация",
+            "duration": "1.0",
+            "price": "4000.00"
+        },
+        {
+            "name": "Консультация по резюме на английском",
+            "duration": "1.0",
+            "price": "8000.00"
+        },
+        {
+            "name": "Консультация по резюме на русском",
+            "duration": "1.0",
+            "price": "4000.00"
+        },
+        {
+            "name": "Консультация с ментором",
+            "duration": "1.0",
+            "price": "4000.00"
+        },
+        {
+            "name": "План по развитию навыков",
+            "duration": "5.0",
+            "price": "20000.00"
+        },
+        {
+            "name": "Рекомендации по резюме на английском",
+            "duration": null,
+            "price": "2000.00"
+        },
+        {
+            "name": "Рекомендации по резюме на русском",
+            "duration": null,
+            "price": "2000.00"
+        },
+        {
+            "name": "Тренировочное интервью с рекрутером и экспертом",
+            "duration": "1.5",
+            "price": "8000.00"
+        }
+    ],
+    "description": "⁃ Составить резюме на вакансии в российские и зарубежные компании\n ⁃ Составить портфолио: из чего должен состоять кейс продуктового дизайнера\n ⁃ Подготовить к собеседованию: какие вопросы часто задают и как на них лучше отвечать\n ⁃ Подготовить к техническому собеседованию по профилю UX/UI и продуктовый дизайн\n ⁃ Составить план карьерного развития в сфере UX/UI и продуктового дизайна",
+    "about_me": "Я начала свою карьеру с работы в студии разработки мобильных приложений. Я проработала там около 2-х лет. За это время с моим участием было разработано с нуля и запущено около 10 продуктов, среди которых официальное приложение Пикабу на Андроид. \n\nПосле прохождения курсов в БВШД и Skillbox меня пригласили работать в МТС. Там в течение 2-х лет я занималась развитием дизайн культуры и построением дизайн процессов: проводила исследования, учебные конференции и митапы. Руководила командой из 12 дизайнеров и координировала их работу по продуктам компании. В то же самое время я занималась продуктами MTС Кэшбэк и МТС Локатор, которые были разработаны с нуля и запущены по agile-методологии.\n\nПоследние 2 года я работала старшим продуктовым дизайнером в Озоне. Я отвечала за дизайн-систему и занималась ее развитием, проводила собеседования, обучала стажёров. \n\nСейчас работаю в зарубежном стартапе Chatfood, где в мои задачи, помимо продуктовых, входит построение команды и налаживание процессов.\n\nВ течение последнего года я занималась с зарубежными рекрутерами, которые помогали мне составить резюме и подготовиться к собеседованиям по международным стандартам. Последние полгода я активно занималась поиском работы и прошла, наверное, пол сотни собеседований в различные российские и международные компании. \n",
+    "experience": "⁃ Более 8 лет в дизайне, в том числе более 6 лет в UI/UX и продуктовом дизайне\n ⁃ UI/UX дизайнер в студии мобильной разработки Iron Water Studio\n ⁃ Продуктовый дизайнер, Старший продуктовый дизайнер, руководитель группы дизайна в МТС\n ⁃ Старший продуктовый дизайнер в Ozon\n ⁃ Ревьюер в Яндекс Практикум\n ⁃ Старший продуктовый дизайнер в Chatfood",
+    "photo": "http://51.250.92.80/backend_media/photos/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0_%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%BE%D0%B2%D0%B0.jpeg"
+};
+
+profiCardContainerElement.prepend(createCard(testObj));
+
+
+// тест
 
 // добавление карточки в разметку
 

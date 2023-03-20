@@ -3289,6 +3289,13 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding: 0 0 0 25px;
 }
 
+.expert-card__tabpanel-content_type_about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 0;
+}
+
 .expert-card__info-item {
   font-weight: 400;
   font-size: 20px;
@@ -3493,14 +3500,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     font-feature-settings: 'pnum' on, 'lnum' on;
     color: #757575;
   }
-  .expert-card__more-button
-  .expert-card__more-button:hover {
-    color: var(--clr-main);
-  }
-  /* .collapsed {
-    max-height: 304px;
-    transition: max-height .5s ease-in-out;
-  } */
   .expert-card__services-title {
     font-size: 30px;
     line-height: calc(36 / 30);
