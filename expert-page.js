@@ -262,35 +262,6 @@ function handleShowMoreButton() {
   window.addEventListener('resize', checkShowMoreButton);
 }
 
-//
-// function handleShowMoreButton() {
-//
-//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
-//   const showMoreButton = document.createElement('button');
-//   showMoreButton.classList.add('button', 'expert-card__more-button');
-//   showMoreButton.setAttribute("type", "button");
-//   showMoreButton.textContent = 'Подробнее';
-//
-//   infoContainersList.forEach((item) => {
-//     if (item.offsetHeight > 304 && screen.width < 640) {
-//       console.log(screen.width);
-//       item.style.maxHeight = `304px`;
-//
-//       item.closest('.expert-card__tabpanel').append(showMoreButton);
-//
-//       showMoreButton.addEventListener('click', (evt) => {
-//         if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
-//           evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
-//           showMoreButton.textContent = 'Скрыть';
-//         } else {
-//           evt.target.previousElementSibling.style.maxHeight = `304px`;
-//           showMoreButton.textContent = 'Подробнее';
-//         }
-//       })
-//     }
-//   })
-// }
-
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
 const expertId = params.get('id');

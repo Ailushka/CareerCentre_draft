@@ -3544,9 +3544,4 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(36 / 30);
   }
 }
-
-@media (max-width: 410px) {
-  .expert-card__tabs-list::after {
-  width: 127%;
-  }
 }
