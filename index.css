@@ -3423,12 +3423,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(36 / 30);
     font-feature-settings: 'pnum' on, 'lnum' on;
     margin-bottom: 8px;
+    display: inline-block;
+    padding-right: 40px;
   }
   .expert-card__title::after {
     width: 32px;
     height: 25px;
-    top: 7px;
-    left: 234px;
+    top: unset;
+    left: unset;
+    bottom: 6px;
+    right: 0;
     background-size: contain;
   }
   .expert-card__about {
