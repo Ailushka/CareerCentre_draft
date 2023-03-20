@@ -3292,6 +3292,8 @@ input[type="range"]:active::-webkit-slider-thumb{
 .expert-card__tabpanel-content {
   margin: 0;
   padding: 0 0 0 25px;
+  max-height: max-content;
+
 }
 
 .expert-card__tabpanel-content_type_about {
@@ -3306,6 +3308,12 @@ input[type="range"]:active::-webkit-slider-thumb{
   font-size: 20px;
   line-height: calc(24 / 20);
   font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.expert-card__more-button {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
 }
 
 .expert-card__services {
@@ -3544,4 +3552,9 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(36 / 30);
   }
 }
+
+@media (max-width: 410px) {
+  .expert-card__tabs-list::after {
+  width: 127%;
+  }
 }

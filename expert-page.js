@@ -230,6 +230,7 @@ function handleShowMoreButton() {
   infoContainersList.forEach((item) => {
     const tabPanel = item.closest('.expert-card__tabpanel');
     if (item.offsetHeight > 304 && screen.width < 640) {
+      console.log(item);
       item.style.maxHeight = `304px`;
 
       tabPanel.append(showMoreButton);
@@ -244,6 +245,8 @@ function handleShowMoreButton() {
           showMoreButton.textContent = 'Подробнее';
         }
       })
+    } else if (screen.width > 640) {
+      item.style.maxHeight = `max-content`;
     }
   })
 }
