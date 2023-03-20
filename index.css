@@ -2940,10 +2940,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   background: var(--clr-main);
 }
 
-.button_type_filters::before {
-  content: 'Показать 12 вариантов';
-}
-
 .button_type_filters:hover {
   background-color: var(--clr-black);
 }
@@ -3054,9 +3050,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   .button_type_filters {
     min-width: 144px;
     width: auto;
-  }
-  .button_type_filters::before {
-    content: 'Применить';
   }
 }
 
