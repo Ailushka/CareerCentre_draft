@@ -81,6 +81,7 @@ function createCard(card) {
 
   if (card.description) {
     const descContainer = newCard.querySelector('.expert-card__tabpanel-content_type_description');
+
     card.description.replace(pattern, '').split('\n').forEach(item => {
       const descItem = document.createElement('li');
       descContainer.append(descItem);
@@ -210,6 +211,23 @@ function createCard(card) {
 function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
   cardContainer.prepend(cardItem);
+
+  // const descContainer = document.querySelector('.expert-card__tabpanel-content_type_description');
+  // console.log(descContainer.offsetHeight);
+  //
+  // const showMoreButton = document.querySelector('.expert-card__more-button');
+  //
+  // if (descContainer.offsetHeight > 304) {
+  //   descContainer.classList.add('collapsed');
+  //   showMoreButton.style.display = 'block';
+  // }
+  //
+  // showMoreButton.addEventListener('click', function() {
+  //   descContainer.classList.remove('collapsed');
+  //   showMoreButton.style.display = 'none';
+  // });
+
+
 }
 
 // получаем id эксперта из параметра в URL-адресе
