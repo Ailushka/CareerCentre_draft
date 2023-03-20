@@ -169,7 +169,9 @@ function isLoading() {
   }
 }
 
-// создание запроса на сервер для получения списка экспертов (http://51.250.92.80)
+// создание запроса на сервер для получения списка экспертов
+// http://51.250.92.80/api/v1/experts/
+// https://student-diary-landing.praktikum-services.ru/api/v1/experts/
 
 const getExpertsList = () => {
   return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/')

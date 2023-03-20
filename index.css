@@ -3325,6 +3325,8 @@ input[type="range"]:active::-webkit-slider-thumb{
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .services-list__item {
@@ -3352,6 +3354,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   line-height: calc(44 / 36);
   font-feature-settings: 'pnum' on, 'lnum' on;
   margin-bottom: 12px;
+  margin-top: auto;
 }
 
 .services-list__info {
@@ -3360,7 +3363,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .services-list__item .expert-card__button {
   padding: 15px 0;
-  margin-top: auto;
   min-width: 220px;
 }
 
