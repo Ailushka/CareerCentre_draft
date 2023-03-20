@@ -3284,6 +3284,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: auto;
 }
 
+.hidden {
+  height: 0;
+  overflow: hidden;
+}
+
 .expert-card__tabpanel-content {
   margin: 0;
   padding: 0 0 0 25px;
@@ -3292,7 +3297,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 .expert-card__tabpanel-content_type_about {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   padding-left: 0;
 }
 
@@ -3488,7 +3493,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(20 / 15);
   }
   .expert-card__tabpanel-content {
-    max-height: 540px;
     transition: max-height .5s ease-in-out;
     overflow: hidden;
 }

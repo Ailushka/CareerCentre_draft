@@ -211,69 +211,6 @@ function createCard(card) {
   return newCard;
 }
 
-// тест
-const testObj =
-{
-    "name": "Светлана Анастасова",
-    "post": "Старший продуктовый дизайнер в Chatfood",
-    "company_spheres": [
-        "EdTech",
-        "IT",
-        "Международный рынок"
-    ],
-    "services": [
-        {
-            "name": "Карьерная консультация",
-            "duration": "1.0",
-            "price": "4000.00"
-        },
-        {
-            "name": "Консультация по резюме на английском",
-            "duration": "1.0",
-            "price": "8000.00"
-        },
-        {
-            "name": "Консультация по резюме на русском",
-            "duration": "1.0",
-            "price": "4000.00"
-        },
-        {
-            "name": "Консультация с ментором",
-            "duration": "1.0",
-            "price": "4000.00"
-        },
-        {
-            "name": "План по развитию навыков",
-            "duration": "5.0",
-            "price": "20000.00"
-        },
-        {
-            "name": "Рекомендации по резюме на английском",
-            "duration": null,
-            "price": "2000.00"
-        },
-        {
-            "name": "Рекомендации по резюме на русском",
-            "duration": null,
-            "price": "2000.00"
-        },
-        {
-            "name": "Тренировочное интервью с рекрутером и экспертом",
-            "duration": "1.5",
-            "price": "8000.00"
-        }
-    ],
-    "description": "⁃ Составить резюме на вакансии в российские и зарубежные компании\n ⁃ Составить портфолио: из чего должен состоять кейс продуктового дизайнера\n ⁃ Подготовить к собеседованию: какие вопросы часто задают и как на них лучше отвечать\n ⁃ Подготовить к техническому собеседованию по профилю UX/UI и продуктовый дизайн\n ⁃ Составить план карьерного развития в сфере UX/UI и продуктового дизайна",
-    "about_me": "Я начала свою карьеру с работы в студии разработки мобильных приложений. Я проработала там около 2-х лет. За это время с моим участием было разработано с нуля и запущено около 10 продуктов, среди которых официальное приложение Пикабу на Андроид. \n\nПосле прохождения курсов в БВШД и Skillbox меня пригласили работать в МТС. Там в течение 2-х лет я занималась развитием дизайн культуры и построением дизайн процессов: проводила исследования, учебные конференции и митапы. Руководила командой из 12 дизайнеров и координировала их работу по продуктам компании. В то же самое время я занималась продуктами MTС Кэшбэк и МТС Локатор, которые были разработаны с нуля и запущены по agile-методологии.\n\nПоследние 2 года я работала старшим продуктовым дизайнером в Озоне. Я отвечала за дизайн-систему и занималась ее развитием, проводила собеседования, обучала стажёров. \n\nСейчас работаю в зарубежном стартапе Chatfood, где в мои задачи, помимо продуктовых, входит построение команды и налаживание процессов.\n\nВ течение последнего года я занималась с зарубежными рекрутерами, которые помогали мне составить резюме и подготовиться к собеседованиям по международным стандартам. Последние полгода я активно занималась поиском работы и прошла, наверное, пол сотни собеседований в различные российские и международные компании. \n",
-    "experience": "⁃ Более 8 лет в дизайне, в том числе более 6 лет в UI/UX и продуктовом дизайне\n ⁃ UI/UX дизайнер в студии мобильной разработки Iron Water Studio\n ⁃ Продуктовый дизайнер, Старший продуктовый дизайнер, руководитель группы дизайна в МТС\n ⁃ Старший продуктовый дизайнер в Ozon\n ⁃ Ревьюер в Яндекс Практикум\n ⁃ Старший продуктовый дизайнер в Chatfood",
-    "photo": "http://51.250.92.80/backend_media/photos/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0_%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%BE%D0%B2%D0%B0.jpeg"
-};
-
-profiCardContainerElement.prepend(createCard(testObj));
-
-
-// тест
-
 // добавление карточки в разметку
 
 function renderCard(card, cardContainer) {
@@ -283,31 +220,76 @@ function renderCard(card, cardContainer) {
 }
 
 function handleShowMoreButton() {
+  const showMoreButton = document.createElement('button');
+  showMoreButton.classList.add('button', 'expert-card__more-button');
+  showMoreButton.setAttribute('type', 'button');
+  showMoreButton.textContent = 'Подробнее';
 
-  const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
-
-  infoContainersList.forEach((item) => {
-    if (item.offsetHeight > 304 && screen.width < 640) {
-      item.style.maxHeight = `304px`;
-
-      const showMoreButton = document.createElement('button');
-      item.closest('.expert-card__tabpanel').append(showMoreButton);
-      showMoreButton.classList.add('button', 'expert-card__more-button');
-      showMoreButton.setAttribute("type", "button");
+  function toggleShowMore(evt) {
+    const item = evt.target.previousElementSibling;
+    if (item.style.maxHeight === '304px') {
+      item.style.maxHeight = `${item.scrollHeight}px`;
+      showMoreButton.textContent = 'Скрыть';
+    } else {
+      item.style.maxHeight = '304px';
       showMoreButton.textContent = 'Подробнее';
-
-      showMoreButton.addEventListener('click', (evt) => {
-        if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
-          evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
-          showMoreButton.textContent = 'Скрыть';
-        } else {
-          evt.target.previousElementSibling.style.maxHeight = `304px`;
-          showMoreButton.textContent = 'Подробнее';
-        }
-      })
     }
-  })
+  }
+
+  function checkShowMoreButton() {
+    const tabPanels = document.querySelectorAll('.expert-card__tabpanel');
+    tabPanels.forEach((tabPanel) => {
+      const item = tabPanel.querySelector('.expert-card__tabpanel-content');
+      const button = tabPanel.querySelector('.expert-card__more-button');
+      if (item.offsetHeight > 304 && window.innerWidth < 640) {
+        item.style.maxHeight = '304px';
+        if (!button) {
+          tabPanel.append(showMoreButton);
+          showMoreButton.addEventListener('click', toggleShowMore);
+        }
+        showMoreButton.textContent = 'Подробнее';
+      } else {
+        item.style.maxHeight = 'none';
+        if (button) {
+          button.removeEventListener('click', toggleShowMore);
+          button.remove();
+        }
+      }
+    });
+  }
+
+  checkShowMoreButton();
+  window.addEventListener('resize', checkShowMoreButton);
 }
+
+//
+// function handleShowMoreButton() {
+//
+//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
+//   const showMoreButton = document.createElement('button');
+//   showMoreButton.classList.add('button', 'expert-card__more-button');
+//   showMoreButton.setAttribute("type", "button");
+//   showMoreButton.textContent = 'Подробнее';
+//
+//   infoContainersList.forEach((item) => {
+//     if (item.offsetHeight > 304 && screen.width < 640) {
+//       console.log(screen.width);
+//       item.style.maxHeight = `304px`;
+//
+//       item.closest('.expert-card__tabpanel').append(showMoreButton);
+//
+//       showMoreButton.addEventListener('click', (evt) => {
+//         if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
+//           evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
+//           showMoreButton.textContent = 'Скрыть';
+//         } else {
+//           evt.target.previousElementSibling.style.maxHeight = `304px`;
+//           showMoreButton.textContent = 'Подробнее';
+//         }
+//       })
+//     }
+//   })
+// }
 
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
@@ -327,13 +309,6 @@ const init = async () => {
 }
 
 init();
-
-function getCurrentScreenWidth() {
-  currentScreenWidth = screen.width;
-  return currentScreenWidth;
-}
-
-window.addEventListener('resize', getCurrentScreenWidth);
 
 /* -------------------- */
 /*         Popup        */
@@ -449,12 +424,12 @@ function hideContent(parent, content) {
     parent
         .querySelectorAll(content)
         .forEach((item) => {
-          item.setAttribute("hidden", true);
+          item.classList.add("hidden");
           item.classList.remove('tabpanel_active');
         });
 }
 
 function showContent(parent, content) {
-     parent.querySelector(content).removeAttribute('hidden');
-     parent.querySelector(content).classList.add('tabpanel_active');
+  parent.querySelector(content).classList.remove("hidden");
+  parent.querySelector(content).classList.add('tabpanel_active');
 }
