@@ -220,42 +220,73 @@ function renderCard(card, cardContainer) {
 }
 
 function handleShowMoreButton() {
+  const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
   const showMoreButton = document.createElement('button');
   showMoreButton.classList.add('button', 'expert-card__more-button');
-  showMoreButton.setAttribute('type', 'button');
+  showMoreButton.setAttribute("type", "button");
   showMoreButton.textContent = 'Подробнее';
 
-  function toggleShowMore(evt) {
-    const item = evt.target.previousElementSibling;
-    if (item.style.maxHeight === '304px') {
-      item.style.maxHeight = `${item.scrollHeight}px`;
-      showMoreButton.textContent = 'Скрыть';
-    } else {
-      item.style.maxHeight = '304px';
-      showMoreButton.textContent = 'Подробнее';
-    }
-  }
+  const checkContainerSize = () => {
+    infoContainersList.forEach((item) => {
+      if (item.offsetHeight > 304 && screen.width < 640) {
+        item.style.maxHeight = `304px`;
 
-    const tabPanels = document.querySelectorAll('.expert-card__tabpanel');
-    tabPanels.forEach((tabPanel) => {
-      const item = tabPanel.querySelector('.expert-card__tabpanel-content');
-      const button = tabPanel.querySelector('.expert-card__more-button');
-      if (item.offsetHeight > 304 && window.innerWidth < 640) {
-        item.style.maxHeight = '304px';
-        if (!button) {
-          tabPanel.append(showMoreButton);
-          showMoreButton.addEventListener('click', toggleShowMore);
+        if (!item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button')) {
+          item.closest('.expert-card__tabpanel').append(showMoreButton);
         }
-        showMoreButton.textContent = 'Подробнее';
+
+        showMoreButton.addEventListener('click', (evt) => {
+          if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
+            evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
+            showMoreButton.textContent = 'Скрыть';
+          } else {
+            evt.target.previousElementSibling.style.maxHeight = `304px`;
+            showMoreButton.textContent = 'Подробнее';
+          }
+        })
       } else {
-        item.style.maxHeight = 'none';
-        if (button) {
-          button.removeEventListener('click', toggleShowMore);
-          button.remove();
+        if (item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button')) {
+          item.style.maxHeight = 'none';
+          item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button').remove();
         }
       }
-    });
+    })
+  }
+
+  checkContainerSize();
+
+  window.addEventListener('resize', checkContainerSize);
+  window.addEventListener('orientationchange', checkContainerSize);
 }
+
+//
+// function handleShowMoreButton() {
+//
+//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
+//   const showMoreButton = document.createElement('button');
+//   showMoreButton.classList.add('button', 'expert-card__more-button');
+//   showMoreButton.setAttribute("type", "button");
+//   showMoreButton.textContent = 'Подробнее';
+//
+//   infoContainersList.forEach((item) => {
+//     if (item.offsetHeight > 304 && screen.width < 640) {
+//       console.log(screen.width);
+//       item.style.maxHeight = `304px`;
+//
+//       item.closest('.expert-card__tabpanel').append(showMoreButton);
+//
+//       showMoreButton.addEventListener('click', (evt) => {
+//         if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
+//           evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
+//           showMoreButton.textContent = 'Скрыть';
+//         } else {
+//           evt.target.previousElementSibling.style.maxHeight = `304px`;
+//           showMoreButton.textContent = 'Подробнее';
+//         }
+//       })
+//     }
+//   })
+// }
 
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
@@ -275,6 +306,8 @@ const init = async () => {
 }
 
 init();
+
+// window.addEventListener('resize', handleShowMoreButton);
 
 /* -------------------- */
 /*         Popup        */
