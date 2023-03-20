@@ -77,7 +77,7 @@ function createCard(card) {
     newCard.querySelector('.expert-card__skills').style.display = "none";
   }
 
-  const pattern = /⁃|\- ?/g;
+  const pattern = /⁃|\-|\—|\– ?/g;
 
   if (card.description) {
     const descContainer = newCard.querySelector('.expert-card__tabpanel-content_type_description');
@@ -85,19 +85,27 @@ function createCard(card) {
       const descItem = document.createElement('li');
       descContainer.append(descItem);
       descItem.classList.add('expert-card__info-item');
-      descItem.textContent = item;
+      if (item !== '') {
+        descItem.textContent = item;
+      } else {
+        descItem.style.display = 'none';
+      }
+
     });
   }
 
   if (card.about_me) {
     const aboutMeContainer = newCard.querySelector('.expert-card__tabpanel-content_type_about');
-    card.about_me.replace(pattern, '').split('\n\n').forEach(item => {
+    card.about_me.split('\n\n').forEach(item => {
       const aboutMeItem = document.createElement('li');
-      aboutMeContainer.prepend(aboutMeItem);
+      aboutMeContainer.append(aboutMeItem);
       aboutMeItem.classList.add('expert-card__info-item');
       aboutMeItem.style.listStyleType = 'none';
       aboutMeItem.textContent = item;
     });
+  } else {
+    const aboutMeListItem = newCard.querySelector('.expert-card__tabs-item_type_about');
+    aboutMeListItem.style.display = 'none';
   }
 
   if (card.experience) {
@@ -106,8 +114,15 @@ function createCard(card) {
       const experienceItem = document.createElement('li');
       expContainer.append(experienceItem);
       experienceItem.classList.add('expert-card__info-item');
-      experienceItem.textContent = item;
+      if (item !== '') {
+        experienceItem.textContent = item;
+      } else {
+        experienceItem.style.display = 'none';
+      }
     });
+  } else {
+    const expListItem = newCard.querySelector('.expert-card__tabs-item_type_experience');
+    expListItem.style.display = 'none';
   }
 
   const photoElement = newCard.querySelector('.expert-card__image');

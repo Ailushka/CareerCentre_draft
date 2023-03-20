@@ -174,7 +174,7 @@ function isLoading() {
 // https://student-diary-landing.praktikum-services.ru/api/v1/experts/
 
 const getExpertsList = () => {
-  return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/')
+  return fetch('http://51.250.92.80/api/v1/experts/')
     .then(response => response.json())
     .catch(error => console.log(error));
 }
