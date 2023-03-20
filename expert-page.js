@@ -220,73 +220,33 @@ function renderCard(card, cardContainer) {
 }
 
 function handleShowMoreButton() {
+
   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
   const showMoreButton = document.createElement('button');
   showMoreButton.classList.add('button', 'expert-card__more-button');
   showMoreButton.setAttribute("type", "button");
   showMoreButton.textContent = 'Подробнее';
 
-  const checkContainerSize = () => {
-    infoContainersList.forEach((item) => {
-      if (item.offsetHeight > 304 && screen.width < 640) {
-        item.style.maxHeight = `304px`;
+  infoContainersList.forEach((item) => {
+    const tabPanel = item.closest('.expert-card__tabpanel');
+    if (item.offsetHeight > 304 && screen.width < 640) {
+      item.style.maxHeight = `304px`;
 
-        if (!item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button')) {
-          item.closest('.expert-card__tabpanel').append(showMoreButton);
+      tabPanel.append(showMoreButton);
+
+      showMoreButton.addEventListener('click', (evt) => {
+        const targetContainer = evt.target.previousElementSibling;
+        if (targetContainer.style.maxHeight === `304px`) {
+          targetContainer.style.maxHeight = `${targetContainer.scrollHeight}px`;
+          showMoreButton.textContent = 'Скрыть';
+        } else {
+          targetContainer.style.maxHeight = `304px`;
+          showMoreButton.textContent = 'Подробнее';
         }
-
-        showMoreButton.addEventListener('click', (evt) => {
-          if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
-            evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
-            showMoreButton.textContent = 'Скрыть';
-          } else {
-            evt.target.previousElementSibling.style.maxHeight = `304px`;
-            showMoreButton.textContent = 'Подробнее';
-          }
-        })
-      } else {
-        if (item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button')) {
-          item.style.maxHeight = 'none';
-          item.closest('.expert-card__tabpanel').querySelector('.expert-card__more-button').remove();
-        }
-      }
-    })
-  }
-
-  checkContainerSize();
-
-  window.addEventListener('resize', checkContainerSize);
-  window.addEventListener('orientationchange', checkContainerSize);
+      })
+    }
+  })
 }
-
-//
-// function handleShowMoreButton() {
-//
-//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
-//   const showMoreButton = document.createElement('button');
-//   showMoreButton.classList.add('button', 'expert-card__more-button');
-//   showMoreButton.setAttribute("type", "button");
-//   showMoreButton.textContent = 'Подробнее';
-//
-//   infoContainersList.forEach((item) => {
-//     if (item.offsetHeight > 304 && screen.width < 640) {
-//       console.log(screen.width);
-//       item.style.maxHeight = `304px`;
-//
-//       item.closest('.expert-card__tabpanel').append(showMoreButton);
-//
-//       showMoreButton.addEventListener('click', (evt) => {
-//         if (evt.target.previousElementSibling.style.maxHeight === `304px`) {
-//           evt.target.previousElementSibling.style.maxHeight = `${evt.target.previousElementSibling.scrollHeight}px`;
-//           showMoreButton.textContent = 'Скрыть';
-//         } else {
-//           evt.target.previousElementSibling.style.maxHeight = `304px`;
-//           showMoreButton.textContent = 'Подробнее';
-//         }
-//       })
-//     }
-//   })
-// }
 
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
@@ -306,8 +266,6 @@ const init = async () => {
 }
 
 init();
-
-// window.addEventListener('resize', handleShowMoreButton);
 
 /* -------------------- */
 /*         Popup        */
