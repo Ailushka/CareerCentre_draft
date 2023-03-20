@@ -236,7 +236,6 @@ function handleShowMoreButton() {
     }
   }
 
-  function checkShowMoreButton() {
     const tabPanels = document.querySelectorAll('.expert-card__tabpanel');
     tabPanels.forEach((tabPanel) => {
       const item = tabPanel.querySelector('.expert-card__tabpanel-content');
@@ -256,10 +255,6 @@ function handleShowMoreButton() {
         }
       }
     });
-  }
-
-  checkShowMoreButton();
-  window.addEventListener('resize', checkShowMoreButton);
 }
 
 // получаем id эксперта из параметра в URL-адресе
