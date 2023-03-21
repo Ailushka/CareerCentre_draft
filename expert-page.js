@@ -393,8 +393,11 @@ function changeTabPanel(evt) {
 function showMoreButton(parent, content) {
   const activePanel = parent.querySelector(content);
   const height = activePanel.scrollHeight;
+  const activePanelContent = activePanel.querySelector('.expert-card__tabpanel-content');
 
   if (height > 300) {
+    activePanelContent.classList.toggle('overlay');
+
     const moreButtons = parent.querySelectorAll('.expert-card__more-button');
     moreButtons.forEach((button) => button.remove());
 
@@ -403,6 +406,7 @@ function showMoreButton(parent, content) {
     moreButton.innerHTML = 'Подробнее';
     moreButton.addEventListener('click', () => {
       activePanel.classList.toggle('tabpanel_full');
+      activePanelContent.classList.toggle('overlay');
       if (moreButton.innerHTML === 'Подробнее') {
         moreButton.innerHTML = 'Скрыть';
       } else {

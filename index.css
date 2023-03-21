@@ -3504,11 +3504,25 @@ input[type="range"]:active::-webkit-slider-thumb{
     max-height: 300px;
     overflow: hidden;
     transition: max-height .5s ease-in-out;
+    position: relative;
   }
   .tabpanel_full {
     max-height: 1000px;
     overflow: auto;
   }
+.expert-card__tabpanel-content::after {
+
+
+}
+.overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(rgb(245 245 245 / 0) 0%, #F5F5F5 100%);
+}
   .expert-card__more-button {
     display: inline-block;
     font-weight: 500;
