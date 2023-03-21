@@ -382,6 +382,10 @@ function changeTabPanel(evt) {
         .querySelectorAll(".tabpanel")
         .forEach((item) => item.classList.remove("tabpanel_full"));
 
+    mainContainer
+        .querySelectorAll(".expert-card__tabpanel-content")
+        .forEach((item) => item.classList.remove("overlay"));
+
     removeReadMoreButton();
 
     showMoreButton(mainContainer, `[id="${targetPanel}"]`);
@@ -409,8 +413,10 @@ function showMoreButton(parent, content) {
       activePanelContent.classList.toggle('overlay');
       if (moreButton.innerHTML === 'Подробнее') {
         moreButton.innerHTML = 'Скрыть';
+        activePanelContent.classList.remove('overlay');
       } else {
         moreButton.innerHTML = 'Подробнее';
+        activePanelContent.classList.add('overlay');
       }
     });
     activePanel.parentNode.appendChild(moreButton);
