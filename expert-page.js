@@ -362,7 +362,7 @@ function changeTabPanel(evt) {
         .querySelectorAll(".expert-card__tabpanel-content")
         .forEach((item) => item.classList.remove("overlay"));
 
-    removeReadMoreButton();
+    removeShowMoreButton();
 
     showMoreButton(mainContainer, `[id="${targetPanel}"]`);
     hideContent(mainContainer, '[role="tabpanel"]');
@@ -399,7 +399,7 @@ function showMoreButton(parent, content) {
   }
 }
 
-function removeReadMoreButton() {
+function removeShowMoreButton() {
   const readMoreButtons = document.querySelectorAll('.expert-card__more-button');
   readMoreButtons.forEach((button) => {
     button.remove();
@@ -424,6 +424,6 @@ function checkActiveTab(tabContainer) {
   const activeTab = tabContainer.querySelector('[aria-selected="true"]');
   const activePanel = tabContainer.querySelector(`#${activeTab.getAttribute("aria-controls")}`);
 
-  removeReadMoreButton(tabContainer);
+  removeShowMoreButton(tabContainer);
   showMoreButton(activePanel.parentNode, `#${activePanel.id}`);
 }
