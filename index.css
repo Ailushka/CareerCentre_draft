@@ -3292,7 +3292,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .expert-card__tabpanel-content {
   margin: 0;
   padding: 0 0 0 25px;
-  max-height: max-content;
 
 }
 
@@ -3314,6 +3313,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   font-size: 0;
   line-height: 0;
   color: transparent;
+  display: none;
 }
 
 .expert-card__services {
@@ -3500,11 +3500,20 @@ input[type="range"]:active::-webkit-slider-thumb{
     font-size: 15px;
     line-height: calc(20 / 15);
   }
-  .expert-card__tabpanel-content {
-    transition: max-height .5s ease-in-out;
+  .expert-card__tabpanel {
+    max-height: 304px;
     overflow: hidden;
+    transition: max-height .5s ease-in-out;
+  }
+  .tabpanel_full {
+    max-height: 1000px;
+    overflow: auto;
+  }
+  .expert-card__tabpanel-content {
+
 }
   .expert-card__more-button {
+    display: inline-block;
     font-weight: 500;
     font-size: 15px;
     line-height: calc(20 / 15);

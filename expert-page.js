@@ -50,8 +50,6 @@ document.querySelectorAll('.accordeon__title').forEach((item) => {
 const profiCardContainerElement = document.querySelector('.main');
 const profiCardTemplateElement = document.querySelector('.template_type_profi-card').content;
 
-let currentScreenWidth;
-
 // создание карточки эксперта на основе темплейта
 
 function createCard(card) {
@@ -216,40 +214,43 @@ function createCard(card) {
 function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
   cardContainer.prepend(cardItem);
-  handleShowMoreButton();
+
+  const tabContainer = document.querySelector('.expert-card__tabs');
+  checkActiveTab(tabContainer);
+  // handleShowMoreButton();
 }
 
-function handleShowMoreButton() {
-
-  const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
-  const showMoreButton = document.createElement('button');
-  showMoreButton.classList.add('button', 'expert-card__more-button');
-  showMoreButton.setAttribute("type", "button");
-  showMoreButton.textContent = 'Подробнее';
-
-  infoContainersList.forEach((item) => {
-    const tabPanel = item.closest('.expert-card__tabpanel');
-    if (item.offsetHeight > 304 && screen.width < 640) {
-      console.log(item);
-      item.style.maxHeight = `304px`;
-
-      tabPanel.append(showMoreButton);
-
-      showMoreButton.addEventListener('click', (evt) => {
-        const targetContainer = evt.target.previousElementSibling;
-        if (targetContainer.style.maxHeight === `304px`) {
-          targetContainer.style.maxHeight = `${targetContainer.scrollHeight}px`;
-          showMoreButton.textContent = 'Скрыть';
-        } else {
-          targetContainer.style.maxHeight = `304px`;
-          showMoreButton.textContent = 'Подробнее';
-        }
-      })
-    } else if (screen.width > 640) {
-      item.style.maxHeight = `max-content`;
-    }
-  })
-}
+// function handleShowMoreButton() {
+//
+//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
+//   const showMoreButton = document.createElement('button');
+//   showMoreButton.classList.add('button', 'expert-card__more-button');
+//   showMoreButton.setAttribute("type", "button");
+//   showMoreButton.textContent = 'Подробнее';
+//
+//   infoContainersList.forEach((item) => {
+//     const tabPanel = item.closest('.expert-card__tabpanel');
+//     if (item.offsetHeight > 304 && screen.width < 640) {
+//       console.log(item);
+//       item.style.maxHeight = `304px`;
+//
+//       tabPanel.append(showMoreButton);
+//
+//       showMoreButton.addEventListener('click', (evt) => {
+//         const targetContainer = evt.target.previousElementSibling;
+//         if (targetContainer.style.maxHeight === `304px`) {
+//           targetContainer.style.maxHeight = `${targetContainer.scrollHeight}px`;
+//           showMoreButton.textContent = 'Скрыть';
+//         } else {
+//           targetContainer.style.maxHeight = `304px`;
+//           showMoreButton.textContent = 'Подробнее';
+//         }
+//       })
+//     } else if (screen.width > 640) {
+//       item.style.maxHeight = `max-content`;
+//     }
+//   })
+// }
 
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
@@ -376,8 +377,47 @@ function changeTabPanel(evt) {
 
     targetTab.setAttribute("aria-selected", true);
 
+    // удалить класс tabpanel_full у всех элементов с классом tabpanel
+    mainContainer
+        .querySelectorAll(".tabpanel")
+        .forEach((item) => item.classList.remove("tabpanel_full"));
+
+    removeReadMoreButton();
+
+    showMoreButton(mainContainer, `[id="${targetPanel}"]`);
     hideContent(mainContainer, '[role="tabpanel"]');
     showContent(mainContainer, [`#${targetPanel}`]);
+
+}
+
+function showMoreButton(parent, content) {
+  const activePanel = parent.querySelector(content);
+  const height = activePanel.scrollHeight;
+
+  if (height > 304) {
+    const moreButtons = parent.querySelectorAll('.expert-card__more-button');
+    moreButtons.forEach((button) => button.remove());
+
+    const moreButton = document.createElement('button');
+    moreButton.classList.add('expert-card__more-button', 'button');
+    moreButton.innerHTML = 'Подробнее';
+    moreButton.addEventListener('click', () => {
+      activePanel.classList.toggle('tabpanel_full');
+      if (moreButton.innerHTML === 'Подробнее') {
+        moreButton.innerHTML = 'Скрыть';
+      } else {
+        moreButton.innerHTML = 'Подробнее';
+      }
+    });
+    activePanel.parentNode.appendChild(moreButton);
+  }
+}
+
+function removeReadMoreButton() {
+  const readMoreButtons = document.querySelectorAll('.expert-card__more-button');
+  readMoreButtons.forEach((button) => {
+    button.remove();
+  });
 }
 
 function hideContent(parent, content) {
@@ -392,4 +432,12 @@ function hideContent(parent, content) {
 function showContent(parent, content) {
   parent.querySelector(content).classList.remove("hidden");
   parent.querySelector(content).classList.add('tabpanel_active');
+}
+
+function checkActiveTab(tabContainer) {
+  const activeTab = tabContainer.querySelector('[aria-selected="true"]');
+  const activePanel = tabContainer.querySelector(`#${activeTab.getAttribute("aria-controls")}`);
+
+  removeReadMoreButton(tabContainer);
+  showMoreButton(activePanel.parentNode, `#${activePanel.id}`);
 }
