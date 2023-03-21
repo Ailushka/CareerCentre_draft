@@ -396,7 +396,7 @@ function showMoreButton(parent, content) {
   const activePanelContent = activePanel.querySelector('.expert-card__tabpanel-content');
 
   if (height > 300) {
-    activePanelContent.classList.toggle('overlay');
+    activePanelContent.classList.add('overlay');
 
     const moreButtons = parent.querySelectorAll('.expert-card__more-button');
     moreButtons.forEach((button) => button.remove());
