@@ -213,44 +213,22 @@ function createCard(card) {
 
 function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
+  profiCardContainerElement.querySelector('.expert-card').remove();
+  profiCardContainerElement.classList.remove('skeleton');
+
   cardContainer.prepend(cardItem);
 
   const tabContainer = document.querySelector('.expert-card__tabs');
   checkActiveTab(tabContainer);
-  // handleShowMoreButton();
 }
 
-// function handleShowMoreButton() {
-//
-//   const infoContainersList = document.querySelectorAll('.expert-card__tabpanel-content');
-//   const showMoreButton = document.createElement('button');
-//   showMoreButton.classList.add('button', 'expert-card__more-button');
-//   showMoreButton.setAttribute("type", "button");
-//   showMoreButton.textContent = 'Подробнее';
-//
-//   infoContainersList.forEach((item) => {
-//     const tabPanel = item.closest('.expert-card__tabpanel');
-//     if (item.offsetHeight > 304 && screen.width < 640) {
-//       console.log(item);
-//       item.style.maxHeight = `304px`;
-//
-//       tabPanel.append(showMoreButton);
-//
-//       showMoreButton.addEventListener('click', (evt) => {
-//         const targetContainer = evt.target.previousElementSibling;
-//         if (targetContainer.style.maxHeight === `304px`) {
-//           targetContainer.style.maxHeight = `${targetContainer.scrollHeight}px`;
-//           showMoreButton.textContent = 'Скрыть';
-//         } else {
-//           targetContainer.style.maxHeight = `304px`;
-//           showMoreButton.textContent = 'Подробнее';
-//         }
-//       })
-//     } else if (screen.width > 640) {
-//       item.style.maxHeight = `max-content`;
-//     }
-//   })
-// }
+// скелетон на время ожидания ответа от сервера
+
+function isLoading() {
+  profiCardContainerElement.classList.add('skeleton');
+  profiCardContainerElement.prepend(profiCardTemplateElement.querySelector('.expert-card').cloneNode(true));
+
+}
 
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
@@ -265,6 +243,7 @@ const getExpertsCard = () => {
 }
 
 const init = async () => {
+  isLoading();
   profiCard = await getExpertsCard();
   renderCard(profiCard, profiCardContainerElement);
 }
@@ -328,9 +307,6 @@ closeButtons.forEach((item) => {
       closePopUp(popUpToClose);
   });
 });
-
-// requestForm.addEventListener('submit', handleRequestFormSubmit);
-
 
 /* -------------------- */
 /*         Tabs         */
