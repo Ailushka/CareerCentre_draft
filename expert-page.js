@@ -394,7 +394,7 @@ function showMoreButton(parent, content) {
   const activePanel = parent.querySelector(content);
   const height = activePanel.scrollHeight;
 
-  if (height > 304) {
+  if (height > 300) {
     const moreButtons = parent.querySelectorAll('.expert-card__more-button');
     moreButtons.forEach((button) => button.remove());
 
