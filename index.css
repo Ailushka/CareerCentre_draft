@@ -2436,7 +2436,7 @@ html:has(.nav_opened) {
 
 @keyframes skeleton-loading {
   0% {
-    background-color: #E6E6E6;
+    background-color: #F5F5F5;
   }
   100% {
     background-color: #DCDCDC;
