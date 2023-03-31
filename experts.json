@@ -1,0 +1,696 @@
+[
+    {
+        "id": 71,
+        "name": "Яна Нестерова",
+        "post": "Senior UX исследователь",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/dafd1cce-63be-4903-9f98-dcdc606129b3/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок",
+            "Финансы"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Юля Чернова",
+        "post": "Графический дизайнер, 2D-иллюстратор",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/7de2fb33-1d36-4545-9a5e-a7f5c8a4930a/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Юлия Королева",
+        "post": "Операционный руководитель",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/df166d3c-ecf6-44ee-9c94-797363ed5134/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Юлия Аравина",
+        "post": "Коуч it-руководителей, со-основатель стартапа полезных привычек Ecowelly\n\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/8a75cb13-f87a-4616-b1f1-93323e47b9e6/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Мария Раева",
+        "post": "Технический специалист развития клиентов",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/d3af963e-1a2a-4bf7-8805-3bcb7b8ba265/orig",
+        "company_spheres": [
+            "IT",
+            "Клиентский сервис"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Максим Ломакин",
+        "post": "Разработчик ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/87786b7b-1e26-4658-9b05-3d6d3ce09acd/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Светлана Анастасова",
+        "post": "Старший продуктовый дизайнер в Chatfood",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/818bed5f-b3bf-4205-920d-11e4a4c6661e/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Александр Тихонов",
+        "post": "Лид-дизайнер, дизайнер взаимодействия, консультант в карьерном треке Яндекса, наставник на факультете \"Дизайнер интерфейсов\"",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/50d6a1fd-8e17-49e4-ac42-c74ec494e841/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Александра Амбражейчик",
+        "post": "IT-рекрутер в Яндекс Практикуме",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/4cffbf08-8260-4073-9af9-8b44a231698c/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Иван Самсонов",
+        "post": "Senior Software Engineer ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1635340/f0c4ffaf-d4d9-4a0a-84ca-74fa04b01c65/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Павел Пирогов",
+        "post": "Руководитель проектов ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/44762fdf-0a99-46f9-a20a-42985b89dab4/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Ольга Лебедева",
+        "post": "Лид сопровождения UX-копирайтинг/ UX-исследования",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/06e766be-7dc6-461a-94dd-db80bf40eab9/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Олег Синев",
+        "post": "NLMK Group, руководитель отдела дизайна",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/c3cb2da4-331f-475d-ac40-14d6e3c2b13e/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Наталья Бородулина",
+        "post": "UX-редактор",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/d3f20ea4-ca02-45cd-b8a7-9b36e524d2e9/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Наталья Зайцева",
+        "post": "Проектный менеджер Карьерного центра направления дизайна Яндекс Практикума",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/7cedd9b7-3b21-4dc5-bda2-960efee2a966/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 56,
+        "name": "Мария Пелешенко",
+        "post": "Product Operations Manager",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/420be0fa-01e9-4963-aa3a-dd928cdb74d0/orig",
+        "company_spheres": [
+            "IT",
+            "Маркетинг",
+            "Международный рынок",
+            "Телеком",
+            "Финансы"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Максим Чеченёв",
+        "post": "Engineering Manager",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/e6407452-ca90-449c-9f52-5d61577dcd38/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Максим Гостев",
+        "post": "CEO в euct.ru",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/fb3d7ab7-8a6b-483e-9677-038d300d36f6/orig",
+        "company_spheres": [
+            "IT",
+            "Маркетинг"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Кира Стасенок",
+        "post": "Head of recruitment",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/609319e0-8958-40c6-8e5d-f166968c2e1e/orig",
+        "company_spheres": [
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Ирина Козликина",
+        "post": "HR Generalist",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/aff1816d-1dd0-49fd-982a-130c1d274f1f/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT",
+            "Продажи"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Ирина Ефимова",
+        "post": "Продуктовый исследователь в направлении Анализа данных",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/ef811b99-1d39-4dbd-901b-accba8ff10fd/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Егор Ганюков",
+        "post": "Менеджер по маркетингу",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/b3a59e02-418c-4dfc-95a6-79ce2cda93a1/orig",
+        "company_spheres": [
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 64,
+        "name": "Олег Шагаев",
+        "post": "Руководитель службы разработки",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/253ba10b-95d2-4c5b-b77e-328a85b956db/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 58,
+        "name": "Дмитрий Алдунин",
+        "post": "Старший менеджер проектов",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/fdb8fa04-92bd-4d1e-98d1-e909e7b59496/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Шергина Анастасия",
+        "post": "Лид группы продуктов, продакт-менеджер",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/b0062ee2-a256-45b9-ac5d-148a373d2c99/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT",
+            "Консалтинг"
+        ]
+    },
+    {
+        "id": 57,
+        "name": "Валентина Бровко",
+        "post": "Project Manager в направлении обучения - Яндекс Такси и Яндекс Доставка\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/c22bb5e2-3431-4ac8-9be5-ce6746b0e448/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 62,
+        "name": "Мария Оборина",
+        "post": "Продакт-менеджер карьерного трека ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/96b42bd3-40a2-4dd2-bbcc-2c3a04a38119/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Алексей Гиматдинов",
+        "post": "Project/Product manager в антифроде Яндекс Маркета",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/2a934ed4-5ff8-4dd0-9539-21d47d6063cc/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Екатерина Бутырская",
+        "post": "HR product manager карьерного трека направления Python в Яндекс Практикум\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/61f444a8-9650-4117-ba9f-7cfe44cafab2/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Юлия Павленко",
+        "post": "Менеджер продукта ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/adeafcd0-73f8-4353-8393-7093322503ab/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Валерия Данильченко",
+        "post": "Product Owner",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/7d611fd4-72aa-4773-8315-5c6d553c2cdb/orig",
+        "company_spheres": [
+            "E-com",
+            "IT"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Станислав Барышников ",
+        "post": "Арт-директор в отделе маркетинга Совкомбанка",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/a5d63d81-7222-4281-9fa6-f5a1a33aaa2a/orig",
+        "company_spheres": [
+            "Финансы"
+        ]
+    },
+    {
+        "id": 68,
+        "name": "Анастасия Шмырова",
+        "post": "Старший IT рекрутер в команде геосервисов, Яндекс",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/22d7afe0-034a-4836-906e-38e2e1815fd4/orig",
+        "company_spheres": [
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Алина Трофимцова",
+        "post": "Старший UX-редактор Авито",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/06cfe65e-c7eb-4be8-af16-13bc74d12ebd/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Алеся Малкова",
+        "post": "Маркетолог, бизнес-консультант, наставник в Практикуме",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/03bb3da8-5461-4114-9007-aaa87045d6c3/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Александра Петрищева",
+        "post": "Старший дизайнер продукта",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/a66db06d-6359-4551-b804-2235fcb5870a/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Анна Федорова",
+        "post": "Руководитель отдела по работе с агентствами и партнерами в Яндекс Маркет",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/8e2d95bb-7221-4de3-8bc9-cb6c097ca560/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 69,
+        "name": "Анастасия Карлышева",
+        "post": "Бизнес-консультант",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/fdd02294-9fd6-4b49-bcdf-7e90239facd1/orig",
+        "company_spheres": [
+            "Финансы"
+        ]
+    },
+    {
+        "id": 73,
+        "name": "Нелли Лакосина",
+        "post": "Global HR",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/8bcf1548-e673-42d7-9db5-00e438d10011/orig",
+        "company_spheres": [
+            "EdTech",
+            "HR/рекрутинг",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 63,
+        "name": "Росина Пустовит",
+        "post": "HR-консультант ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/12f949c0-fe1f-459f-8d0a-9fe7e00f15de/orig",
+        "company_spheres": [
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Татьяны Гой",
+        "post": "Коуч, карьерный консультант, профориентолог,  карьерный психолог, игропрактик",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/f11cb83e-e52b-4c1a-8cc5-a7c0d4519553/orig",
+        "company_spheres": [
+            "HR/рекрутинг",
+            "IT"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Ксения Осьмакова",
+        "post": "Руководитель службы развития клиентов в Я.Бизнесе",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/aeda630e-e46d-4f34-a484-a09b25a997c0/orig",
+        "company_spheres": [
+            "IT",
+            "Клиентский сервис"
+        ]
+    },
+    {
+        "id": 66,
+        "name": "Анна Динельт",
+        "post": "Product Lead, Яндекс Афиша",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/e712c0ca-1bae-4446-a40f-e6d9ac1b0417/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Анна Смирнова",
+        "post": "Руководитель карьерного центра направления Программирования, Яндекс Практикум. Наставница на курсе IT-рекрутер.\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/cc724de0-636c-4c8c-ac74-748a6cc757bb/orig",
+        "company_spheres": [
+            "EdTech",
+            "HRTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Екатерина Моторина",
+        "post": "Senior Product Designer",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/610f2ccd-ba63-4537-8094-f29811c7d069/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 74,
+        "name": "Артем Исакин",
+        "post": "Руководитель команды трудоустройства - Направление анализа данных",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/1615581d-79d2-4831-89fa-3d6ffd29a414/orig",
+        "company_spheres": [
+            "EdTech"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Александр Козлов",
+        "post": "TechLead/TeamLead в ClearScale",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/b0f5501f-370e-4f1e-8fd4-8be2c46fd87d/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 61,
+        "name": "Алексей Макаров",
+        "post": "Руководитель карьерного центра направления анализа данных, Яндекс Практикум\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/56eaccc2-44cc-439f-aec9-37cd5cf19d01/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Маргарита Хохлова",
+        "post": "Lead UX-writer Альфа-Банк",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/256773cc-f724-42cd-b10f-c80c3255ac80/orig",
+        "company_spheres": [
+            "IT",
+            "Финансы"
+        ]
+    },
+    {
+        "id": 72,
+        "name": "Маргарита Головко",
+        "post": "Руководитель карьерного центра Backend-направления, Яндекс Практикум",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/2c492eff-e5f7-40b3-ba1f-e273558d46d1/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Дарья Худякова",
+        "post": "Senior Project Manager",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/e3c55717-00eb-4c80-b4fd-23334493d81f/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Дарья Медякова",
+        "post": "Руководитель карьерного центра курса «Менеджер проектов», Яндекс Практикум\n",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/01f7b692-cb1f-455e-a463-f15407c84076/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Глеб Кулбасов",
+        "post": "Старший продакт менеджер в Яндекс Погоде",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/4e572ece-3ae8-42d2-8b5f-8a17faea034d/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Максим Ожегов",
+        "post": "CPO также руководитель всех БА и СА компании",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/8903f42b-1db1-4e19-8576-f6275f68300e/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Анна Грязева",
+        "post": "Продуктовый дизайнер",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/238be805-7bfd-4c13-8eb9-45aeb16640a2/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Никита Бергман",
+        "post": "HR-эксперт карьерного центра направления анализа данных, Яндекс Практикум",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/200e9dc0-dfa2-4efd-9523-ee58e46d39f2/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT",
+            "Консалтинг"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Елена Драгун ",
+        "post": "Руководитель группы тестирования",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/c70e23ae-4865-40b0-a46a-ad75a09225bd/orig",
+        "company_spheres": [
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Елена Нежевенко",
+        "post": "Педагог, тьютор",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/6e009875-a2d5-467b-b8d5-9ff8d247213f/orig",
+        "company_spheres": [
+            "EdTech",
+            "HRTech"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Анастасия Кузьминкова",
+        "post": "Наставник на курсе \"Управление командой\", сертифицированный коуч, руководитель, консультант",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/d0120477-8b17-4012-80b9-04ccb7a5ef32/orig",
+        "company_spheres": [
+            "EdTech"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Даниил Шульгин",
+        "post": "Head of Delivery Unit/Руководитель направления",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/341e507d-45f1-4f97-b745-993febec849a/orig",
+        "company_spheres": [
+            "EdTech",
+            "IT"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Яна Волгужева",
+        "post": "Коммуникационный дизайнер Prequel",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/b1cf4b6f-5f09-4f7d-893a-4249b112d9ed/orig",
+        "company_spheres": [
+            "ArtTECH",
+            "EdTech",
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Павел Шлюпкин",
+        "post": "Старший рекрутер",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1527204/6a0a20e7-6131-4576-b8f4-7b84a0fcf9cb/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 55,
+        "name": "Леонид Савченков",
+        "post": "Директор по стратегическим проектам",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/93fd2571-d326-42a5-8d45-95995f35d186/orig",
+        "company_spheres": [
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Николай Ширинкин",
+        "post": "Продакт менеджер в Яндекс Практикуме ",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/f92a6aff-56d7-4387-a249-8537a644372d/orig",
+        "company_spheres": [
+            "EdTech",
+            "HRTech",
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 67,
+        "name": "Татьяна Кузнецова",
+        "post": "Проектный менеджер в образовательных EdTech проектах",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/6b9199be-ee79-4a36-ba28-d69aee00c815/orig",
+        "company_spheres": [
+            "EdTech",
+            "FMCG"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Мохаммад Али",
+        "post": "Developer at Yandex",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1520633/9cb82fe8-e640-46ff-a02b-16ff7cab53ac/orig",
+        "company_spheres": [
+            "IT"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Юлия Лифенцова",
+        "post": "HR-эксперт в Яндекс Практикуме/ Автор и наставник курса “IT-рекрутер”",
+        "photo": "https://avatars.mds.yandex.net/get-lpc/1635340/b2104ca7-ac80-4818-a273-870606ec2ef1/orig",
+        "company_spheres": []
+    },
+    {
+        "id": 10,
+        "name": "Георгий Девяткин",
+        "post": "Head of Frontend Engineering, OnAir Entertainment",
+        "photo": null,
+        "company_spheres": [
+            "EdTech",
+            "IT",
+            "Международный рынок"
+        ]
+    },
+    {
+        "id": 65,
+        "name": "Дмитрий Коротеньких",
+        "post": "E-commerce директор",
+        "photo": null,
+        "company_spheres": [
+            "E-com",
+            "EdTech",
+            "IT",
+            "Продажи"
+        ]
+    }
+]

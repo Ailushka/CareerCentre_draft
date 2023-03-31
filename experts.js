@@ -174,7 +174,7 @@ function isLoading() {
 // https://student-diary-landing.praktikum-services.ru/api/v1/experts/
 
 const getExpertsList = () => {
-  return fetch('https://student-diary-landing.praktikum-services.ru/api/v1/experts/')
+  return fetch('./experts.json')
     .then(response => response.json())
     .catch(error => console.log(error));
 }
@@ -186,12 +186,6 @@ const getFilteredBySearchExpertsList = () => {
     .then(response => response.json())
     .catch(error => console.log(error));
 }
-
-// const getFilteredByServiceExpertsList = () => {
-//   return fetch(`http://51.250.92.80/api/v1/experts/?service=${enabledSettings.join()}`)
-//     .then(response => response.json())
-//     .catch(error => console.log(error));
-// }
 
 // добавление списка экспертов при загрузке страницы
 

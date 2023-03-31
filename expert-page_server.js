@@ -230,29 +230,25 @@ function isLoading() {
 
 }
 
-// создание запроса для получения карточки эксперта
-
-const getExpertsCard = () => {
-  return fetch('./experts_full.json')
-    .then(response => response.json())
-    .catch(error => console.log(error));
-}
-
 // получаем id эксперта из параметра в URL-адресе
 const params = new URLSearchParams(window.location.search);
 const expertId = params.get('id');
 
+// создание запроса на сервер для получения карточки эксперта
+
+// http://51.250.92.80/api/v1/experts/
+// https://student-diary-landing.praktikum-services.ru/api/v1/experts/
+
+const getExpertsCard = () => {
+  return fetch(`http://51.250.92.80/api/v1/experts/${expertId}`)
+    .then(response => response.json())
+    .catch(error => console.log(error));
+}
+
 const init = async () => {
   isLoading();
-  profiCards = await getExpertsCard();
-
-  profiCards.forEach(item => {
-
-    if (item.id === Number(expertId)) {
-      const profiCard = item;
-      renderCard(profiCard, profiCardContainerElement);
-    }
-  });
+  profiCard = await getExpertsCard();
+  renderCard(profiCard, profiCardContainerElement);
 }
 
 init();
