@@ -176,7 +176,7 @@ function isLoading() {
 const getExpertsList = () => {
   return fetch('./experts.json')
     .then(response => response.json())
-    .catch(error => console.log(error));
+    .catch(error => console.log(error.message));
 }
 
 // создание запроса на сервер для получения списка экспертов
@@ -191,8 +191,18 @@ const getFilteredBySearchExpertsList = () => {
 
 const init = async () => {
   isLoading();
-  profiItems = await getExpertsList();
-  addItems(profiItems, currentPage);
+  try {
+    profiItems = await getExpertsList();
+    addItems(profiItems, currentPage);
+  } catch(err) {
+    profiListContainerElement.style.display = 'none';
+    profiListContainerElement.classList.remove('skeleton');
+    loadMoreButton.style.display = 'none';
+    document.querySelector('.profi__request').style.display = 'flex';
+    document.querySelector('.request__title').textContent = 'Кажется, что-то пошло не так :-(';
+    document.querySelector('.request__text').textContent = 'Попробуйте перезагрузить страницу или напишите нам, и мы подскажем, можем ли вам помочь.';
+  }
+
 }
 
 init();

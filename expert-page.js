@@ -215,6 +215,8 @@ function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
   profiCardContainerElement.querySelector('.expert-card').remove();
   profiCardContainerElement.classList.remove('skeleton');
+  console.log('Сейчас я очищусь');
+  document.querySelector('.profi__request').style.display = 'none';
 
   cardContainer.prepend(cardItem);
 
@@ -244,15 +246,16 @@ const expertId = params.get('id');
 
 const init = async () => {
   isLoading();
-  profiCards = await getExpertsCard();
+  try {
+    profiCards = await getExpertsCard();
+    const profiCard = profiCards.find((element) => element.id === Number(expertId));
+    renderCard(profiCard, profiCardContainerElement);
+  } catch {
+    profiCardContainerElement.querySelector('.expert-card').remove();
+    profiCardContainerElement.classList.remove('skeleton');
+    document.querySelector('.profi__request').style.display = 'flex';
+  }
 
-  profiCards.forEach(item => {
-
-    if (item.id === Number(expertId)) {
-      const profiCard = item;
-      renderCard(profiCard, profiCardContainerElement);
-    }
-  });
 }
 
 init();
