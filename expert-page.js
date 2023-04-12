@@ -215,8 +215,7 @@ function renderCard(card, cardContainer) {
   const cardItem = createCard(card);
   profiCardContainerElement.querySelector('.expert-card').remove();
   profiCardContainerElement.classList.remove('skeleton');
-  console.log('Сейчас я очищусь');
-  document.querySelector('.profi__request').style.display = 'none';
+  document.querySelector('.server-error').style.display = 'none';
 
   cardContainer.prepend(cardItem);
 
@@ -253,9 +252,8 @@ const init = async () => {
   } catch {
     profiCardContainerElement.querySelector('.expert-card').remove();
     profiCardContainerElement.classList.remove('skeleton');
-    document.querySelector('.profi__request').style.display = 'flex';
+    document.querySelector('.server-error').style.display = 'flex';
   }
-
 }
 
 init();
@@ -437,3 +435,15 @@ function checkActiveTab(tabContainer) {
   removeShowMoreButton(tabContainer);
   showMoreButton(activePanel.parentNode, `#${activePanel.id}`);
 }
+
+/* -------------------- */
+/*    Refresh button    */
+/* -------------------- */
+
+const refreshButton = document.querySelector('.button_type_refresh');
+
+function refreshPage() {
+  window.location.reload();
+};
+
+refreshButton.addEventListener('click', refreshPage);

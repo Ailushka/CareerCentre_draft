@@ -88,15 +88,36 @@
         <ul class="profi-list list skeleton">
         </ul>
         <button class="button button_type_load-more button-text profi__button" type="button">Показать ещё</button>
-        <article class="request profi__request">
+      </section>
+
+      <article class="filters-error wrapper">
+        <div class="request profi__request">
           <div class="request__info">
             <h3 class="request__title section-subtitle">По этим фильтрам мы никого не нашли</h3>
-            <p class="request__text section-text">Напишите нам, и мы подскажем, можем ли вам помочь</p>
+            <p class="request__text section-text">Попробуйте изменить запрос или напишите нам, и мы подскажем, можем ли вам помочь.</p>
           </div>
           <a class="button button_type_secondary button-text" type="button" href="https://t.me/YP_CareerCenterBot" target="_blank">Обратиться в поддержку</a>
-        </article>
 
-      </section>
+        </div>
+      </article>
+
+      <article class="server-error wrapper">
+        <div class="request profi__request">
+          <div class="request__info">
+            <h3 class="request__title section-subtitle">Кажется, что-то пошло не так :-(</h3>
+            <p class="request__text section-text">Попробуйте перезагрузить страницу или напишите нам, и мы подскажем, можем ли вам помочь.</p>
+          </div>
+          <ul class="list request__buttons">
+            <li class="buttons-list-item">
+              <button class="button button_type_main request__button button-text button_type_refresh" type="button">Перезагрузить страницу</button>
+            </li>
+            <li class="buttons-list-item">
+              <a class="button button_type_secondary button-text" type="button" href="https://t.me/YP_CareerCenterBot" target="_blank">Обратиться в поддержку</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+
 
     </main>
     <footer class="footer">

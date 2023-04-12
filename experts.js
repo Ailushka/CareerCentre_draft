@@ -88,7 +88,8 @@ function createItem(item) {
 
   const imageElement = newItem.querySelector('.profi__image');
   if (item.photo) {
-    imageElement.src = item.photo.replace('http://51.250.92.80', 'https://student-diary-landing.praktikum-services.ru/');
+    // imageElement.src = item.photo.replace('http://51.250.92.80', 'https://student-diary-landing.praktikum-services.ru/');
+    imageElement.src = item.photo;
   } else {
     imageElement.src = "./images/experts/no-photo.svg";
   }
@@ -140,8 +141,9 @@ function addItems (expertsList, pageIndex) {
   const endRange = pageIndex * itemsPerPage > itemsLimit ? itemsLimit : pageIndex * itemsPerPage;
 
   if (currentPage === 1) {
+    document.querySelector('.profi').style.display = 'block';
     profiListContainerElement.textContent = '';
-    document.querySelector('.profi__request').style.display = 'none';
+    document.querySelector('.filters-error').style.display = 'none';
     profiListContainerElement.classList.remove('skeleton');
   }
 
@@ -150,7 +152,8 @@ function addItems (expertsList, pageIndex) {
   }
 
   if (expertsList.length === 0) {
-    document.querySelector('.profi__request').style.display = 'flex';
+    document.querySelector('.profi').style.display = 'none';
+    document.querySelector('.filters-error').style.display = 'flex';
   }
 };
 
@@ -174,7 +177,7 @@ function isLoading() {
 // https://student-diary-landing.praktikum-services.ru/api/v1/experts/
 
 const getExpertsList = () => {
-  return fetch('./experts.json')
+  return fetch('./experts_full.json')
     .then(response => response.json())
     .catch(error => console.log(error.message));
 }
@@ -195,12 +198,8 @@ const init = async () => {
     profiItems = await getExpertsList();
     addItems(profiItems, currentPage);
   } catch(err) {
-    profiListContainerElement.style.display = 'none';
-    profiListContainerElement.classList.remove('skeleton');
-    loadMoreButton.style.display = 'none';
-    document.querySelector('.profi__request').style.display = 'flex';
-    document.querySelector('.request__title').textContent = 'Кажется, что-то пошло не так :-(';
-    document.querySelector('.request__text').textContent = 'Попробуйте перезагрузить страницу или напишите нам, и мы подскажем, можем ли вам помочь.';
+    document.querySelector('.profi').style.display = 'none';
+    document.querySelector('.server-error').style.display = 'flex';
   }
 
 }
@@ -384,3 +383,15 @@ function fillColor(){
     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
     sliderTrack.style.background = `linear-gradient(to right, #E0E0E0 ${percent1}% , #4C75FA ${percent1}% , #4C75FA ${percent2}%, #E0E0E0 ${percent2}%)`;
 }
+
+/* -------------------- */
+/*    Refresh button    */
+/* -------------------- */
+
+const refreshButton = document.querySelector('.button_type_refresh');
+
+function refreshPage() {
+  window.location.reload();
+};
+
+refreshButton.addEventListener('click', refreshPage);

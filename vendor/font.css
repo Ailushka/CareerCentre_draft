@@ -1,15 +1,26 @@
 @font-face {
-  font-family: 'Suisse Intl';
+  font-family: 'Yandex Sans Text';
   font-style:  normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./fonts/SuisseIntl-Regular.otf") format("OpenType");
+  src: url("./fonts/YandexSansText-Regular.woff2") format("woff2"),
+       url("./fonts/YandexSansText-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Suisse Intl';
+  font-family: 'Yandex Sans Text';
   font-style:  normal;
   font-weight: 500;
   font-display: swap;
-  src: url("./fonts/SuisseIntl-Medium.otf") format("OpenType");
+  src: url("./fonts/YandexSansText-Medium.woff2") format("woff2"),
+       url("./fonts/YandexSansText-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Yandex Sans Text';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/YandexSansText-Bold.woff2") format("woff2"),
+       url("./fonts/YandexSansText-Bold.woff") format("woff");
 }

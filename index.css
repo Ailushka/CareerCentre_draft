@@ -20,7 +20,7 @@
 
 .page {
   /* max-width: 1400px; */
-  font-family: 'Suisse Intl', Arial, sans-serif;
+  font-family: 'Yandex Sans Text', Arial, sans-serif;
   background: var(--clr-bg);
   color: var(--clr-main);
   margin: 0 auto;
@@ -1599,12 +1599,202 @@ html:has(.nav_opened) {
 }
 
 .services__content {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .services__title {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
+  text-align: center;
 }
+
+.services__subtitle {
+  max-width: 524px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.services__list {
+  display: grid;
+  gap: 12px;
+  grid-template-areas: "cv cv interview interview mentor mentor"
+                       "career career career offer offer offer";
+  margin-bottom: 60px;
+}
+
+.service-card {
+  background: #F5F5F5;
+  border: 1px solid #F3F3F4;
+  border-radius: 24px;
+  padding: 120px 20px 40px 28px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.service-card_type_cv {
+  grid-area: cv;
+  max-width: 380px;
+}
+
+.service-card_type_interview {
+  grid-area: interview;
+  max-width: 380px;
+}
+
+.service-card_type_mentor {
+  grid-area: mentor;
+  max-width: 380px;
+}
+
+.service-card_type_career {
+  grid-area: career;
+  max-width: 574px;
+}
+
+.service-card_type_offer {
+  grid-area: offer;
+  max-width: 574px;
+}
+
+.service-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  top: 28px;
+  left: 28px;
+}
+
+.service-card_type_cv::after {
+  background: url("./images/mail-icon.png") no-repeat center, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+}
+
+.service-card_type_interview::after {
+  background: url("./images/heart-icon.png") no-repeat center, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+}
+
+.service-card_type_mentor::after {
+  background: url("./images/user-icon.png") no-repeat center, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+}
+
+.service-card_type_career::after {
+  background: url("./images/star-icon.png") no-repeat center, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+}
+
+.service-card_type_offer::after {
+  background: url("./images/fire-icon.png") no-repeat center, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+}
+
+.service-card__title {
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 133%;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.service-card__description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  padding: 0;
+  margin: 0 0 36px;
+}
+
+.service-card__photos {
+  margin-bottom: 36px;
+  margin-top: auto;
+}
+
+.experts-gallery {
+  display: flex;
+}
+
+.experts-gallery__item {
+  max-width: 63px;
+  max-height: 63px;
+  min-width: 52px;
+  min-height: 52px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #D9D9D9;
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+  margin-right: -18px;
+}
+
+.service-card_type_career .experts-gallery__item,
+.service-card_type_offer .experts-gallery__item {
+  margin-right: -14px;
+}
+
+.experts-gallery__item:has(.experts-gallery__quantity) {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  flex-grow: 1;
+  margin: 0
+}
+
+.service-card_type_cv .experts-gallery__quantity:after {
+  content: '+30';
+}
+
+.service-card_type_interview .experts-gallery__quantity:after {
+  content: '+14';
+}
+
+.service-card_type_mentor .experts-gallery__quantity:after {
+  content: '+34';
+}
+
+.service-card_type_career .experts-gallery__quantity:after {
+  content: '+13';
+}
+
+.service-card_type_offer .experts-gallery__quantity:after {
+  content: '+13';
+}
+
+.experts-gallery__photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.service-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-card__button {
+  padding: 15px;
+  line-height: 100%;
+  letter-spacing: -0.16px;
+  min-width: 184px;
+}
+
+.service-card__price {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 117%;
+  color: #000000;
+}
+
+/* Старый блок services - проверить и удалить ненужные стили */
 
 .services__tabs {
   margin-bottom: 48px;
@@ -1769,6 +1959,9 @@ html:has(.nav_opened) {
   margin-bottom: 12px;
 }
 
+/* Конец старого блока services - проверить и удалить ненужные стили */
+
+
 @media (max-width: 980px) {
   .services {
     background: var(--clr-bg);
@@ -1777,7 +1970,7 @@ html:has(.nav_opened) {
     padding: 0;
   }
   .services__title {
-    margin-bottom: 24px;
+
   }
   .service__text {
     margin-bottom: 12px;
@@ -2501,9 +2694,6 @@ html:has(.nav_opened) {
 }
 
 .profi__request {
-  display: none;
-  margin-top: 48px;
-  margin-bottom: 184px;
   background: var(--clr-white);
   max-width: 765px;
   padding: 30px 176px 30px 30px;
@@ -2525,7 +2715,7 @@ html:has(.nav_opened) {
 
 .profi__request .request__info {
   margin-right: 0;
-  max-width: fit-content;
+  max-width: 535px;
 }
 
 .profi__request .request__text {
@@ -2642,6 +2832,8 @@ html:has(.nav_opened) {
   }
   .profi__request {
     padding: 24px 12px;
+    align-items: center;
+    max-width: 90%;
   }
   .profi__request::after {
     display: none;
@@ -2653,6 +2845,12 @@ html:has(.nav_opened) {
     font-size: 15px;
     line-height: calc(24 / 15);
     margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .profi__request {
+    max-width: 92.5%;
   }
 }
 
@@ -3058,21 +3256,21 @@ input[type="range"]:active::-webkit-slider-thumb{
 /*     Expert-page     */
 /* -------------------- */
 
-.page:has(.expert-card) .header {
+.page:has(.template_type_profi-card) .header {
   padding: 18px 0;
   margin-top: 0;
 }
 
-.page:has(.expert-card) .faq__title {
+.page:has(.template_type_profi-card) .faq__title {
   font-size: 36px;
   line-height: calc(56 / 36);
 }
 
-.page:has(.expert-card) .faq-list {
+.page:has(.template_type_profi-card) .faq-list {
   margin-bottom: 0;
 }
 
-.page:has(.expert-card) .faq__content {
+.page:has(.template_type_profi-card) .faq__content {
   padding: 60px 0 120px;
 }
 
@@ -3506,6 +3704,31 @@ input[type="range"]:active::-webkit-slider-thumb{
   min-width: 220px;
 }
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.server-error,
+.filters-error {
+  display: none;
+}
+
+.request__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.request__button {
+  min-width: 260px;
+}
+
 @media (max-width: 1280px) {
   .expert-card__tabs-list {
     gap: 20px;
@@ -3550,7 +3773,16 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 @media (max-width: 640px) {
-  html:has(.expert-card) .page {
+  .request__button {
+    min-width: 272px;
+  }
+  .request__buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  html:has(.template_type_profi-card) .page {
     background: var(--clr-bg);
   }
   .expert-card {
@@ -3696,10 +3928,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: calc(18 / 15);
     margin-bottom: 16px;
   }
-  .page:has(.expert-card) .faq__content {
+  .page:has(.template_type_profi-card) .faq__content {
     padding: 34px 0 64px;
   }
-  .page:has(.expert-card) .faq__title {
+  .page:has(.template_type_profi-card) .faq__title {
     padding: 0;
     font-size: 30px;
     line-height: calc(36 / 30);
