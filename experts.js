@@ -283,6 +283,7 @@ const handleFilterFormSubmit = async (evt) => {
   console.log('я вызвалась');
   evt.preventDefault();
   const filterFormData = serializeForm(filterForm);
+  console.log(filterFormData);
   const filterFormQueryString = createFilterQuery(filterFormData);
   console.log(filterFormQueryString);
   isLoading();

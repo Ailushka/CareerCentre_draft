@@ -485,18 +485,18 @@ enableValidation();
 /*    Experts search    */
 /* -------------------- */
 
-const init = () => {
-  getExpertsList();
-}
-
-const getExpertsList = () => {
-  return fetch('http://51.250.92.80/api/v1/experts/')
-    .then(response => response.json())
-    // .then(data => console.log(data))
-    .catch(error => console.log(error));
-}
-
-init();
+// const init = () => {
+//   getExpertsList();
+// }
+//
+// const getExpertsList = () => {
+//   return fetch('http://51.250.92.80/api/v1/experts/')
+//     .then(response => response.json())
+//     // .then(data => console.log(data))
+//     .catch(error => console.log(error));
+// }
+//
+// init();
 
 /* -------------------- */
 /*          API         */

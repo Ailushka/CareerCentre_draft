@@ -1616,7 +1616,7 @@ html:has(.nav_opened) {
 .services__list {
   display: grid;
   gap: 12px;
-  grid-template-areas: "cv cv interview interview mentor mentor"
+  grid-template-areas: "mentor mentor interview interview cv cv"
                        "career career career offer offer offer";
   margin-bottom: 60px;
 }
