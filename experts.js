@@ -94,12 +94,21 @@ function checkItemsQuantity() {
           for (let i = 8; i < items.length; i++) {
             items[i].classList.remove(hiddenClass);
             items[i].style.display = 'flex';
+            items[i].style.animationName = 'fadeIn';
+            items[i].style.animationDuration = '.5s';
           }
           showMoreButton.textContent = showLessText;
         } else {
           for (let i = 8; i < items.length; i++) {
-            items[i].classList.add(hiddenClass);
-            items[i].style.display = 'none';
+            items[i].style.animationName = 'fadeOut';
+            items[i].style.animationDuration = '.5s';
+
+            setTimeout(() => {
+              items[i].classList.add(hiddenClass);
+              items[i].style.display = 'none';
+            }, 300);
+
+
           }
           showMoreButton.textContent = showMoreText;
         }
