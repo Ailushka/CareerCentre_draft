@@ -42,10 +42,10 @@
                 name="search"
                 id="search"
                 placeholder="Поиск по экспертам и навыкам"
-                required
               >
             </label>
             <button type="submit" class="button button_type_search"></button>
+            <button type="reset" class="button button_type_reset"></button>
           </form>
 
           <ul class="checkbox list">
@@ -54,8 +54,8 @@
                 <input
                   class="checkbox__input"
                   type="checkbox"
-                  name="service"
-                  value="Карьерные консультации"
+                  name="services"
+                  value="Карьерная консультация"
                   id="experts"
                 ><span class="checkbox__switch"></span>Эксперты
               </label>
@@ -68,8 +68,8 @@
                 <input
                   class="checkbox__input"
                   type="checkbox"
-                  name="service"
-                  value="Менторские консультации"
+                  name="services"
+                  value="Консультация с ментором"
                   id="mentors"
                 ><span class="checkbox__switch"></span>Менторы
               </label>
@@ -266,7 +266,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Карьерные консультации"
                     id="consult"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Карьерные консультации
@@ -278,7 +278,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Менторские консультации"
                     id="mentor"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Менторские консультации
@@ -290,7 +290,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Резюме и письма (RU)"
                     id="resume"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Резюме и письма (RU)
@@ -302,7 +302,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Резюме и письма (EN)"
                     id="cv"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Резюме и письма (EN)
@@ -314,7 +314,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Поиск работы"
                     id="job"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Поиск работы
@@ -326,7 +326,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="service"
+                    name="display_services"
                     value="Карьерное планирование"
                     id="career"
                   ><span class="filters-form__switch filters-form__switch_type_tick"></span>Карьерное планирование
@@ -344,7 +344,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="grade"
+                    name="grades"
                     value="Intern"
                     id="intern"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Intern
@@ -355,7 +355,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="grade"
+                    name="grades"
                     value="Junior"
                     id="junior"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Junior
@@ -366,7 +366,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="grade"
+                    name="grades"
                     value="Middle"
                     id="middle"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Middle
@@ -377,7 +377,7 @@
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="grade"
+                    name="grades"
                     value="Senior"
                     id="senior"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>Senior
@@ -390,216 +390,388 @@
             <p class="filters-form__subtitle">Выберите профессиональную область эксперта или ментора</p>
             <ul class="filters-form__list filters-form__list_type_checkbox list" role="none">
               <li class="filters-form__item option">
-                <label for="backend" class="filters-form__label">
+                <label for="HR" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input option__input"
                     type="checkbox"
-                    name="specialization"
-                    value="backend"
-                    id="backend"
-                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Backend
+                    name="specializations"
+                    value="HR"
+                    id="HR"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>HR
                 </label>
-                <ul class="filters-form__option list" role="none">
-                  <li class="filters-form__item">
-                    <label for="python" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="backend-option"
-                        value="python"
-                        id="python"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Python разработчик
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="С++" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="backend-option"
-                        value="С++"
-                        id="С++"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>С++ разработчик
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="go" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="backend-option"
-                        value="go"
-                        id="go"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Go разработчик
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="java" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="backend-option"
-                        value="java"
-                        id="java"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Java разработчик
-                    </label>
-                  </li>
-                </ul>
               </li>
               <li class="filters-form__item option">
-                <label for="design" class="filters-form__label">
+                <label for="Аналитика" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input option__input"
                     type="checkbox"
-                    name="specialization"
-                    value="design"
-                    id="design"
-                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Дизайнер
+                    name="specializations"
+                    value="Аналитика"
+                    id="Аналитика"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Аналитика
                 </label>
-                <ul class="filters-form__option list" role="none">
-                  <li class="filters-form__item">
-                    <label for="product-designer" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="design-option"
-                        value="product-designer"
-                        id="product-designer"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Продуктовый дизайнер
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="UX-UI" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="design-option"
-                        value="UX-UI"
-                        id="UX-UI"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>UX/UI дизайнер
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="graphic-designer" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="design-option"
-                        value="graphic-designer"
-                        id="graphic-designer"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Графический дизайнер
-                    </label>
-                  </li>
-                  <li class="filters-form__item">
-                    <label for="landing-designer" class="filters-form__option-label">
-                      <input
-                        class="filters-form__input suboption"
-                        type="checkbox"
-                        name="design-option"
-                        value="landing-designer"
-                        id="landing-designer"
-                      ><span class="filters-form__switch filters-form__switch_type_tick"></span>Дизайнер лендингов
-                    </label>
-                  </li>
-                </ul>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Бэкенд разработка" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Бэкенд разработка"
+                    id="Бэкенд разработка"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Бэкенд разработка
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Веб-дизайн" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Веб-дизайн"
+                    id="Веб-дизайн"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Веб-дизайн
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Веб-разработка" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Веб-разработка"
+                    id="Веб-разработка"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Веб-разработка
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Графический дизайн" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Графический дизайн"
+                    id="Графический дизайн"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Графический дизайн
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Информационная безопасность" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Информационная безопасность"
+                    id="Информационная безопасность"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Информационная безопасность
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Исследования" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Исследования"
+                    id="Исследования"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Исследования
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Контент" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Контент"
+                    id="Контент"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Контент
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Маркетинг" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Маркетинг"
+                    id="Маркетинг"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Маркетинг
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Менеджмент продукта" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Менеджмент продукта"
+                    id="Менеджмент продукта"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Менеджмент продукта
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Менеджмент проекта" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Менеджмент проекта"
+                    id="Менеджмент проекта"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Менеджмент проекта
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Образование" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Образование"
+                    id="Образование"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Образование
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Операционная деятельность" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Операционная деятельность"
+                    id="Операционная деятельность"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Операционная деятельность
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Тестирование" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Тестирование"
+                    id="Тестирование"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Тестирование
+                </label>
+              </li>
+              <li class="filters-form__item option">
+                <label for="Фронтенд разработка" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input option__input"
+                    type="checkbox"
+                    name="specializations"
+                    value="Фронтенд разработка"
+                    id="Фронтенд разработка"
+                  ><span class="filters-form__switch filters-form__switch_type_tick"></span>Фронтенд разработка
+                </label>
               </li>
             </ul>
-            <button class="button filters-form__button" type="button">Показать ещё</button>
+            <button class="button filters-form__button button_type_show-more" type="button">Показать ещё</button>
           </fieldset>
           <fieldset class="filters-form__content">
             <legend class="filters-form__title">Сфера эксперта</legend>
             <p class="filters-form__subtitle">Выберите сферу работы эксперта, чтобы получить наиболее&nbsp;релевантные рекомендации и ревью</p>
             <ul class="filters-form__list filters-form__list_type_tiles list" role="none">
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="e-commerce" class="filters-form__label filters-form__label_type_tile">
+                <label for="ArtTech" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="e-commerce"
-                    id="e-commerce"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>E-commerce
+                    name="company_spheres"
+                    value="ArtTech"
+                    id="ArtTech"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>ArtTech
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="edtech" class="filters-form__label filters-form__label_type_tile">
+                <label for="ArtTECH" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="edtech"
-                    id="edtech"
+                    name="company_spheres"
+                    value="ArtTECH"
+                    id="ArtTECH"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>ArtTECH
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="E-com" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="E-com"
+                    id="E-com"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>E-com
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="EdTech" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="EdTech"
+                    id="EdTech"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>EdTech
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="fmcg" class="filters-form__label filters-form__label_type_tile">
+                <label for="FMCG" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
+                    name="company_spheres"
                     value="FMCG"
-                    id="fmcg"
+                    id="FMCG"
                   ><span class="filters-form__switch filters-form__switch_type_tile"></span>FMCG
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="fintech" class="filters-form__label filters-form__label_type_tile">
+                <label for="FoodTech" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="fintech"
-                    id="fintech"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>FinTech
+                    name="company_spheres"
+                    value="FoodTech"
+                    id="FoodTech"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>FoodTech
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="foodtech" class="filters-form__label filters-form__label_type_tile">
+                <label for="GameDev" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="foodtech"
-                    id="foodtech"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Foodtech
+                    name="company_spheres"
+                    value="GameDev"
+                    id="GameDev"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>GameDev
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="gamedev" class="filters-form__label filters-form__label_type_tile">
+                <label for="HRTech" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="gamedev"
-                    id="gamedev"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Gamedev
+                    name="company_spheres"
+                    value="HRTech"
+                    id="HRTech"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>HRTech
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="software" class="filters-form__label filters-form__label_type_tile">
+                <label for="HR/рекрутинг" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="software"
-                    id="software"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Software
+                    name="company_spheres"
+                    value="HR/рекрутинг"
+                    id="HR/рекрутинг"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>HR/рекрутинг
                 </label>
               </li>
               <li class="filters-form__item filters-form__item_type_tile">
-                <label for="traveltech" class="filters-form__label filters-form__label_type_tile">
+                <label for="IT" class="filters-form__label filters-form__label_type_tile">
                   <input
                     class="filters-form__input"
                     type="checkbox"
-                    name="company_sphere"
-                    value="traveltech"
-                    id="traveltech"
-                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Traveltech
+                    name="company_spheres"
+                    value="IT"
+                    id="IT"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>IT
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Дизайн" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Дизайн"
+                    id="Дизайн"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Дизайн
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Клиентский сервис" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Клиентский сервис"
+                    id="Клиентский сервис"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Клиентский сервис
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Консалтинг" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Консалтинг"
+                    id="Консалтинг"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Консалтинг
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Маркетинг" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Маркетинг"
+                    id="Маркетинг"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Маркетинг
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Международный рынок" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Международный рынок"
+                    id="Международный рынок"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Международный рынок
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Продажи" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Продажи"
+                    id="Продажи"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Продажи
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Телеком" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Телеком"
+                    id="Телеком"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Телеком
+                </label>
+              </li>
+              <li class="filters-form__item filters-form__item_type_tile">
+                <label for="Финансы" class="filters-form__label filters-form__label_type_tile">
+                  <input
+                    class="filters-form__input"
+                    type="checkbox"
+                    name="company_spheres"
+                    value="Финансы"
+                    id="Финансы"
+                  ><span class="filters-form__switch filters-form__switch_type_tile"></span>Финансы
                 </label>
               </li>
             </ul>
-            <button class="button filters-form__button" type="button">Показать ещё</button>
+            <button class="button filters-form__button button_type_show-more" type="button">Показать ещё</button>
           </fieldset>
           <footer class="filters-form__footer">
             <button class="button filters-form__button" type="reset">Сбросить фильтры</button>

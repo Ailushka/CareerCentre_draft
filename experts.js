@@ -52,6 +52,7 @@ requestButtons.forEach((item) => {
 });
 
 filtersButton.addEventListener('click', () => {
+  checkItemsQuantity();
   openPopUp(filtersPopup);
 })
 
@@ -63,16 +64,58 @@ closeButtons.forEach((item) => {
 });
 
 /* -------------------- */
+/*   Show more button   */
+/* -------------------- */
+
+const lists = document.querySelectorAll('.filters-form__list');
+const hiddenClass = 'collapsed';
+const showMoreText = 'Показать еще';
+const showLessText = 'Свернуть';
+
+function checkItemsQuantity() {
+  lists.forEach(list => {
+    const items = list.querySelectorAll('li');
+    const showMoreButton = list.closest('.filters-form__content').querySelector('.button_type_show-more');
+    let isExpanded = false;
+
+    // Если элементов больше 8, скрываем элементы и показываем кнопку
+    if (items.length > 8) {
+      for (let i = 8; i < items.length; i++) {
+        items[i].classList.add(hiddenClass);
+        items[i].style.display = 'none';
+      }
+      showMoreButton.textContent = showMoreText;
+    }
+
+    if (showMoreButton) {
+      // При нажатии на кнопку, показываем скрытые элементы
+      showMoreButton.addEventListener('click', () => {
+        if (!isExpanded) {
+          for (let i = 8; i < items.length; i++) {
+            items[i].classList.remove(hiddenClass);
+            items[i].style.display = 'flex';
+          }
+          showMoreButton.textContent = showLessText;
+        } else {
+          for (let i = 8; i < items.length; i++) {
+            items[i].classList.add(hiddenClass);
+            items[i].style.display = 'none';
+          }
+          showMoreButton.textContent = showMoreText;
+        }
+        isExpanded = !isExpanded;
+      });
+    }
+  });
+}
+
+/* -------------------- */
 /*  Experts list render */
 /* -------------------- */
 
 const profiListContainerElement = document.querySelector('.profi-list');
 const profiItemTemplateElement = document.querySelector('.template_type_profi-item').content;
 const loadMoreButton = document.querySelector('.button_type_load-more');
-const searchForm = document.querySelector('.form_type_search');
-const searchQuery = searchForm.querySelector('.search-form__input');
-const checkboxes = document.querySelectorAll('input[type=checkbox]');
-let enabledSettings = [];
 let profiItems = [];
 
 const itemsPerPage = 12;
@@ -182,14 +225,6 @@ const getExpertsList = () => {
     .catch(error => console.log(error.message));
 }
 
-// создание запроса на сервер для получения списка экспертов
-
-const getFilteredBySearchExpertsList = () => {
-  return fetch(`http://51.250.92.80/api/v1/experts/search/?text=${searchQuery.value}`)
-    .then(response => response.json())
-    .catch(error => console.log(error));
-}
-
 // добавление списка экспертов при загрузке страницы
 
 const init = async () => {
@@ -206,60 +241,23 @@ const init = async () => {
 
 init();
 
-const handleSearchSubmit = async (evt) => {
-  evt.preventDefault();
-  isLoading();
-  profiItems = await getFilteredBySearchExpertsList();
-  addItems(profiItems, currentPage);
-  searchForm.reset();
-};
-
-// const handleCheckboxChange = async (evt) => {
-//   evt.preventDefault();
-//   enabledSettings = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
-//   console.log(enabledSettings);
-//   isLoading();
-//   profiItems = await getFilteredByServiceExpertsList();
-//   addItems(profiItems, currentPage);
-// };
-
-searchForm.addEventListener('submit', handleSearchSubmit);
-// checkboxes.forEach(checkbox => {
-//   checkbox.addEventListener('change', handleCheckboxChange)
-// })
-
 loadMoreButton.addEventListener('click', handleLoadMoreItems);
 
-
-// let values = [];
-//
-// values = Array.from(checkboxes).map(i => {
-//   const { name, value } = i;
-//   return { name, value };
-// });
-
-function createFilterQuery(data) {
-  let queryString = '';
-  data.forEach(item => {
-    queryString += `${item.name}=${item.value}&`;
-  })
-  return queryString.slice(0, -1);
-}
-//
-// const filterQueryString = createFilterQuery(values);
-// console.log(filterQueryString);
-
-
 /* -------------------- */
-/*      Filter form     */
+/*  Фильтрация-фронтенд */
 /* -------------------- */
 
 const filterForm = document.querySelector('.form_type_filters');
+const searchForm = document.querySelector('.form_type_search');
+const searchQuery = searchForm.querySelector('.search-form__input');
+const checkboxes = document.querySelectorAll('.checkbox__item input[type=checkbox]');
+
+let filters = [];
 
 // сбор данных из формы
 
 function serializeForm(formNode) {
-  const { elements } = formNode
+  const { elements } = formNode;
 
   const data = Array.from(elements)
     .map((element) => {
@@ -273,28 +271,215 @@ function serializeForm(formNode) {
   return data;
 }
 
-const getFilteredByFilterFormExpertsList = (filterFormQueryString) => {
-  return fetch(`http://51.250.92.80/api/v1/experts/?${filterFormQueryString}`)
-    .then(response => response.json())
-    .catch(error => console.log(error));
-}
-
-const handleFilterFormSubmit = async (evt) => {
-  console.log('я вызвалась');
+const handleSearchSubmit = (evt) => {
   evt.preventDefault();
-  const filterFormData = serializeForm(filterForm);
-  console.log(filterFormData);
-  const filterFormQueryString = createFilterQuery(filterFormData);
-  console.log(filterFormQueryString);
-  isLoading();
-  profiItems = await getFilteredByFilterFormExpertsList(filterFormQueryString);
-  console.log(profiItems.length);
-  addItems(profiItems, currentPage);
-  closePopUp(filtersPopup);
+
+  filters = filters.filter(item => item.name !== 'search');
+
+  filters.push(...serializeForm(searchForm));
+  filtration();
 };
 
-filterForm.addEventListener('submit', handleFilterFormSubmit);
+const handleCheckboxChange = (evt) => {
+  evt.preventDefault();
 
+  filters = filters.filter(item => item.name !== 'services');
+
+  const data = Array.from(checkboxes)
+    .map((element) => {
+      const { name, type } = element
+      const value = type === 'checkbox' && !element.checked ? '' : element.value
+
+      return { name, value }
+    })
+    .filter((item) => !!item.name && !!item.value);
+
+  filters.push(...data);
+  filtration();
+};
+
+const handleFilterFormSubmit = (evt) => {
+  evt.preventDefault();
+
+  filters.push(...serializeForm(filterForm));
+  closePopUp(filtersPopup);
+  filtration();
+};
+
+// фильтрация списка экспертов
+
+function filterExperts(experts, filters) {
+  return experts.filter((expert) => {
+    return filters.every((filter) => {
+      const value = expert[filter.name];
+      if (filter.name === 'search') {
+        return searchExpert(expert, filter.value);
+      } else if (filter.name === "fee__gt") {
+        const services = expert.services || [];
+        const filteredServices = services.filter((service) => {
+          return Number(service.price) >= Number(filter.value);
+        });
+        return filteredServices.length === services.length;
+      } else if (filter.name === "fee__lt") {
+        const services = expert.services || [];
+        const filteredServices = services.filter((service) => {
+          return Number(service.price) <= Number(filter.value);
+        });
+        return filteredServices.length === services.length;
+      } else if (Array.isArray(value)) {
+        return value.some((item) => {
+          if (typeof item === 'string') {
+            return item === filter.value;
+          } else if (typeof item === 'object') {
+            return Object.values(item).some((itemValue) => {
+              return itemValue === filter.value;
+            });
+          }
+        });
+      } else if (typeof value === 'object') {
+        return Object.values(value).some((itemValue) => {
+          return itemValue === filter.value;
+        });
+      } else {
+        return value === filter.value;
+      }
+    });
+  });
+}
+
+function searchExpert(expert, query) {
+  query = query.toLowerCase();
+  for (const key in expert) {
+    const value = expert[key];
+    if (typeof value === 'string' && value.toLowerCase().includes(query)) {
+      return true;
+    } else if (Array.isArray(value)) {
+      for (const item of value) {
+        if (typeof item === 'string' && item.toLowerCase().includes(query)) {
+          return true;
+        } else if (typeof item === 'object' && searchExpert(item, query)) {
+          return true;
+        }
+      }
+    } else if (typeof value === 'object' && searchExpert(value, query)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+const filtration = async () => {
+  isLoading();
+  try {
+    profiItems = await getExpertsList();
+    profiItems = filterExperts(profiItems, filters);
+    addItems(profiItems, 1);
+  } catch(err) {
+    document.querySelector('.profi').style.display = 'none';
+    document.querySelector('.server-error').style.display = 'flex';
+  }
+}
+
+
+// установка слушателей на изменения фильтров
+
+searchForm.addEventListener('submit', handleSearchSubmit);
+searchForm.addEventListener('reset', () => {
+  filters = filters.filter(item => item.name !== 'search');
+  filtration();
+})
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', handleCheckboxChange)
+});
+filterForm.addEventListener('submit', handleFilterFormSubmit);
+filterForm.addEventListener('reset', () => {
+  filters = [];
+  filtration();
+  resetPriceRangeSlider();
+})
+
+/* -------------------- */
+/*  Фильтрация - бэкенд */
+/* -------------------- */
+
+// const filterForm = document.querySelector('.form_type_filters');
+// const searchForm = document.querySelector('.form_type_search');
+// const searchQuery = searchForm.querySelector('.search-form__input');
+// const checkboxes = document.querySelectorAll('input[type=checkbox]');
+//
+// let enabledSettings = [];
+//
+//
+// // сбор данных из формы
+//
+// function serializeForm(formNode) {
+//   const { elements } = formNode
+//
+//   const data = Array.from(elements)
+//     .map((element) => {
+//       const { name, type } = element
+//       const value = type === 'checkbox' && !element.checked ? '' : element.value
+//
+//       return { name, value }
+//     })
+//     .filter((item) => !!item.name && !!item.value)
+//
+//   return data;
+// }
+//
+// // создание запроса на сервер для получения отфильтрованного поиском списка экспертов
+//
+// const getFilteredBySearchExpertsList = () => {
+//   return fetch(`http://51.250.92.80/api/v1/experts/search/?text=${searchQuery.value}`)
+//     .then(response => response.json())
+//     .catch(error => console.log(error));
+// }
+//
+// const handleSearchSubmit = async (evt) => {
+//   evt.preventDefault();
+//   isLoading();
+//   profiItems = await getFilteredBySearchExpertsList();
+//   addItems(profiItems, currentPage);
+//   searchForm.reset();
+// };
+//
+// // const handleCheckboxChange = async (evt) => {
+// //   evt.preventDefault();
+// //   enabledSettings = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+// //   console.log(enabledSettings);
+// //   isLoading();
+// //   profiItems = await getFilteredByServiceExpertsList();
+// //   addItems(profiItems, currentPage);
+// // };
+//
+// searchForm.addEventListener('submit', handleSearchSubmit);
+// // checkboxes.forEach(checkbox => {
+// //   checkbox.addEventListener('change', handleCheckboxChange)
+// // })
+//
+//
+//
+// const getFilteredByFilterFormExpertsList = (filterFormQueryString) => {
+//   return fetch(`http://51.250.92.80/api/v1/experts/?${filterFormQueryString}`)
+//     .then(response => response.json())
+//     .catch(error => console.log(error));
+// }
+//
+// const handleFilterFormSubmit = async (evt) => {
+//   console.log('я вызвалась');
+//   evt.preventDefault();
+//   const filterFormData = serializeForm(filterForm);
+//   console.log(filterFormData);
+//   const filterFormQueryString = createFilterQuery(filterFormData);
+//   console.log(filterFormQueryString);
+//   isLoading();
+//   profiItems = await getFilteredByFilterFormExpertsList(filterFormQueryString);
+//   console.log(profiItems.length);
+//   addItems(profiItems, currentPage);
+//   closePopUp(filtersPopup);
+// };
+//
+// filterForm.addEventListener('submit', handleFilterFormSubmit);
 
 /* -------------------- */
 /*      Mobile menu     */
@@ -358,12 +543,22 @@ window.onload = function(){
 }
 
 let sliderOne = document.getElementById("slider-1");
+sliderOneDefaultValue = sliderOne.value;
 let sliderTwo = document.getElementById("slider-2");
+sliderTwoDefaultValue = sliderTwo.value;
 let displayValOne = document.getElementById("range1");
 let displayValTwo = document.getElementById("range2");
 let minGap = 0;
 let sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider-1").max;
+
+function resetPriceRangeSlider() {
+  sliderOne.value = sliderOneDefaultValue;
+  displayValOne.textContent = sliderOne.value;
+  sliderTwo.value = sliderTwoDefaultValue;
+  displayValTwo.textContent = sliderTwo.value;
+  fillColor();
+}
 
 function slideOne(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
