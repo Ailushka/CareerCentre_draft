@@ -323,7 +323,6 @@ const handleFilterFormSubmit = (evt) => {
 
   filters.push(...serializeForm(filterForm));
 
-  console.log(filters);
   closePopUp(filtersPopup);
   filtration();
 };
