@@ -310,7 +310,20 @@ const handleCheckboxChange = (evt) => {
 const handleFilterFormSubmit = (evt) => {
   evt.preventDefault();
 
+  // очищаем предыдущие фильтры формы
+
+  filters = filters.filter(item =>
+    item.name !== 'fee__gt' &&
+    item.name !== 'fee__lt' &&
+    item.name !== 'display_services' &&
+    item.name !== 'grades' &&
+    item.name !== 'specializations' &&
+    item.name !== 'company_spheres'
+);
+
   filters.push(...serializeForm(filterForm));
+
+  console.log(filters);
   closePopUp(filtersPopup);
   filtration();
 };
@@ -402,7 +415,14 @@ checkboxes.forEach(checkbox => {
 });
 filterForm.addEventListener('submit', handleFilterFormSubmit);
 filterForm.addEventListener('reset', () => {
-  filters = [];
+  filters = filters.filter(item =>
+    item.name !== 'fee__gt' &&
+    item.name !== 'fee__lt' &&
+    item.name !== 'display_services' &&
+    item.name !== 'grades' &&
+    item.name !== 'specializations' &&
+    item.name !== 'company_spheres'
+);
   filtration();
   resetPriceRangeSlider();
 })
