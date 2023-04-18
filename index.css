@@ -2488,6 +2488,8 @@ html:has(.nav_opened) {
 
 .checkbox__item:has(input[type="checkbox"]:checked) {
   color: rgba(0, 0, 0, 0.85);
+  background-color: #ededed;
+  box-shadow: none;
 }
 
 .checkbox__item_type_experts:has(input[type="checkbox"]:checked) {
