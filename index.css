@@ -2827,12 +2827,12 @@ html:has(.nav_opened) {
     grid-template-areas: "search filters"
                          "checkboxes checkboxes"
                          "tooltip tooltip";
-    row-gap: 18px;
+    row-gap: 19px;
     column-gap: 17px;
   }
   .search-form {
     min-width: 254px;
-    margin: 0 0 2px;
+    margin: 0;
     width: auto;
   }
   .search-form__input {
@@ -2879,7 +2879,7 @@ html:has(.nav_opened) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.06);
   }
   .checkbox__item {
-    min-height: 48px;
+    min-height: 42px;
     min-width: 58px;
     border-bottom: 2px solid transparent;
     padding: 0 0 6px;
@@ -2887,6 +2887,7 @@ html:has(.nav_opened) {
     box-shadow: none;
     border-radius: 0;
     z-index: 1;
+    background-size: 27%;
   }
   .checkbox__item:has(input[type="checkbox"]:checked) {
     background-color: var(--clr-bg);
@@ -2894,7 +2895,6 @@ html:has(.nav_opened) {
   }
   .tooltip {
     background: rgba(255, 255, 255, 0.85);
-    min-height: 66px;
   }
   .tooltip:before {
     display: none;
@@ -2913,12 +2913,11 @@ html:has(.nav_opened) {
   .control-panel__content:has(.checkbox__input[name='services'][id='experts']:checked) .tooltip__text::after {
     content: 'Эксперты - это опытные специалисты из IT и Digital направлений, которые могут помочь с вопросами профессионального определения, поиска работы или трудоустройства.';
   }
-
   .control-panel__content:has(.checkbox__input[name='services'][id='mentors']:checked) .tooltip__text::after {
     content: 'Менторы - это опытные специалисты из IT и Digital направлений, которые могут помочь с оценкой навыков и составлением плана входа или развития в профессии.';
   }
   .profi {
-    padding: 16px 0 68px;
+    padding: 12px 0 68px;
   }
   .profi-list {
     grid-template-columns: repeat(auto-fill, minmax(250px, 296px));
@@ -2926,6 +2925,7 @@ html:has(.nav_opened) {
   }
   .profi-list__item {
     display: grid;
+    max-width: 296px;
   }
   .profi__image-container {
     height: 290px;
