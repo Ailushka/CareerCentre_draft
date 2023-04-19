@@ -3348,13 +3348,12 @@ input[type="range"]:active::-webkit-slider-thumb{
     height: 100px;
     min-width: 146px;
   }
-  .filters-form__label_type_tile {
+  .filters-form__content:has(.filters-form__list_type_tiles) .filters-form__label {
     font-size: 12px;
     line-height: 120%;
   }
-  .filters-form__content:has(.option) .filters-form__label {
-    font-size: 18px;
-    line-height: 111%;
+  .filters-form__content:has(.filters-form__title_type_profession) .filters-form__label {
+    font-size: 16px;
   }
   .filters-form__option {
     margin: 12px 0 0 28px;
@@ -3378,6 +3377,56 @@ input[type="range"]:active::-webkit-slider-thumb{
     min-width: 144px;
     width: auto;
   }
+}
+
+@media (max-width: 470px) {
+  .filters-form__list_type_tiles {
+    justify-content: center;
+  }
+}
+
+.filters-form__list {
+  overflow: hidden;
+  transition: max-height .5s ease-in-out;
+}
+
+.filters-form__list {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* WebKit */
+.filters-form__list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.filters-form__content:has(.filters-form__title_type_profession) .filters-form__list {
+  max-height: 180px;
+}
+
+.filters-form__content:has(.filters-form__title_type_sphere) .filters-form__list {
+  max-height: 270px;
+}
+
+@media (max-width: 820px) {
+  .filters-form__content:has(.filters-form__title_type_profession) .filters-form__list {
+    max-height: 280px;
+  }
+  .filters-form__content:has(.filters-form__title_type_sphere) .filters-form__list {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 619px) {
+  .filters-form__content:has(.filters-form__title_type_sphere) .filters-form__list {
+    max-height: 445px;
+  }
+}
+
+.filters-form__content:has(.filters-form__title_type_profession) .filters-form__list_opened,
+.filters-form__content:has(.filters-form__title_type_sphere) .filters-form__list_opened {
+  overflow: auto;
 }
 
 

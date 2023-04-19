@@ -52,7 +52,7 @@ requestButtons.forEach((item) => {
 });
 
 filtersButton.addEventListener('click', () => {
-  checkItemsQuantity();
+  // checkItemsQuantity();
   openPopUp(filtersPopup);
 })
 
@@ -67,56 +67,37 @@ closeButtons.forEach((item) => {
 /*   Show more button   */
 /* -------------------- */
 
-const lists = document.querySelectorAll('.filters-form__list');
-const hiddenClass = 'collapsed';
-const showMoreText = 'Показать еще';
-const showLessText = 'Свернуть';
+function handleShowMoreButtonClick(evt) {
+  const content = evt.target.closest('.filters-form__content').querySelector('.filters-form__list');
+  content.classList.toggle('filters-form__list_opened');
+  if (evt.target.textContent === 'Показать ещё') {
+    evt.target.textContent = 'Свернуть';
+    content.style.maxHeight = `${content.scrollHeight}px`;
+  } else {
+    evt.target.textContent = 'Показать ещё';
+    content.style.maxHeight = '';
+  }
+}
 
-function checkItemsQuantity() {
-  lists.forEach(list => {
-    const items = list.querySelectorAll('li');
-    const showMoreButton = list.closest('.filters-form__content').querySelector('.button_type_show-more');
-    let isExpanded = false;
+function checkShowMoreButton() {
+  const filtersFormList = document.querySelectorAll('.filters-form__list');
 
-    // Если элементов больше 8, скрываем элементы и показываем кнопку
-    if (items.length > 8) {
-      for (let i = 8; i < items.length; i++) {
-        items[i].classList.add(hiddenClass);
-        items[i].style.display = 'none';
-      }
-      showMoreButton.textContent = showMoreText;
-    }
+  filtersFormList.forEach(item => {
+    const scrollHeight = item.scrollHeight;
+    const offsetHeight = item.offsetHeight;
 
-    if (showMoreButton) {
-      // При нажатии на кнопку, показываем скрытые элементы
-      showMoreButton.addEventListener('click', () => {
-        if (!isExpanded) {
-          for (let i = 8; i < items.length; i++) {
-            items[i].classList.remove(hiddenClass);
-            items[i].style.display = 'flex';
-            items[i].style.animationName = 'fadeIn';
-            items[i].style.animationDuration = '.5s';
-          }
-          showMoreButton.textContent = showLessText;
-        } else {
-          for (let i = 8; i < items.length; i++) {
-            items[i].style.animationName = 'fadeOut';
-            items[i].style.animationDuration = '.5s';
-
-            setTimeout(() => {
-              items[i].classList.add(hiddenClass);
-              items[i].style.display = 'none';
-            }, 300);
-
-
-          }
-          showMoreButton.textContent = showMoreText;
-        }
-        isExpanded = !isExpanded;
-      });
+    if (scrollHeight > offsetHeight) {
+      const showMoreButton = document.createElement('button');
+      showMoreButton.classList.add('button', 'filters-form__button', 'button_type_show-more');
+      showMoreButton.type = 'button';
+      showMoreButton.textContent = 'Показать ещё';
+      item.closest('.filters-form__content').append(showMoreButton);
+      showMoreButton.addEventListener('click', handleShowMoreButtonClick);
     }
   });
 }
+
+checkShowMoreButton();
 
 /* -------------------- */
 /*  Experts list render */

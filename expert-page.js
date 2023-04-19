@@ -81,7 +81,7 @@ function createCard(card) {
   const regexp = /\n\n/g;
   const endOfTheLine = /\n$/g;
 
-  if (card.description) {
+  if (card.description && card.description !== "\n") {
     const descContainer = newCard.querySelector('.expert-card__tabpanel-content_type_description');
 
     card.description.replace(regexp, '\n').split('\n').forEach(item => {
@@ -97,7 +97,7 @@ function createCard(card) {
     });
   }
 
-  if (card.about_me) {
+  if (card.about_me && card.about_me !== "\n") {
     const aboutMeContainer = newCard.querySelector('.expert-card__tabpanel-content_type_about');
     card.about_me.replace(regexp, '\n').replace(endOfTheLine, '').split('\n').forEach(item => {
       const aboutMeItem = document.createElement('li');
@@ -111,7 +111,7 @@ function createCard(card) {
     aboutMeListItem.style.display = 'none';
   }
 
-  if (card.experience) {
+  if (card.experience && card.experience !== "\n") {
     const expContainer = newCard.querySelector('.expert-card__tabpanel-content_type_experience');
     card.experience.replace(regexp, '\n').split('\n').forEach(item => {
 
