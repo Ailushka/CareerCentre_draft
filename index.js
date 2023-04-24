@@ -120,37 +120,6 @@ document.querySelectorAll('.slide-arrow_prev').forEach((item) => {
   })
 })
 
-
-// const carousel = document.querySelector(".container"),
-//   content = document.querySelector(".slides-container"),
-//   next = document.querySelector(".slide-arrow_next"),
-//   prev = document.querySelector(".slide-arrow_prev"),
-//   gap = parseInt(getComputedStyle(content).gap, 10);
-//
-// next.addEventListener("click", e => {
-//   carousel.scrollBy(width + gap, 0);
-//   if (document.querySelector(".container").scrollWidth !== 0) {
-//     prev.classList.add('slide-arrow_active');
-//   }
-//   if (document.querySelector(".slides-container").scrollWidth - width - gap <= document.querySelector(".container").scrollLeft + width) {
-//     next.classList.remove('slide-arrow_active');
-//   }
-// });
-// prev.addEventListener("click", e => {
-//   carousel.scrollBy(-(width + gap), 0);
-//   if (document.querySelector(".container").scrollLeft - width - gap <= 0) {
-//     prev.classList.remove('slide-arrow_active');
-//   }
-//   if (!document.querySelector(".slides-container").scrollWidth - width - gap <= document.querySelector(".container").scrollLeft + width) {
-//     next.classList.add('slide-arrow_active');
-//   }
-// });
-//
-// let width = carousel.offsetWidth;
-//
-// window.addEventListener("resize", e => (width = carousel.offsetWidth));
-
-
 /* -------------------- */
 /*       Accordeon      */
 /* -------------------- */

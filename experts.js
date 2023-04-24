@@ -1,4 +1,30 @@
 /* -------------------- */
+/*      Mobile menu     */
+/* -------------------- */
+
+const burgerButton = document.querySelector('.burger');
+const nav = document.querySelector('.nav');
+const menuLinks = document.querySelectorAll('.nav-list__link');
+
+burgerButton.addEventListener("click", function () {
+    burgerButton.classList.toggle("burger_active");
+    nav.classList.toggle("nav_opened");
+    nav.classList.toggle("transition");
+    document.querySelector('.page').classList.toggle('no-scroll');
+    document.querySelector('html').classList.toggle('no-scroll');
+});
+
+menuLinks.forEach(menuLink => {
+  menuLink.addEventListener('click', () => {
+    burgerButton.classList.remove("burger_active");
+    nav.classList.remove("nav_opened");
+    nav.classList.remove("transition");
+    document.querySelector('.page').classList.remove('no-scroll');
+    document.querySelector('html').classList.remove('no-scroll');
+  })
+});
+
+/* -------------------- */
 /*         Popup        */
 /* -------------------- */
 
@@ -52,7 +78,6 @@ requestButtons.forEach((item) => {
 });
 
 filtersButton.addEventListener('click', () => {
-  // checkItemsQuantity();
   openPopUp(filtersPopup);
 })
 
@@ -62,42 +87,6 @@ closeButtons.forEach((item) => {
       closePopUp(popUpToClose);
   });
 });
-
-/* -------------------- */
-/*   Show more button   */
-/* -------------------- */
-
-function handleShowMoreButtonClick(evt) {
-  const content = evt.target.closest('.filters-form__content').querySelector('.filters-form__list');
-  content.classList.toggle('filters-form__list_opened');
-  if (evt.target.textContent === 'Показать ещё') {
-    evt.target.textContent = 'Свернуть';
-    content.style.maxHeight = `${content.scrollHeight}px`;
-  } else {
-    evt.target.textContent = 'Показать ещё';
-    content.style.maxHeight = '';
-  }
-}
-
-function checkShowMoreButton() {
-  const filtersFormList = document.querySelectorAll('.filters-form__list');
-
-  filtersFormList.forEach(item => {
-    const scrollHeight = item.scrollHeight;
-    const offsetHeight = item.offsetHeight;
-
-    if (scrollHeight > offsetHeight) {
-      const showMoreButton = document.createElement('button');
-      showMoreButton.classList.add('button', 'filters-form__button', 'button_type_show-more');
-      showMoreButton.type = 'button';
-      showMoreButton.textContent = 'Показать ещё';
-      item.closest('.filters-form__content').append(showMoreButton);
-      showMoreButton.addEventListener('click', handleShowMoreButtonClick);
-    }
-  });
-}
-
-checkShowMoreButton();
 
 /* -------------------- */
 /*  Experts list render */
@@ -232,6 +221,42 @@ const init = async () => {
 init();
 
 loadMoreButton.addEventListener('click', handleLoadMoreItems);
+
+/* -------------------- */
+/*   Show more button   */
+/* -------------------- */
+
+function handleShowMoreButtonClick(evt) {
+  const content = evt.target.closest('.filters-form__content').querySelector('.filters-form__list');
+  content.classList.toggle('filters-form__list_opened');
+  if (evt.target.textContent === 'Показать ещё') {
+    evt.target.textContent = 'Свернуть';
+    content.style.maxHeight = `${content.scrollHeight}px`;
+  } else {
+    evt.target.textContent = 'Показать ещё';
+    content.style.maxHeight = '';
+  }
+}
+
+function checkShowMoreButton() {
+  const filtersFormList = document.querySelectorAll('.filters-form__list');
+
+  filtersFormList.forEach(item => {
+    const scrollHeight = item.scrollHeight;
+    const offsetHeight = item.offsetHeight;
+
+    if (scrollHeight > offsetHeight) {
+      const showMoreButton = document.createElement('button');
+      showMoreButton.classList.add('button', 'filters-form__button', 'button_type_show-more');
+      showMoreButton.type = 'button';
+      showMoreButton.textContent = 'Показать ещё';
+      item.closest('.filters-form__content').append(showMoreButton);
+      showMoreButton.addEventListener('click', handleShowMoreButtonClick);
+    }
+  });
+}
+
+checkShowMoreButton();
 
 /* -------------------- */
 /*  Фильтрация-фронтенд */
@@ -491,74 +516,21 @@ filterForm.addEventListener('reset', () => {
 // filterForm.addEventListener('submit', handleFilterFormSubmit);
 
 /* -------------------- */
-/*      Mobile menu     */
-/* -------------------- */
-
-const burgerButton = document.querySelector('.burger');
-const nav = document.querySelector('.nav');
-const menuLinks = document.querySelectorAll('.nav-list__link');
-
-burgerButton.addEventListener("click", function () {
-    burgerButton.classList.toggle("burger_active");
-    nav.classList.toggle("nav_opened");
-    nav.classList.toggle("transition");
-    document.querySelector('.page').classList.toggle('no-scroll');
-    document.querySelector('html').classList.toggle('no-scroll');
-});
-
-menuLinks.forEach(menuLink => {
-  menuLink.addEventListener('click', () => {
-    burgerButton.classList.remove("burger_active");
-    nav.classList.remove("nav_opened");
-    nav.classList.remove("transition");
-    document.querySelector('.page').classList.remove('no-scroll');
-    document.querySelector('html').classList.remove('no-scroll');
-  })
-});
-
-/* -------------------- */
-/*    Checkbox-option   */
-/* -------------------- */
-
-const options = document.querySelectorAll('.option');
-
-options.forEach(option => {
-  const checkboxes = option.querySelectorAll('.suboption');
-  const checkall = option.querySelector('.option__input');
-
-  for (let i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].addEventListener('click', function() {
-      const checkedCount = document.querySelectorAll('.suboption:checked').length;
-
-      checkall.checked = checkedCount > 0;
-      checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
-    });
-  }
-
-  checkall.addEventListener('click', function() {
-    for (let i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].checked = this.checked;
-    }
-  });
-})
-
-/* -------------------- */
 /*  Price range slider  */
 /* -------------------- */
 
 window.onload = function(){
-    slideOne();
-    slideTwo();
+  resetPriceRangeSlider();
 }
 
-let sliderOne = document.getElementById("slider-1");
-sliderOneDefaultValue = sliderOne.value;
-let sliderTwo = document.getElementById("slider-2");
-sliderTwoDefaultValue = sliderTwo.value;
-let displayValOne = document.getElementById("range1");
-let displayValTwo = document.getElementById("range2");
+const sliderOne = document.querySelector("#slider-1");
+let sliderOneDefaultValue = sliderOne.value;
+const sliderTwo = document.querySelector("#slider-2");
+let sliderTwoDefaultValue = sliderTwo.value;
+const displayValOne = document.querySelector("#range1");
+const displayValTwo = document.querySelector("#range2");
 let minGap = 0;
-let sliderTrack = document.querySelector(".slider-track");
+const sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider-1").max;
 
 function resetPriceRangeSlider() {
@@ -567,27 +539,32 @@ function resetPriceRangeSlider() {
   sliderTwo.value = sliderTwoDefaultValue;
   displayValTwo.textContent = sliderTwo.value;
   fillColor();
-}
+};
 
-function slideOne(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-        sliderOne.value = parseInt(sliderTwo.value) - minGap;
-    }
-    displayValOne.textContent = sliderOne.value;
-    fillColor();
-}
-function slideTwo(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-        sliderTwo.value = parseInt(sliderOne.value) + minGap;
-    }
-    displayValTwo.textContent = sliderTwo.value;
-    fillColor();
-}
-function fillColor(){
-    percent1 = (sliderOne.value / sliderMaxValue) * 100;
-    percent2 = (sliderTwo.value / sliderMaxValue) * 100;
-    sliderTrack.style.background = `linear-gradient(to right, #E0E0E0 ${percent1}% , #4C75FA ${percent1}% , #4C75FA ${percent2}%, #E0E0E0 ${percent2}%)`;
-}
+function slideOne() {
+  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+      sliderOne.value = parseInt(sliderTwo.value) - minGap;
+  }
+  displayValOne.textContent = sliderOne.value;
+  fillColor();
+};
+
+function slideTwo() {
+  if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+      sliderTwo.value = parseInt(sliderOne.value) + minGap;
+  }
+  displayValTwo.textContent = sliderTwo.value;
+  fillColor();
+};
+
+function fillColor() {
+  percent1 = (sliderOne.value / sliderMaxValue) * 100;
+  percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+  sliderTrack.style.background = `linear-gradient(to right, #E0E0E0 ${percent1}% , #4C75FA ${percent1}% , #4C75FA ${percent2}%, #E0E0E0 ${percent2}%)`;
+};
+
+sliderOne.addEventListener('input', slideOne);
+sliderTwo.addEventListener('input', slideTwo);
 
 /* -------------------- */
 /*    Refresh button    */

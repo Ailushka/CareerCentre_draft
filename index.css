@@ -1616,8 +1616,9 @@ html:has(.nav_opened) {
 .services__list {
   display: grid;
   gap: 12px;
-  grid-template-areas: "mentor mentor interview interview cv cv"
-                       "career career career offer offer offer";
+  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
+  /* grid-template-areas: "mentor mentor interview interview cv cv"
+                       "career career career offer offer offer"; */
   margin-bottom: 60px;
 }
 
@@ -1634,28 +1635,28 @@ html:has(.nav_opened) {
 }
 
 .service-card_type_cv {
-  grid-area: cv;
-  max-width: 380px;
+  /* grid-area: cv;
+  max-width: 380px; */
 }
 
 .service-card_type_interview {
-  grid-area: interview;
-  max-width: 380px;
+  /* grid-area: interview;
+  max-width: 380px; */
 }
 
 .service-card_type_mentor {
-  grid-area: mentor;
-  max-width: 380px;
+  /* grid-area: mentor;
+  max-width: 380px; */
 }
 
 .service-card_type_career {
-  grid-area: career;
-  max-width: 574px;
+  /* grid-area: career;
+  max-width: 574px; */
 }
 
 .service-card_type_offer {
-  grid-area: offer;
-  max-width: 574px;
+  /* grid-area: offer;
+  max-width: 574px; */
 }
 
 .service-card::after {
@@ -1677,6 +1678,7 @@ html:has(.nav_opened) {
   background: url("./images/heart-icon.png") no-repeat center / 75%, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
 }
 
+.service-card_type_career-consultation::after,
 .service-card_type_mentor::after {
   background: url("./images/user-icon.png") no-repeat center / 75%, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
 }
@@ -1695,6 +1697,7 @@ html:has(.nav_opened) {
   line-height: 133%;
   padding: 0;
   margin: 0 0 16px;
+  flex-grow: 1;
 }
 
 .service-card__description {
@@ -1704,6 +1707,7 @@ html:has(.nav_opened) {
   font-feature-settings: 'pnum' on, 'lnum' on;
   padding: 0;
   margin: 0 0 36px;
+  flex-grow: 1;
 }
 
 .service-card__photos {
@@ -1728,11 +1732,6 @@ html:has(.nav_opened) {
   margin-right: -18px;
 }
 
-.service-card_type_career .experts-gallery__item,
-.service-card_type_offer .experts-gallery__item {
-  margin-right: -14px;
-}
-
 .experts-gallery__item:has(.experts-gallery__quantity) {
   background: transparent;
   border-color: transparent;
@@ -1743,7 +1742,12 @@ html:has(.nav_opened) {
   font-size: 20px;
   line-height: 140%;
   flex-grow: 1;
-  margin: 0
+  margin: 0;
+  max-width: 15%;
+}
+
+.service-card_type_career-consultation .experts-gallery__quantity:after {
+  content: '+46';
 }
 
 .service-card_type_cv .experts-gallery__quantity:after {
@@ -2021,11 +2025,11 @@ html:has(.nav_opened) {
 
 @media (max-width: 1100px) {
   .services__list {
-    grid-template-areas: "mentor"
+    /* grid-template-areas: "mentor"
                          "interview"
                          "cv"
                          "career"
-                         "offer";
+                         "offer"; */
     justify-items: center;
   }
   .service-card {
@@ -2039,6 +2043,9 @@ html:has(.nav_opened) {
 @media (max-width: 540px) {
   .services {
     background: var(--clr-bg);
+  }
+  .services__list {
+    grid-template-columns: none;
   }
   .services__title {
     margin-bottom: 7px;
@@ -2355,12 +2362,18 @@ html:has(.nav_opened) {
   .form__item:not(:nth-child(n+3):nth-child(-n+4)) {
     grid-column: 1;
   }
+  .form__item::before {
+    top: 36px;
+  }
   .button_type_submit {
     width: 100%;
   }
   .form__input[name="goal"] {
     padding: 12px 29px 12px 12px;
     height: 56px;
+  }
+  .form__input[name="telegram"] {
+    padding-left: 32px;
   }
 }
 
@@ -2400,7 +2413,7 @@ html:has(.nav_opened) {
 }
 
 .search-form__input {
-  padding: 17px 8px 17px 36px;
+  padding: 17px 36px;
   font-weight: 500;
   font-size: 16px;
   line-height: calc(20 / 16);
@@ -2448,7 +2461,7 @@ html:has(.nav_opened) {
   position: absolute;
   right: 11px;
   top: 0px;
-  width: 58px;
+  width: 22px;
   height: 58px;
   cursor: pointer;
   opacity: 0.3;
@@ -2456,20 +2469,27 @@ html:has(.nav_opened) {
 .button_type_reset:hover {
   opacity: 1;
 }
-.button_type_reset:before, .button_type_reset:after {
+.button_type_reset:before,
+.button_type_reset:after {
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 19px;
   content: ' ';
   height: 18px;
   width: 2px;
   background-color: #333;
 }
+
 .button_type_reset:before {
   transform: rotate(45deg);
 }
+
 .button_type_reset:after {
   transform: rotate(-45deg);
+}
+
+.search-form:has(.search-form__input:placeholder-shown) .button_type_reset {
+  display: none;
 }
 
 .checkbox {
@@ -2688,7 +2708,7 @@ html:has(.nav_opened) {
 
 .profi__image-container {
   margin: 0 auto 8px;
-  height: 325px
+  height: 325px;
 }
 
 .profi:has(.skeleton) .profi__image {
@@ -2836,7 +2856,7 @@ html:has(.nav_opened) {
     width: auto;
   }
   .search-form__input {
-    padding: 8.5px 8px 8.5px 32px;
+    padding: 8.5px 32px;
     background: #FFFFFF;
     border-radius: 10px;
   }
@@ -3101,29 +3121,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: 40px;
 }
 
-.filters-form__list .collapsed {
-  opacity: 0;
-  display: none;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  25% {
-    opacity: .75;
-  }
-  50% {
-    opacity: .5;
-  }
-  75% {
-    opacity: .25;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .filters-form__label {
   font-weight: 500;
   font-size: 24px;
@@ -3196,7 +3193,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   line-height: calc(19 / 16);
   font-feature-settings: 'pnum' on, 'lnum' on;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .filters-form__switch_type_tile {
@@ -3347,7 +3344,7 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-right: 4px;
     width: 20px;
     height: 20px;
-    vertical-align: text-top;
+    vertical-align: top;
   }
   .filters-form__item_type_tile {
     padding: 16px;
