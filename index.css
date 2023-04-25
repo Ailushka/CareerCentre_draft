@@ -1678,7 +1678,11 @@ html:has(.nav_opened) {
   background: url("./images/heart-icon.png") no-repeat center / 75%, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
 }
 
-.service-card_type_career-consultation::after,
+.service-card_type_career-consultation::after {
+  background: url("./images/thumb-up-icon.png") no-repeat center / 75%, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
+
+}
+
 .service-card_type_mentor::after {
   background: url("./images/user-icon.png") no-repeat center / 75%, linear-gradient(327.32deg, rgba(76, 117, 250, 0.42) 6.11%, rgba(76, 117, 250, 0) 77.32%, #FFFFFF 100%);
 }
