@@ -3210,9 +3210,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   cursor: pointer;
 }
 
-.filters-form__item_type_tile:hover {
-  color: #757575;
-  border-color: #757575;
+@media (hover: hover) {
+  .filters-form__item_type_tile:hover {
+    color: #757575;
+    border-color: #757575;
+  }
 }
 
 .filters-form__item_type_tile:focus {
@@ -3890,7 +3892,8 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 .wrapper {
-  height: 100vh;
+  /* height: 100vh; */
+  padding: 40px 0;
   display: flex;
   justify-content: center;
   align-items: center;
